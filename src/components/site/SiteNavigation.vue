@@ -58,21 +58,21 @@
                 <img class="w-8 h-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
               </button>
             </div>
-            <div
-              v-show="open"
-              x-transition:enter="transition ease-out duration-200"
-              x-transition:enter-start="transform opacity-0 scale-95"
-              x-transition:enter-end="transform opacity-100 scale-100"
-              x-transition:leave="transition ease-in duration-75"
-              x-transition:leave-start="transform opacity-100 scale-100"
-              x-transition:leave-end="transform opacity-0 scale-95"
-              class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg"
-              ><div class="py-1 bg-white rounded-md shadow-xs">
-                <a href="#" class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out">Your Profile</a>
-                <a href="#" class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out">Settings</a>
-                <a href="#" class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out">Sign out</a>
+            <transition
+              enter-active-class="transition duration-200 ease-out"
+              enter-class="transform scale-95 opacity-0"
+              enter-to-class="transform scale-100 opacity-100"
+              leave-active-class="transition duration-75 ease-in"
+              leave-class="transform scale-100 opacity-100"
+              leave-to-class="transform scale-95 opacity-0"
+              ><div v-show="open" class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg">
+                <div class="py-1 bg-white rounded-md shadow-xs">
+                  <a href="#" class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out">Your Profile</a>
+                  <a href="#" class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out">Settings</a>
+                  <a href="#" class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out">Sign out</a>
+                </div>
               </div>
-            </div>
+            </transition>
           </div>
 
         </div>
