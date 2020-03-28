@@ -8,9 +8,9 @@
 
     <router-view />
 
-    <!-- <footer class="bg-checkers w-full border-t-2 border-white">
-      <SiteFooter class="relative z-10" />
-    </footer> -->
+    <footer class="w-full mt-auto">
+      <SiteFooter :siteName="$static.metadata.siteName" />
+    </footer>
 
     <!-- <portal-target name="modal" /> -->
 
@@ -28,8 +28,9 @@
 
 <script>
 import SiteNavigation from '~/components/site/SiteNavigation'
+import SiteFooter from '~/components/site/SiteFooter'
 
 export default {
-  components: { SiteNavigation },
+  components: { SiteNavigation, SiteFooter },
 }
 </script>
