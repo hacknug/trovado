@@ -1,5 +1,6 @@
 <template>
   <div class="flex flex-col min-h-screen bg-gray-100">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
     <!-- <header class="sticky inset-x-0 top-0 z-30"> -->
       <SiteNavigation :siteName="$static.metadata.siteName" />
