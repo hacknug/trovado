@@ -16,7 +16,9 @@
 
           <div class="relative">
             <h3 class="sm:text-4xl sm:leading-10 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900">
-              A <vue-typer :text="['better', 'safer']" initialAction="erasing" /> way to shop during quarantine
+              <ClientOnly>
+                A <vue-typer :text="['better', 'safer']" initialAction="erasing" /> way to shop during quarantine
+              </ClientOnly>
             </h3>
             <p class="max-w-3xl mx-auto mt-4 text-xl leading-7 text-center text-gray-500">
               Queremos reducir el número de gente que baja al supermercado, poniéndose en riesgo, informándote de la disponibilidad de los productos más esenciales.
@@ -62,12 +64,16 @@
 </page-query>
 
 <script>
-import { VueTyper } from 'vue-typer'
-
 import ShopList from '~/components/ShopList'
 
 export default {
-  components: { VueTyper, ShopList },
+  components: {
+    ShopList,
+    VueTyper: () =>
+      import ('vue-typer')
+      .then(m => m.VueTyper)
+      .catch(),
+  },
   metaInfo: {
     title: 'Home'
   },
