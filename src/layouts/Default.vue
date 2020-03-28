@@ -1,14 +1,18 @@
 <template>
   <div class="py-10">
 
-    <header>
+    <header v-if="$slots.header">
       <div class="max-w-7xl sm:px-6 lg:px-8 px-4 mx-auto">
-        <h1 class="text-3xl font-bold leading-tight text-gray-900">Dashboard</h1>
+        <h1 class="text-3xl font-bold leading-tight text-gray-900"><slot name="header" /></h1>
       </div>
     </header>
 
     <main>
-      <div class="max-w-7xl sm:px-6 lg:px-8 mx-auto">
+      <div v-if="$slots.bleed" class="-my-10">
+        <slot name="bleed" />
+      </div>
+
+      <div v-if="$slots.default" class="max-w-7xl sm:px-6 lg:px-8 mx-auto">
         <!-- Replace with your content -->
         <div class="sm:px-0 px-4 py-8">
           <div class="border-4 border-gray-200 border-dashed rounded-lg">

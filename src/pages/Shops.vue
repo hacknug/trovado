@@ -1,6 +1,8 @@
 <template>
   <Layout>
-    <ShopList :shops="$page.shops.edges" />
+    <template slot="bleed">
+      <ShopList :shops="$page.shops.edges" />
+    </template>
   </Layout>
 </template>
 
