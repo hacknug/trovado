@@ -6,10 +6,12 @@
 
         <div class="flex">
           <div class="flex items-center flex-shrink-0">
-            <g-link to="/">
-              <!-- <img class="lg:hidden block w-auto h-8" src="/img/logos/workflow-mark-on-white.svg" alt="Workflow logo" />
-              <img class="lg:block hidden w-auto h-8" src="/img/logos/workflow-logo-on-white.svg" alt="Workflow logo" /> -->
-              {{ siteName }}
+            <g-link class="owl:ml-3 inline-flex items-center" to="/">
+              <svg class="block w-auto h-8" viewBox="0 0 30 53" fill="none" stroke="black" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.89311 33.9692L2.76882 33.6512H2.42743H1.14703C0.757318 33.6512 0.5 33.3666 0.5 33.0722L0.5 1.07899C0.5 0.789089 0.768841 0.5 1.14703 0.5L3.25435 0.5H3.38806L3.42642 0.602219L3.42636 0.602242L3.42932 0.609771C5.76197 6.53365 7.80877 10.8752 9.66763 13.6525C10.5978 15.0423 11.4937 16.0521 12.3453 16.6862C13.2002 17.3228 13.9968 17.5984 14.8156 17.5366C15.63 17.475 16.4683 17.0447 17.3147 16.3111C18.1651 15.574 19.0615 14.4985 19.9975 13.0715C21.865 10.2247 23.9084 6.00709 26.2508 0.606464L26.3003 0.5H26.4349L28.6756 0.5C29.0538 0.5 29.3227 0.789081 29.3227 1.07899V33.0722C29.3227 33.3666 29.0653 33.6512 28.6756 33.6512H27.3152H26.9863L26.8561 33.9533C24.4814 39.4606 22.4272 43.7799 20.5191 46.7538C18.5317 49.8512 16.7848 51.4921 14.8717 51.6443C13.9374 51.7186 12.9721 51.3769 12.0402 50.6662C11.1024 49.951 10.1719 48.871 9.19446 47.3774C7.28997 44.4669 5.25471 40.0104 2.89311 33.9692Z" fill="#FBD9E2" />
+                <path d="M13.3732 41.2549H16.3702V44.0741H19.3672L14.8717 49.7126L10.3762 44.0741H13.3732V41.2549Z" fill="black" />
+              </svg>
+              <span class="sm:block hidden font-bold">{{ siteName }}</span>
             </g-link>
           </div>
           <div class="sm:ml-6 sm:flex owl:ml-8 hidden">
@@ -25,6 +27,20 @@
               to="/about/"
               class="focus:outline-none hover:text-gray-700 focus:text-gray-700 hover:border-gray-300 focus:border-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out border-b-2 border-transparent"
               >About</g-link>
+          </div>
+        </div>
+
+        <div class="lg:ml-6 lg:justify-end flex items-center justify-center flex-1 px-2">
+          <div class="lg:max-w-xs w-full max-w-lg">
+            <label for="search" class="sr-only">Search</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <input id="search" class="focus:outline-none focus:placeholder-gray-400 focus:border-blue-300 focus:shadow-outline-blue sm:text-sm block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md" placeholder="Search" />
+            </div>
           </div>
         </div>
 
