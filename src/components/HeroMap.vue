@@ -28,6 +28,16 @@
         </div>
       </div>
 
+      <div class="sm:rounded-lg relative mt-12 overflow-hidden bg-white shadow">
+        <div class="h-96 sm:p-6 px-4 py-5" style="height: 500px;">
+          <div
+            data-url="https://covidhelp.typeform.com/to/yumxab"
+            class="typeform-widget sm:rounded-lg absolute inset-0 w-full h-full"
+            style="position: absolute; width: 100%; height: 500px;"
+            ></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
