@@ -6,8 +6,21 @@
 
 module.exports = {
   siteName: 'Charcuter.io',
+
+  templates: {
+    Mercadona: '/shops/:id',
+  },
+
   plugins: [
     'gridsome-plugin-tailwindcss',
+
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        typeName: 'Mercadona',
+        path: './static/data/**/*.json',
+      },
+    },
 
     {
       use: '@gridsome/plugin-google-analytics',
