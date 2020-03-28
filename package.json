@@ -11,7 +11,8 @@
     "@gridsome/source-filesystem": "0.6.2",
     "@gridsome/transformer-json": "0.2.1",
     "gridsome": "0.7.13",
-    "libphonenumber-js": "^1.7.48"
+    "libphonenumber-js": "1.7.48",
+    "vue-typer": "1.2.0"
   },
   "devDependencies": {
     "@tailwindcss/ui": "0.1.3",
