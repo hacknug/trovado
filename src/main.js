@@ -1,4 +1,5 @@
 // TODO: Remove `electron` from dependencies (bug @ `@studiometa/vue-mapbox-gl`)
+import 'mapbox-gl/dist/mapbox-gl.css';
 import { parsePhoneNumberFromString } from 'libphonenumber-js'
 
 import DefaultLayout from '~/layouts/Default.vue'
