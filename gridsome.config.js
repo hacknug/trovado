@@ -12,8 +12,6 @@ module.exports = {
   },
 
   plugins: [
-    'gridsome-plugin-tailwindcss',
-
     {
       use: '@gridsome/source-filesystem',
       options: {
@@ -22,6 +20,15 @@ module.exports = {
       },
     },
 
+
+    {
+      use: 'gridsome-plugin-tailwindcss',
+      options: {
+        purgeConfig: {
+          whitelistPatternsChildren: [/mapbox/, /mapboxgl/],
+        },
+      },
+    },
     {
       use: '@gridsome/plugin-google-analytics',
       options: { id: 'UA-159162278-2' },
