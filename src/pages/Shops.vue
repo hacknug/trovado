@@ -1,14 +1,19 @@
 <template>
   <Layout>
-    <template slot="bleed">
+    <template>
       <ShopList :shops="$page.shops.edges" />
+      <BasePager :pageInfo="$page.shops.pageInfo" />
     </template>
   </Layout>
 </template>
 
 <page-query>
-  query {
-    shops: allMercadona {
+  query ($page: Int) {
+    shops: allMercadona (perPage: 12, page: $page) @paginate {
+      pageInfo {
+        totalPages
+        currentPage
+      }
       edges {
         node {
           id
@@ -36,10 +41,11 @@
 </page-query>
 
 <script>
+import BasePager from '~/components/base/BasePager'
 import ShopList from '~/components/ShopList'
 
 export default {
-  components: { ShopList },
+  components: { BasePager, ShopList },
   metaInfo: {
     title: 'Shops'
   },
