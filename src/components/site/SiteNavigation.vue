@@ -11,37 +11,50 @@
                 <path d="M2.89311 33.9692L2.76882 33.6512H2.42743H1.14703C0.757318 33.6512 0.5 33.3666 0.5 33.0722L0.5 1.07899C0.5 0.789089 0.768841 0.5 1.14703 0.5L3.25435 0.5H3.38806L3.42642 0.602219L3.42636 0.602242L3.42932 0.609771C5.76197 6.53365 7.80877 10.8752 9.66763 13.6525C10.5978 15.0423 11.4937 16.0521 12.3453 16.6862C13.2002 17.3228 13.9968 17.5984 14.8156 17.5366C15.63 17.475 16.4683 17.0447 17.3147 16.3111C18.1651 15.574 19.0615 14.4985 19.9975 13.0715C21.865 10.2247 23.9084 6.00709 26.2508 0.606464L26.3003 0.5H26.4349L28.6756 0.5C29.0538 0.5 29.3227 0.789081 29.3227 1.07899V33.0722C29.3227 33.3666 29.0653 33.6512 28.6756 33.6512H27.3152H26.9863L26.8561 33.9533C24.4814 39.4606 22.4272 43.7799 20.5191 46.7538C18.5317 49.8512 16.7848 51.4921 14.8717 51.6443C13.9374 51.7186 12.9721 51.3769 12.0402 50.6662C11.1024 49.951 10.1719 48.871 9.19446 47.3774C7.28997 44.4669 5.25471 40.0104 2.89311 33.9692Z" fill="#FBD9E2" />
                 <path d="M13.3732 41.2549H16.3702V44.0741H19.3672L14.8717 49.7126L10.3762 44.0741H13.3732V41.2549Z" fill="black" />
               </svg>
-              <span class="sm:block hidden font-bold">{{ siteName }}</span>
+              <!-- <span class="sm:block hidden font-bold">{{ siteName }}</span> -->
             </g-link>
           </div>
           <div class="sm:ml-6 sm:flex owl:ml-8 hidden">
             <g-link
               to="/"
               class="focus:outline-none hover:text-gray-700 focus:text-gray-700 hover:border-gray-300 focus:border-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out border-b-2 border-transparent"
-              >Home</g-link>
+              >{{ $t && $t('navigation.main.home') }}</g-link>
             <g-link
               to="/shops"
               class="focus:outline-none hover:text-gray-700 focus:text-gray-700 hover:border-gray-300 focus:border-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out border-b-2 border-transparent"
-              >Shops</g-link>
-            <g-link
+              >{{ $t && $t('navigation.main.shops') }}</g-link>
+            <!-- <g-link
               to="/about/"
               class="focus:outline-none hover:text-gray-700 focus:text-gray-700 hover:border-gray-300 focus:border-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out border-b-2 border-transparent"
-              >About</g-link>
+              >{{ $t && $t('navigation.main.about') }}</g-link> -->
           </div>
         </div>
 
         <div class="lg:ml-6 lg:justify-end flex items-center justify-center flex-1 px-2">
           <div class="lg:max-w-xs w-full max-w-lg">
-            <label for="search" class="sr-only">Search</label>
+            <label for="search" class="sr-only">{{ $t && $t('navigation.search') }}</label>
             <div class="relative">
               <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                 </svg>
               </div>
-              <input id="search" class="focus:outline-none focus:placeholder-gray-400 focus:border-blue-300 focus:shadow-outline-blue sm:text-sm block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md" placeholder="Search" />
+              <input id="search" class="focus:outline-none focus:placeholder-gray-400 focus:border-blue-300 focus:shadow-outline-blue sm:text-sm block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md" :placeholder="$t && $t('navigation.search')" />
             </div>
           </div>
+        </div>
+
+        <div class="flex items-center">
+          <span class="relative z-0 inline-flex shadow-sm">
+            <!-- <span class="rounded-l-md relative inline-flex items-center px-2 py-2 bg-white border border-gray-300">
+              <input aria-label="Select all" type="checkbox" class="form-checkbox focus:shadow-outline-blue focus:border-blue-300 w-4 h-4 text-indigo-600 transition duration-150 ease-in-out border-gray-300" />
+            </span> -->
+            <select
+              v-model="$context.locale"
+              class="form-select pr-9 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 block w-full py-2 pl-3 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md"
+              ><option v-for="(lang, key) in langs" :key="key" :value="key">{{ lang }}</option>
+            </select>
+          </span>
         </div>
 
         <div class="sm:ml-6 sm:flex sm:items-center owl:ml-3 hidden">
@@ -67,9 +80,12 @@
               leave-to-class="transform scale-95 opacity-0"
               ><div v-show="open" class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg">
                 <div class="py-1 bg-white rounded-md shadow-xs">
-                  <a href="#" class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out">Your Profile</a>
-                  <a href="#" class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out">Settings</a>
-                  <a href="#" class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out">Sign out</a>
+                  <a href="#" class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out"
+                    >{{ $t && $t('navigation.user.profile') }}</a>
+                  <a href="#" class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out"
+                    >{{ $t && $t('navigation.user.settings') }}</a>
+                  <a href="#" class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out"
+                    >{{ $t && $t('navigation.user.signout') }}</a>
                 </div>
               </div>
             </transition>
@@ -85,10 +101,10 @@
             </svg>
           </button>
         </div>
-
       </div>
     </div>
 
+    <!-- TODO: Add links and localizations -->
     <div :class="{ 'block': open, 'hidden': !open }" class="sm:hidden">
       <div class="pt-2 pb-3">
         <a href="#" class="bg-indigo-50 focus:outline-none focus:text-indigo-800 focus:bg-indigo-100 focus:border-indigo-700 block py-2 pl-3 pr-4 text-base font-medium text-indigo-700 transition duration-150 ease-in-out border-l-4 border-indigo-500">Dashboard</a>
@@ -129,6 +145,10 @@ export default {
   data () {
     return {
       open: false,
+      langs: {
+        en: 'English',
+        es: 'Spanish',
+      },
     }
   },
 }

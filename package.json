@@ -13,6 +13,7 @@
     "@mapbox/mapbox-gl-geocoder": "4.5.1",
     "@studiometa/vue-mapbox-gl": "1.2.1",
     "gridsome": "0.7.13",
+    "gridsome-plugin-i18n": "1.0.1",
     "libphonenumber-js": "1.7.48",
     "mapbox-gl": "1.9.0",
     "vue-typer": "1.2.0"

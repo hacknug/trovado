@@ -18,7 +18,7 @@
           </ClientOnly>
         </h3>
         <p class="max-w-3xl mx-auto mt-4 text-xl leading-7 text-center text-gray-500">
-          Queremos reducir el número de gente que baja al supermercado, poniéndose en riesgo, informándote de la disponibilidad de los productos más esenciales.
+          {{ $t && $t('index.hero.description') }}
         </p>
       </div>
 

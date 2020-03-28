@@ -1,0 +1,25 @@
+{
+  "navigation": {
+    "search": "Search",
+    "main": {
+      "home": "Home",
+      "shops": "Shops",
+      "about": "About"
+    },
+    "user": {
+      "profile": "Your Profile",
+      "settings": "Settings",
+      "signout": "Sign Out"
+    }
+  },
+  "index": {
+    "hero": {
+      "description": "We want to reduce people’s exposure to the COVID-19 by letting people know whether the items they’re looking for are available in their nearest supermarket."
+    },
+    "shops": {
+      "title": "Supermarkets with more stock",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed."
+    }
+  },
+  "phone": "Phone Number"
+}

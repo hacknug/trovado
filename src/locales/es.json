@@ -1,0 +1,24 @@
+{
+  "navigation": {
+    "search": "Buscar",
+    "main": {
+      "home": "Inicio",
+      "shops": "Tiendas",
+      "about": "About"
+    },
+    "user": {
+      "profile": "Tu Perfil",
+      "settings": "Ajustes",
+      "signout": "Cerrar Sesión"
+    }
+  },
+  "index": {
+    "hero": {
+      "description": "Queremos reducir el número de gente que baja al supermercado, poniéndose en riesgo, informándote de la disponibilidad de los productos más esenciales."
+    },
+    "shops": {
+      "title": "Supermercados con más stock",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed."
+    }
+  }
+}
