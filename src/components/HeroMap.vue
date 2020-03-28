@@ -24,15 +24,17 @@
 
       <div class="sm:rounded-lg relative mt-12 overflow-hidden bg-white shadow">
         <div class="h-96 sm:p-6 px-4 py-5">
-          <mapbox-map
-            style="position: absolute;"
-            class="sm:rounded-lg absolute inset-0 w-full h-full"
-            access-token="pk.eyJ1IjoiaGFja251ZyIsImEiOiJjazhjMDN2Mm4waDN6M2VtamV3ZmdnMjB4In0.SQvCWv7t6pKfk_HOK_sZQg"
-            map-style="mapbox://styles/mapbox/streets-v11"
-            :center="center"
-            :trackUserLocation="true"
-            @mb-created="handleInstance"
-          />
+          <ClientOnly>
+            <mapbox-map
+              style="position: absolute;"
+              class="sm:rounded-lg absolute inset-0 w-full h-full"
+              access-token="pk.eyJ1IjoiaGFja251ZyIsImEiOiJjazhjMDN2Mm4waDN6M2VtamV3ZmdnMjB4In0.SQvCWv7t6pKfk_HOK_sZQg"
+              map-style="mapbox://styles/mapbox/streets-v11"
+              :center="center"
+              :trackUserLocation="true"
+              @mb-created="handleInstance"
+            />
+          </ClientOnly>
         </div>
       </div>
 
@@ -41,23 +43,24 @@
 </template>
 
 <script>
-import { MapboxMap, MapboxMarker } from '@studiometa/vue-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 export default {
   name: 'HeroMap',
   components: {
-    MapboxMap,
-    MapboxMarker,
     VueTyper: () =>
       import ('vue-typer')
       .then(m => m.VueTyper)
+      .catch(),
+    MapboxMap: () =>
+      import ('@studiometa/vue-mapbox-gl')
+      .then(m => m.MapboxMap)
       .catch(),
   },
   data () {
     return {
       map: null,
-      center: [0, 0]
+      center: [0, 0],
     }
   },
   methods: {
@@ -65,7 +68,7 @@ export default {
       this.map = mapboxInstance
     },
     flyTo () {
-      this.map.flyTo({ center: this.center })
+      this.map && this.map.flyTo({ center: this.center })
     },
 
     geolocateUser () {
