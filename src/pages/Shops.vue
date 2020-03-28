@@ -6,7 +6,7 @@
 
 <page-query>
   query {
-    shops: allMercadona (limit: 6) {
+    shops: allMercadona {
       edges {
         node {
           id
@@ -39,7 +39,7 @@ import ShopList from '~/components/ShopList'
 export default {
   components: { ShopList },
   metaInfo: {
-    title: 'Home'
+    title: 'Shops'
   },
 }
 </script>

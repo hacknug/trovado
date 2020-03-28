@@ -826,14 +826,14 @@
     sort-package-json "^1.15.0"
     update-notifier "^3.0.1"
 
-"@gridsome/plugin-google-analytics@^0.1.0":
+"@gridsome/plugin-google-analytics@0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@gridsome/plugin-google-analytics/-/plugin-google-analytics-0.1.0.tgz#f2fdffdb05dd2928ca85c4a0d64c7e497a36ee49"
   integrity sha512-IUuIj1z0BMtNa4NPRyBP3rYGyww+RWypsHTJ7WDdIj/BuH1x7BR9cDn7kskfG5azUi1LV0lJX329Te077oG07A==
   dependencies:
     vue-analytics "^5.16.1"
 
-"@gridsome/source-filesystem@^0.6.2":
+"@gridsome/source-filesystem@0.6.2":
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/@gridsome/source-filesystem/-/source-filesystem-0.6.2.tgz#95f65e9fcf03624ba23f8f0bee0779fe8e8b9021"
   integrity sha512-K1pyXwFYIlABaHq3wqOPyYt4ARzLZuUQ+UZKjDSBT9I0T0qpCbwir5kJMQkR7qY4ONflUrv8fgG6DNSrc1uzbA==
@@ -845,7 +845,7 @@
     mime-types "^2.1.21"
     slash "^2.0.0"
 
-"@gridsome/transformer-json@^0.2.1":
+"@gridsome/transformer-json@0.2.1":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@gridsome/transformer-json/-/transformer-json-0.2.1.tgz#76989b964ff5a13e7f64e1e59bcfca80c8bc0114"
   integrity sha512-W/pFbjq+K3ftUK4aDa8zuqHq7jGSpDCUyvbH++m+5HMwTbe3eB2FLC7x2guGXzpw/jwHO1ukkZExecsMkAAibw==
@@ -964,7 +964,7 @@
     mini-svg-data-uri "^1.0.3"
     traverse "^0.6.6"
 
-"@tailwindcss/ui@^0.1.3":
+"@tailwindcss/ui@0.1.3":
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/@tailwindcss/ui/-/ui-0.1.3.tgz#4cc46f8a5788fcad937eff1ab567f5688080eb24"
   integrity sha512-ggEEFj0N6YY6fFjHtoGArv9j7wr5nj+TswpGzEezN2l15jHJK1NZ+Lnt0XKsbJy2zWFSNy/KKpPCbh3d6/66tw==
@@ -3163,9 +3163,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.380:
-  version "1.3.388"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.388.tgz#d3be2b7afc42c64c81f204755975b78547775301"
-  integrity sha512-/FNHDmNmI4IR/qY+uuAVq8OET5S9J7d5QfQUnAz0edkhl02BjtOflF2H0RXKapVtJfMgaFthKBzeYJAzOaW8PA==
+  version "1.3.390"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.390.tgz#a49e67dea22e52ea8027c475dd5447b1c00b1d4e"
+  integrity sha512-4RvbM5x+002gKI8sltkqWEk5pptn0UnzekUx8RTThAMPDSb8jjpm6SwGiSnEve7f85biyZl8DMXaipaCxDjXag==
 
 elliptic@^6.0.0:
   version "6.5.2"
@@ -4135,7 +4135,7 @@ graphql@^14.4.2:
   dependencies:
     iterall "^1.2.2"
 
-gridsome-plugin-tailwindcss@^2.2.43:
+gridsome-plugin-tailwindcss@2.2.43:
   version "2.2.43"
   resolved "https://registry.yarnpkg.com/gridsome-plugin-tailwindcss/-/gridsome-plugin-tailwindcss-2.2.43.tgz#ade5522b525dc7f2195035435f68677bdb54beb3"
   integrity sha512-OaD+ezP0P5aFSk/fMUMGq2Lw4CyXd/B9Px5yPrvv8sl9fWrKCLxmRYG9pUT/UmkEWw0TTKqWFrMO4ljQkl2wrA==
@@ -4146,7 +4146,7 @@ gridsome-plugin-tailwindcss@^2.2.43:
     postcss-preset-env "^6.7.0"
     tailwindcss "^1.2.0"
 
-gridsome@^0.7.0:
+gridsome@0.7.13:
   version "0.7.13"
   resolved "https://registry.yarnpkg.com/gridsome/-/gridsome-0.7.13.tgz#7b711b34f9abbdb645948048773ce80381d78b6e"
   integrity sha512-EQMJfoLZpRRWR7gNB9ahkSTIn/QjanvyRJOS853NhhWhfHCgvQOO+DYu7EHvXF0afny43WOSiXOk0WYnolYGUg==
@@ -5224,6 +5224,14 @@ levenary@^1.1.1:
   integrity sha512-mkAdOIt79FD6irqjYSs4rdbnlT5vRonMEvBVPVb3XmevfS8kgRXwfes0dhPdEtzTWD/1eNE/Bm/G1iRt6DcnQQ==
   dependencies:
     leven "^3.1.0"
+
+libphonenumber-js@^1.7.48:
+  version "1.7.48"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.7.48.tgz#15b7258b642d0ef5faced14401528639be9a8eaa"
+  integrity sha512-qiHOxCBQ8cNqSkpUcAFn0vwk8eZs6Bq6ttQTiiAICEfUZp3uQ/RuOnPqYMw5qciHCrCNjLN3qp3ih1u0+NuzVA==
+  dependencies:
+    minimist "^1.2.5"
+    xml2js "^0.4.17"
 
 load-json-file@^1.0.0:
   version "1.1.0"
@@ -7702,7 +7710,7 @@ safe-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-sax@~1.2.4:
+sax@>=0.6.0, sax@~1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
@@ -9158,6 +9166,19 @@ xdg-basedir@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/xdg-basedir/-/xdg-basedir-3.0.0.tgz#496b2cc109eca8dbacfe2dc72b603c17c5870ad4"
   integrity sha1-SWsswQnsqNus/i3HK2A8F8WHCtQ=
+
+xml2js@^0.4.17:
+  version "0.4.23"
+  resolved "https://registry.yarnpkg.com/xml2js/-/xml2js-0.4.23.tgz#a0c69516752421eb2ac758ee4d4ccf58843eac66"
+  integrity sha512-ySPiMjM0+pLDftHgXY4By0uswI3SPKLDw/i3UXbnO8M/p28zqexCUoPmQFrYD+/1BzhGJSs2i1ERWKJAtiLrug==
+  dependencies:
+    sax ">=0.6.0"
+    xmlbuilder "~11.0.0"
+
+xmlbuilder@~11.0.0:
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-11.0.1.tgz#be9bae1c8a046e76b31127726347d0ad7002beb3"
+  integrity sha512-fDlsI/kFEx7gLvbecc0/ohLG50fugQp8ryHzMTuW9vSa1GJ0XYWKnhsUx7oie3G98+r56aTQIUB4kht42R3JvA==
 
 xtend@^4.0.0, xtend@^4.0.2, xtend@~4.0.1:
   version "4.0.2"

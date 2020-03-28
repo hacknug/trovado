@@ -11,7 +11,7 @@
       <div class="max-w-7xl sm:px-6 lg:px-8 mx-auto">
         <!-- Replace with your content -->
         <div class="sm:px-0 px-4 py-8">
-          <div class="h-96 border-4 border-gray-200 border-dashed rounded-lg">
+          <div class="border-4 border-gray-200 border-dashed rounded-lg">
             <slot/>
           </div>
         </div>
