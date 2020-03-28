@@ -8,5 +8,10 @@ module.exports = {
   siteName: 'Charcuter.io',
   plugins: [
     'gridsome-plugin-tailwindcss',
+
+    {
+      use: '@gridsome/plugin-google-analytics',
+      options: { id: 'UA-159162278-2' },
+    },
   ]
 }
