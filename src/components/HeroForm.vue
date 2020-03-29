@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-50 lg:py-24 py-16 overflow-hidden">
-    <div class="sm:px-6 lg:px-8 lg:max-w-screen-xl relative max-w-xl px-4 mx-auto">
+    <BaseContainer>
 
       <svg class="lg:block left-full -translate-y-1/4 absolute hidden transform -translate-x-1/2" width="404" height="784" fill="none" viewBox="0 0 404 784">
         <defs>
@@ -31,14 +31,17 @@
         </div>
       </div>
 
-    </div>
+    </BaseContainer>
   </div>
 </template>
 
 <script>
+import BaseContainer from '~/components/base/BaseContainer'
+
 export default {
   name: 'HeroForm',
   components: {
+    BaseContainer,
     VueTyper: () =>
       import ('vue-typer')
       .then(m => m.VueTyper)
