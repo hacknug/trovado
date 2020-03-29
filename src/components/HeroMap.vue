@@ -1,7 +1,6 @@
 <template>
   <div class="bg-gray-50 lg:py-24 py-16 overflow-hidden">
     <BaseContainer>
-
       <svg class="lg:block left-full -translate-y-1/4 absolute hidden transform -translate-x-1/2" width="404" height="784" fill="none" viewBox="0 0 404 784">
         <defs>
           <pattern id="b1e6e422-73f8-40a6-b5d9-c8586e37e0e7" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">

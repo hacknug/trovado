@@ -19,6 +19,7 @@
     "libphonenumber-js": "1.7.48",
     "mapbox-gl": "1.9.0",
     "portal-vue": "2.1.7",
+    "vue-feather-icons": "5.0.0",
     "vue-toast-notification": "0.2.0",
     "vue-typer": "1.2.0",
     "vuefire": "2.2.2",
