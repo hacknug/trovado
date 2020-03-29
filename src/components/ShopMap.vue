@@ -14,6 +14,7 @@
       <MapboxNavigationControl position="bottom-right" />
 
       <MapboxMarker v-for="{ node } in shops" :key="node.id" :lngLat="[node.lng, node.lat]" popup>
+        <LocationPin class="text-blue-600" />
         <template v-slot:popup>
           <p>Hello world!</p>
         </template>
@@ -28,9 +29,12 @@
 import 'mapbox-gl/dist/mapbox-gl.css'
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
+import LocationPin from '~/components/icon/LocationPin'
+
 export default {
   name: 'ShopMap',
   components: {
+    LocationPin,
     MapboxMap: () =>
       import ('@studiometa/vue-mapbox-gl')
       .then(m => m.MapboxMap)
