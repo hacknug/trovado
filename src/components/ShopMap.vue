@@ -6,13 +6,15 @@
       access-token="pk.eyJ1IjoiaGFja251ZyIsImEiOiJjazhjMDN2Mm4waDN6M2VtamV3ZmdnMjB4In0.SQvCWv7t6pKfk_HOK_sZQg"
       map-style="mapbox://styles/mapbox/streets-v11"
       :zoom="14"
+      :pitch="60"
       :center="center"
       :trackUserLocation="true"
       @mb-created="handleInstance"
-      ><mapbox-marker v-for="{ node } in shops" :key="node.id" :lngLat="[node.lng, node.lat]">
-        <!-- <template v-slot:popup>
+      ><mapbox-navigation-control position="bottom-right" />
+      <mapbox-marker v-for="{ node } in shops" :key="node.id" :lngLat="[node.lng, node.lat]" popup>
+        <template v-slot:popup>
           <p>Hello world!</p>
-        </template> -->
+        </template>
       </mapbox-marker>
     </mapbox-map>
   </ClientOnly>
@@ -29,6 +31,10 @@ export default {
     MapboxMarker: () =>
       import ('@studiometa/vue-mapbox-gl')
       .then(m => m.MapboxMarker)
+      .catch(),
+    MapboxNavigationControl: () =>
+      import ('@studiometa/vue-mapbox-gl')
+      .then(m => m.MapboxNavigationControl)
       .catch(),
   },
   props: {
