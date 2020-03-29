@@ -18,7 +18,7 @@
           </ClientOnly>
         </h3>
         <p class="max-w-3xl mx-auto mt-4 text-xl leading-7 text-center text-gray-500">
-          {{ $t && $t('index.hero.description') }}
+          We want to reduce people’s exposure to the COVID-19 by letting people know whether the items they’re looking for are available in their nearest supermarket.
         </p>
       </div>
 

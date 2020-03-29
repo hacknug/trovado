@@ -18,37 +18,34 @@
             <g-link
               to="/"
               class="focus:outline-none hover:text-gray-700 focus:text-gray-700 hover:border-gray-300 focus:border-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out border-b-2 border-transparent"
-              >{{ $t && $t('navigation.main.home') }}</g-link>
+              >Home</g-link>
             <g-link
               to="/shops"
               class="focus:outline-none hover:text-gray-700 focus:text-gray-700 hover:border-gray-300 focus:border-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out border-b-2 border-transparent"
-              >{{ $t && $t('navigation.main.shops') }}</g-link>
+              >Shops</g-link>
             <!-- <g-link
               to="/about/"
               class="focus:outline-none hover:text-gray-700 focus:text-gray-700 hover:border-gray-300 focus:border-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out border-b-2 border-transparent"
-              >{{ $t && $t('navigation.main.about') }}</g-link> -->
+              >About</g-link> -->
           </div>
         </div>
 
         <div class="lg:ml-6 lg:justify-end flex items-center justify-center flex-1 px-2">
           <div class="lg:max-w-xs w-full max-w-lg">
-            <label for="search" class="sr-only">{{ $t && $t('navigation.search') }}</label>
+            <label for="search" class="sr-only">Search</label>
             <div class="relative">
               <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                 </svg>
               </div>
-              <input id="search" class="focus:outline-none focus:placeholder-gray-400 focus:border-blue-300 focus:shadow-outline-blue sm:text-sm block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md" :placeholder="$t && $t('navigation.search')" />
+              <input id="search" class="focus:outline-none focus:placeholder-gray-400 focus:border-blue-300 focus:shadow-outline-blue sm:text-sm block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md" placeholder="Looking for an item?" />
             </div>
           </div>
         </div>
 
-        <div class="flex items-center">
+        <!-- <div class="flex items-center">
           <span class="relative z-0 inline-flex shadow-sm">
-            <!-- <span class="rounded-l-md relative inline-flex items-center px-2 py-2 bg-white border border-gray-300">
-              <input aria-label="Select all" type="checkbox" class="form-checkbox focus:shadow-outline-blue focus:border-blue-300 w-4 h-4 text-indigo-600 transition duration-150 ease-in-out border-gray-300" />
-            </span> -->
             <select
               v-model="$context.locale"
               class="form-select pr-9 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 block w-full py-2 pl-3 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md"
@@ -56,7 +53,7 @@
                 <option value="pt" disabled>Portuguese</option>
             </select>
           </span>
-        </div>
+        </div> -->
 
         <div class="sm:ml-6 sm:flex sm:items-center owl:ml-3 hidden">
 
@@ -82,11 +79,11 @@
               ><div v-show="open" class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg">
                 <div class="py-1 bg-white rounded-md shadow-xs">
                   <a href="#" class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out"
-                    >{{ $t && $t('navigation.user.profile') }}</a>
+                    >Your Profile</a>
                   <a href="#" class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out"
-                    >{{ $t && $t('navigation.user.settings') }}</a>
+                    >Settings</a>
                   <a href="#" class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out"
-                    >{{ $t && $t('navigation.user.signout') }}</a>
+                    >Sign Out</a>
                 </div>
               </div>
             </transition>
