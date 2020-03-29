@@ -29,7 +29,7 @@
     "@tailwindcss/ui": "0.1.3",
     "electron": "8.2.0",
     "gridsome-plugin-tailwindcss": "2.2.43",
-    "tailwindcss-aspect-ratio": "^3.0.0",
+    "tailwindcss-aspect-ratio": "3.0.0",
     "tailwindcss-children": "2.0.0",
     "tailwindcss-filters": "3.0.0"
   }
