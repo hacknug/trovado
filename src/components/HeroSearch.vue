@@ -23,7 +23,7 @@
         <!-- <p class="mt-3 text-lg leading-7 text-gray-500">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam sed. Quam a scelerisque amet ullamcorper eu enim et fermentum, augue. Aliquet amet volutpat quisque ut interdum tincidunt duis.
         </p> -->
-        <form class="flex mt-8" action>
+        <form class="flex mt-8" @submit.prevent="handleSubmit">
           <!-- <BaseInput v-model="zipCode" placeholder="Enter your zip-code" aria-label="Zipcode" required /> -->
           <input
             required
@@ -33,7 +33,7 @@
             class="focus:outline-none focus:shadow-outline-green focus:border-green-300 sm:max-w-xs w-full px-5 py-3 text-base leading-6 text-gray-900 placeholder-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md appearance-none"
           />
           <div class="flex-shrink-0 ml-3 rounded-md shadow">
-            <BaseButton @click.native="$emit('zipcode', zipCode)" size="xl" type="button">Search</BaseButton>
+            <BaseButton size="xl" type="submit">Search</BaseButton>
           </div>
         </form>
       </div>
@@ -60,6 +60,15 @@ export default {
     return {
       zipCode: '',
     }
+  },
+  methods: {
+    handleSubmit (event) {
+      this.$router.push({
+        path: 'shops',
+        params: { zipcode: this.zipCode },
+        query: { zipcode: this.zipCode },
+      })
+    },
   },
 }
 </script>
