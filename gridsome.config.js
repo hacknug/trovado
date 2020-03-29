@@ -32,6 +32,19 @@ module.exports = {
     //     },
     //   },
     // },
+    {
+      use: 'gridsome-plugin-flexsearch',
+      options: {
+        searchFields: ['p', 'pv', 'lc', 'dr', 'cp'],
+        collections: [
+          {
+            typeName: 'Shop',
+            indexName: 'Shop',
+            fields: ['p', 'pv', 'lc', 'dr', 'cp'],
+          },
+        ],
+      },
+    },
 
     {
       use: 'gridsome-plugin-tailwindcss',

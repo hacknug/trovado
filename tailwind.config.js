@@ -24,6 +24,7 @@ module.exports = {
   },
 
   variants: {
+    borderWidth: ['responsive', 'owl'],
     margin: ['responsive', 'owl'],
     pointerEvents: ['responsive', 'children'],
   },
