@@ -1,27 +1,32 @@
 <template>
   <ClientOnly>
-    <mapbox-map
+    <MapboxMap
       class="w-full h-full"
       access-token="pk.eyJ1IjoiaGFja251ZyIsImEiOiJjazhjMDN2Mm4waDN6M2VtamV3ZmdnMjB4In0.SQvCWv7t6pKfk_HOK_sZQg"
       map-style="mapbox://styles/mapbox/streets-v11"
       :zoom="14"
-      :pitch="60"
+      :pitch="0"
       :center="center"
       :trackUserLocation="true"
       @mb-created="handleInstance"
-      ><mapbox-navigation-control position="bottom-right" />
-      <mapbox-marker v-for="{ node } in shops" :key="node.id" :lngLat="[node.lng, node.lat]" popup>
+    >
+      <MapboxGeocoder />
+      <MapboxNavigationControl position="bottom-right" />
+
+      <MapboxMarker v-for="{ node } in shops" :key="node.id" :lngLat="[node.lng, node.lat]" popup>
         <template v-slot:popup>
           <p>Hello world!</p>
         </template>
-      </mapbox-marker>
-    </mapbox-map>
+      </MapboxMarker>
+
+    </MapboxMap>
   </ClientOnly>
 </template>
 
 <script>
 // TODO: Remove `electron` from dependencies (bug @ `@studiometa/vue-mapbox-gl`)
 import 'mapbox-gl/dist/mapbox-gl.css'
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
 export default {
   name: 'ShopMap',
@@ -37,6 +42,10 @@ export default {
     MapboxNavigationControl: () =>
       import ('@studiometa/vue-mapbox-gl')
       .then(m => m.MapboxNavigationControl)
+      .catch(),
+    MapboxGeocoder: () =>
+      import ('@studiometa/vue-mapbox-gl')
+      .then(m => m.MapboxGeocoder)
       .catch(),
   },
   props: {
