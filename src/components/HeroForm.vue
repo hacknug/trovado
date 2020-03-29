@@ -24,9 +24,9 @@
 
       <div class="sm:rounded-lg relative mt-12 overflow-hidden bg-white shadow">
         <div class="aspect-ratio-16/9">
-          <div
-            data-url="https://covidhelp.typeform.com/to/yumxab"
-            class="typeform-widget sm:rounded-lg absolute inset-0 w-full h-full"
+          <iframe
+            class="sm:rounded-lg absolute inset-0 w-full h-full"
+            src="https://covidhelp.typeform.com/to/yumxab"
           />
         </div>
       </div>
@@ -43,9 +43,6 @@ export default {
       import ('vue-typer')
       .then(m => m.VueTyper)
       .catch(),
-  },
-  mounted () {
-    (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/"; if(!gi.call(d,id)) { js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })()
   },
 }
 </script>
