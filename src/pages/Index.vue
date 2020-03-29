@@ -1,6 +1,7 @@
 <template>
   <Layout>
     <template slot="bleed">
+      <HeroSearch />
       <HeroForm />
       <ShopList :shops="$page.shopList.edges" />
     </template>
@@ -38,11 +39,12 @@
 </page-query>
 
 <script>
+import HeroSearch from '~/components/HeroSearch'
 import HeroForm from '~/components/HeroForm'
 import ShopList from '~/components/ShopList'
 
 export default {
-  components: { HeroForm, ShopList },
+  components: { HeroSearch, HeroForm, ShopList },
   metaInfo: {
     title: 'Home',
   },
