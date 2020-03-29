@@ -24,7 +24,12 @@
 
       <div class="sm:rounded-lg relative mt-12 overflow-hidden bg-white shadow">
         <div class="aspect-ratio-16/9">
-          <ShopMap :shops="shops" class="sm:rounded-lg absolute inset-0 w-full h-full" style="position: absolute;" />
+          <ShopMap
+            :shops="shops"
+            :filteredShops="filteredShops"
+            class="sm:rounded-lg absolute inset-0 w-full h-full"
+            style="position: absolute;"
+          />
         </div>
       </div>
 
@@ -50,6 +55,10 @@ export default {
     shops: {
       type: Array,
       required: true,
+    },
+    filteredShops: {
+      type: Array,
+      required: false,
     },
   },
 }

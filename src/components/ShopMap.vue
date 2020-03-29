@@ -7,7 +7,8 @@
       :zoom="14"
       :pitch="0"
       :center="center"
-      :trackUserLocation="true"
+      :bounds="filteredShops && filteredShops.map(({ node: { lat, lng } }) => [lng, lat])"
+      :fitBoundsOptions="{ padding: { top: 90, right: 160, bottom: 90, left: 160 } }"
       @mb-created="handleInstance"
     >
       <MapboxGeocoder />
@@ -57,6 +58,10 @@ export default {
       type: Array,
       required: true,
     },
+    filteredShops: {
+      type: Array,
+      required: false,
+    },
   },
   data () {
     return {
@@ -87,7 +92,7 @@ export default {
     center: 'flyTo',
   },
   async mounted () {
-    this.geolocateUser()
+    !this.filteredShops && this.geolocateUser()
   },
 }
 </script>

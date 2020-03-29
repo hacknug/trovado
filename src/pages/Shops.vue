@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <template slot="bleed">
-      <HeroMap :shops="filteredShops" />
+      <HeroMap :shops="$page.heroMap.edges" :filteredShops="filteredShops" />
       <ShopList :shops="$page.pagedShops.edges" />
       <BasePager :pageInfo="$page.pagedShops.pageInfo" />
     </template>
@@ -79,9 +79,7 @@ export default {
   computed: {
     filteredShops () {
       const { zipcode } = this.$route.query || this.$route.params
-      return zipcode
-        ? this.$page.heroMap.edges.filter(({ node }) => node.zipcode === zipcode)
-        : this.$page.heroMap.edges
+      return zipcode && this.$page.heroMap.edges.filter(({ node }) => node.zipcode === zipcode)
     },
   },
 }
