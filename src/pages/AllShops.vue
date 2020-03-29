@@ -9,7 +9,7 @@
 
 <page-query>
   query ($page: Int) {
-    pagedShops: allShop (perPage: 6, page: $page) @paginate {
+    pagedShops: allShop (perPage: 12, page: $page) @paginate {
       pageInfo {
         totalPages
         currentPage
