@@ -14,10 +14,12 @@
 
     <BaseContainer class="md:py-16 lg:py-20 w-full h-full py-12">
       <div class="flex flex-col justify-center h-full">
-        <h2 class="sm:text-4xl sm:leading-10 lg:w-1/2 flex flex-col text-3xl font-extrabold leading-9 tracking-tight">
-          <span class="text-gray-900">Need <vue-typer :text="['toilet paper', 'pasta', 'flour']" initialAction="erasing" />?</span>
-          <span class="text-green-600">Check the availability of your closest supermarket.</span>
-        </h2>
+        <ClientOnly>
+          <h2 class="sm:text-4xl sm:leading-10 lg:w-1/2 flex flex-col text-3xl font-extrabold leading-9 tracking-tight">
+            <span class="text-gray-900">Need <vue-typer :text="['toilet paper', 'pasta', 'flour']" initialAction="erasing" />?</span>
+            <span class="text-green-600">Check the availability of your closest supermarket.</span>
+          </h2>
+        </ClientOnly>
         <!-- <p class="mt-3 text-lg leading-7 text-gray-500">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam sed. Quam a scelerisque amet ullamcorper eu enim et fermentum, augue. Aliquet amet volutpat quisque ut interdum tincidunt duis.
         </p> -->
