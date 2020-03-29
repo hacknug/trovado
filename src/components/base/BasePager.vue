@@ -17,7 +17,7 @@
           :info="pageInfo"
           :showLinks="true"
           :showNavigation="false"
-          :linkClass="[...className, 'px-4']"
+          :linkClass="[...className, 'px-4'].join(' ')"
         />
       </div>
 
