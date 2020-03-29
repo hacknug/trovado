@@ -19,13 +19,30 @@ module.exports = {
 
   variants: {
     margin: ['responsive', 'owl'],
+    pointerEvents: ['responsive', 'children'],
   },
 
   plugins: [
     require('@tailwindcss/ui'),
     require('tailwindcss-aspect-ratio'),
 
+    require('tailwindcss-filters'),
+    require('@hacknug/tailwindcss-alpha')({
+      modules: {
+        // textColor: true,
+        backgroundColor: true,
+        // borderColor: true,
+        // placeholderColor: {
+        //   prefixes: ['placeholder'],
+        //   properties: ['color'],
+        //   fallbacks: ['textColors'],
+        //   process: false,
+        // },
+      },
+    }),
+
     // Variants
+    require('tailwindcss-children'),
     function ({ addVariant, e }) {
       addVariant('owl', ({ modifySelectors, separator, container }) => {
         modifySelectors(({ className }) => {

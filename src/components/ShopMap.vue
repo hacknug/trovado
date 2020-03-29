@@ -20,6 +20,9 @@
 </template>
 
 <script>
+// TODO: Remove `electron` from dependencies (bug @ `@studiometa/vue-mapbox-gl`)
+import 'mapbox-gl/dist/mapbox-gl.css'
+
 export default {
   name: 'ShopMap',
   components: {

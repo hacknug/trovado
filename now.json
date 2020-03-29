@@ -1,0 +1,8 @@
+{
+  "build": {
+    "env": {
+      "GOOGLE_ANALYTICS_ID": "UA-159162278-2",
+      "GRIDSOME_FIREBASE_CONFIG": "{\"apiKey\":\"AIzaSyA_hHqdkPLZneNUT93y_GYGtgDWViEV4nE\",\"authDomain\":\"charcuter-io.firebaseapp.com\",\"databaseURL\":\"https://charcuter-io.firebaseio.com\",\"projectId\":\"charcuter-io\",\"storageBucket\":\"charcuter-io.appspot.com\",\"messagingSenderId\":\"434740848361\",\"appId\":\"1:434740848361:web:246df9728b7ffb6dffb278\",\"measurementId\":\"G-34SLD3FDRC\"}"
+    }
+  }
+}

@@ -6,6 +6,7 @@
 
 module.exports = {
   siteName: 'Charcuterio',
+  siteDescription: 'A safer way to shop during the quarantine.',
 
   templates: {
     Shop: '/shop/:id',
@@ -36,13 +37,17 @@ module.exports = {
       use: 'gridsome-plugin-tailwindcss',
       options: {
         purgeConfig: {
-          whitelistPatternsChildren: [/mapbox/, /mapboxgl/],
+          whitelistPatternsChildren: [
+            /mapbox/,
+            /mapboxgl/,
+            /notices/,
+          ],
         },
       },
     },
     {
       use: '@gridsome/plugin-google-analytics',
-      options: { id: 'UA-159162278-2' },
+      options: { id: process.env.GOOGLE_ANALYTICS_ID },
     },
   ]
 }
