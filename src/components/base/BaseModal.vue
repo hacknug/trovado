@@ -24,7 +24,7 @@
       </div>
       <div class="sm:mt-6 mt-5">
         <span class="flex w-full rounded-md shadow-sm">
-          <button @click="open = false; setTimeout(() => open = true, 1000)" type="button" class="hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo sm:text-sm sm:leading-5 inline-flex justify-center w-full px-4 py-2 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md shadow-sm">
+          <button @click="open = false; setTimeout(() => open = true, 1000)" type="button" class="hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green sm:text-sm sm:leading-5 inline-flex justify-center w-full px-4 py-2 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-green-600 border border-transparent rounded-md shadow-sm">
             Go back to dashboard
           </button>
         </span>

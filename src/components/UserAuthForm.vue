@@ -14,12 +14,12 @@
 
       <div class="flex items-center justify-between mt-6">
         <div class="flex items-center">
-          <input id="remember_me" type="checkbox" class="form-checkbox w-4 h-4 text-indigo-600 transition duration-150 ease-in-out" checked />
+          <input id="remember_me" type="checkbox" class="form-checkbox w-4 h-4 text-green-600 transition duration-150 ease-in-out" checked />
           <label for="remember_me" class="block ml-2 text-sm leading-5 text-gray-900">Remember me</label>
         </div>
 
         <div v-if="event === 'Sign In'" class="text-sm leading-5">
-          <button class="hover:text-indigo-500 focus:outline-none focus:underline font-medium text-indigo-600 transition duration-150 ease-in-out" type="button" @click="$emit('resetPassword', userDetails)">Forgot your password?</button>
+          <button class="hover:text-green-500 focus:outline-none focus:underline font-medium text-green-600 transition duration-150 ease-in-out" type="button" @click="$emit('resetPassword', userDetails)">Forgot your password?</button>
         </div>
       </div>
 

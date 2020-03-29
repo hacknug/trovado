@@ -63,7 +63,7 @@ export default {
 
 <style lang="postcss" scoped>
   a.active--exact {
-    @apply text-indigo-600 border-indigo-500;
-    &:matches(:focus) { @apply outline-none text-indigo-800 border-indigo-700; }
+    @apply text-green-600 border-green-500;
+    &:matches(:focus) { @apply outline-none text-green-800 border-green-700; }
   }
 </style>

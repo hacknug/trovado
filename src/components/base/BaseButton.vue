@@ -12,7 +12,7 @@
         size === 'md' && 'px-4 py-2 text-sm leading-5 rounded-md',
         size === 'lg' && 'px-4 py-2 text-base leading-6 rounded-md',
         size === 'xl' && 'px-6 py-3 text-base leading-6 rounded-md',
-        variant === 'primary' && 'text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 border-transparent focus:border-indigo-700 focus:outline-none focus:shadow-outline-indigo',
+        variant === 'primary' && 'text-white bg-green-600 hover:bg-green-500 active:bg-green-700 border-transparent focus:border-green-700 focus:outline-none focus:shadow-outline-green',
         variant === 'secondary' && 'text-gray-700 hover:text-gray-500 active:text-gray-800 bg-white active:bg-gray-50 border-gray-300 focus:border-blue-300 focus:shadow-outline-blue',
       ]"
       ><slot />

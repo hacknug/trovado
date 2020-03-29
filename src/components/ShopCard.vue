@@ -7,7 +7,7 @@
 
     <div class="flex flex-col justify-between flex-1 p-6 bg-white">
       <div class="flex-1">
-        <p class="text-sm font-medium leading-5 text-indigo-600">
+        <p class="text-sm font-medium leading-5 text-green-600">
           <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 bg-green-100 text-green-800 uppercase">
             {{ shop.country === 'ES' ? 'Spain' : shop.country === 'PT' ? 'Portugal' : shop.country }}
           </span>
