@@ -1,7 +1,6 @@
 <template>
   <Layout>
     <template slot="bleed">
-      <HeroMap :shops="$page.heroMap.edges" />
       <ShopList :shops="$page.pagedShops.edges" />
       <BasePager :pageInfo="$page.pagedShops.pageInfo" />
     </template>
@@ -39,40 +38,15 @@
         }
       }
     }
-    heroMap: allShop (filter: { lt: { ne: 0 } }) {
-      edges {
-        node {
-          id
-
-          country: p
-          province: pv
-          state: lc
-          address: dr
-          zipcode: cp
-          phone: tf
-
-          lat: lt
-          lng: lg
-
-          parking: pk
-          date: fap
-
-          # in
-          # fi
-          # fs
-        }
-      }
-    }
   }
 </page-query>
 
 <script>
 import BasePager from '~/components/base/BasePager'
-import HeroMap from '~/components/HeroMap'
 import ShopList from '~/components/ShopList'
 
 export default {
-  components: { BasePager, HeroMap, ShopList },
+  components: { BasePager, ShopList },
   metaInfo: {
     title: 'Shops',
   },

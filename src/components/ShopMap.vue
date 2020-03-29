@@ -1,8 +1,7 @@
 <template>
   <ClientOnly>
     <mapbox-map
-      style="position: absolute;"
-      class="sm:rounded-lg absolute inset-0 w-full h-full"
+      class="w-full h-full"
       access-token="pk.eyJ1IjoiaGFja251ZyIsImEiOiJjazhjMDN2Mm4waDN6M2VtamV3ZmdnMjB4In0.SQvCWv7t6pKfk_HOK_sZQg"
       map-style="mapbox://styles/mapbox/streets-v11"
       :zoom="14"

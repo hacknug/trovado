@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <template slot="bleed">
-      <HeroMap :shops="$page.heroMap.edges" />
+      <HeroForm />
       <ShopList :shops="$page.shopList.edges" />
     </template>
   </Layout>
@@ -34,39 +34,15 @@
         }
       }
     }
-    heroMap: allShop (filter: { lt: { ne: 0 } }) {
-      edges {
-        node {
-          id
-
-          country: p
-          province: pv
-          state: lc
-          address: dr
-          zipcode: cp
-          phone: tf
-
-          lat: lt
-          lng: lg
-
-          parking: pk
-          date: fap
-
-          # in
-          # fi
-          # fs
-        }
-      }
-    }
   }
 </page-query>
 
 <script>
-import HeroMap from '~/components/HeroMap'
+import HeroForm from '~/components/HeroForm'
 import ShopList from '~/components/ShopList'
 
 export default {
-  components: { HeroMap, ShopList },
+  components: { HeroForm, ShopList },
   metaInfo: {
     title: 'Home',
   },
