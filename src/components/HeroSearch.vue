@@ -17,7 +17,7 @@
         <ClientOnly>
           <h2 class="sm:text-4xl sm:leading-10 lg:w-1/2 flex flex-col text-3xl font-extrabold leading-9 tracking-tight">
             <span class="text-gray-900">Need <vue-typer :text="['toilet paper', 'pasta', 'flour']" initialAction="erasing" />?</span>
-            <span class="text-green-600">Check the availability of your closest supermarket.</span>
+            <span class="text-blue-600">Check the availability of your closest supermarket.</span>
           </h2>
         </ClientOnly>
         <!-- <p class="mt-3 text-lg leading-7 text-gray-500">
@@ -30,7 +30,7 @@
             v-model="zipCode"
             placeholder="Enter your ZIP Code"
             aria-label="Enter your ZIP Code"
-            class="focus:outline-none focus:shadow-outline-green focus:border-green-300 sm:max-w-xs w-full px-5 py-3 text-base leading-6 text-gray-900 placeholder-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md appearance-none"
+            class="focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:max-w-xs w-full px-5 py-3 text-base leading-6 text-gray-900 placeholder-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md appearance-none"
           />
           <div class="flex-shrink-0 ml-3 rounded-md shadow">
             <BaseButton size="xl" type="submit">Search</BaseButton>

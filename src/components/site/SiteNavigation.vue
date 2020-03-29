@@ -41,7 +41,7 @@
     <!-- TODO: Add links and localizations -->
     <div :class="{ 'block': open, 'hidden': !open }" class="sm:hidden">
       <div class="pt-2 pb-3">
-        <a href="#" class="bg-green-50 focus:outline-none focus:text-green-800 focus:bg-green-100 focus:border-green-700 block py-2 pl-3 pr-4 text-base font-medium text-green-700 transition duration-150 ease-in-out border-l-4 border-green-500">Dashboard</a>
+        <a href="#" class="bg-blue-50 focus:outline-none focus:text-blue-800 focus:bg-blue-100 focus:border-blue-700 block py-2 pl-3 pr-4 text-base font-medium text-blue-700 transition duration-150 ease-in-out border-l-4 border-blue-500">Dashboard</a>
         <a href="#" class="hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 block py-2 pl-3 pr-4 mt-1 text-base font-medium text-gray-600 transition duration-150 ease-in-out border-l-4 border-transparent">Team</a>
         <a href="#" class="hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 block py-2 pl-3 pr-4 mt-1 text-base font-medium text-gray-600 transition duration-150 ease-in-out border-l-4 border-transparent">Projects</a>
         <a href="#" class="hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 block py-2 pl-3 pr-4 mt-1 text-base font-medium text-gray-600 transition duration-150 ease-in-out border-l-4 border-transparent">Calendar</a>
@@ -101,7 +101,7 @@ export default {
 
 <style>
   a.active--exact {
-    @apply text-gray-900 border-green-500;
-    &:matches(:hover, :focus) { @apply border-green-700; }
+    @apply text-gray-900 border-blue-500;
+    &:matches(:hover, :focus) { @apply border-blue-700; }
   }
 </style>

@@ -12,8 +12,8 @@
         size === 'md' && 'px-4 py-2 text-sm leading-5 rounded-md',
         size === 'lg' && 'px-4 py-2 text-base leading-6 rounded-md',
         size === 'xl' && 'px-6 py-3 text-base leading-6 rounded-md',
-        variant === 'primary' && 'text-white bg-green-600 hover:bg-green-500 active:bg-green-700 border-transparent focus:border-green-700 focus:outline-none focus:shadow-outline-green',
-        variant === 'secondary' && 'text-gray-700 hover:text-gray-500 active:text-gray-800 bg-white active:bg-gray-50 border-gray-300 focus:border-green-300 focus:shadow-outline-green',
+        variant === 'primary' && 'text-white bg-blue-600 hover:bg-blue-500 active:bg-blue-700 border-transparent focus:border-blue-700 focus:outline-none focus:shadow-outline-blue',
+        variant === 'secondary' && 'text-gray-700 hover:text-gray-500 active:text-gray-800 bg-white active:bg-gray-50 border-gray-300 focus:border-blue-300 focus:shadow-outline-blue',
       ]"
       ><slot />
     </button>

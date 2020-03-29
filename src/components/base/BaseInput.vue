@@ -48,7 +48,7 @@ export default {
 
     className () {
       return [
-        'form-input block w-full sm:text-sm sm:leading-5 focus:outline-none focus:shadow-outline-green focus:border-green-400',
+        'form-input block w-full sm:text-sm sm:leading-5 focus:outline-none focus:shadow-outline-blue focus:border-blue-400',
         // this.type === 'checkbox' ? 'form-checkbox w-11 h-11' : 'form-input max-w-full',
         // this.isDisabled ? 'bg-white-125 cursor-not-allowed opacity-50' : '',
       ]

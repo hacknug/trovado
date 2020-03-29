@@ -8,7 +8,7 @@
           {{ changeForm.description }}
           <button
             type="button"
-            class="hover:text-green-500 focus:outline-none focus:underline font-medium text-green-600 transition duration-150 ease-in-out"
+            class="hover:text-blue-500 focus:outline-none focus:underline font-medium text-blue-600 transition duration-150 ease-in-out"
             @click="$emit('changeForm', changeForm)"
             >{{ changeForm.title }}</button>
         </template>

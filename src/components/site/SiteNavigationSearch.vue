@@ -15,11 +15,11 @@
           v-model="searchTerm"
           type="search"
           placeholder="Looking for an item?"
-          class="focus:outline-none focus:placeholder-gray-400 focus:border-green-300 focus:shadow-outline-green sm:text-sm block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md"
+          class="focus:outline-none focus:placeholder-gray-400 focus:border-blue-300 focus:shadow-outline-blue sm:text-sm block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md"
           :class="[searchResults.length && 'rounded-b-none']"
         />
         <div v-if="searchTerm" class="absolute inset-y-0 right-0 flex items-center pr-3">
-          <button @click="searchTerm = ''" class="hover:text-gray-700 focus:outline-none focus:shadow-outline-green flex items-center justify-center w-5 h-5 p-1 -m-1 text-xs text-gray-500 bg-gray-100 rounded-full">✕</button>
+          <button @click="searchTerm = ''" class="hover:text-gray-700 focus:outline-none focus:shadow-outline-blue flex items-center justify-center w-5 h-5 p-1 -m-1 text-xs text-gray-500 bg-gray-100 rounded-full">✕</button>
         </div>
         <dl v-if="searchResults.length" class="top-full sm:text-sm absolute inset-x-0 text-sm leading-4">
           <div class="rounded-b-md py-1 -mt-px bg-white border border-gray-300">
