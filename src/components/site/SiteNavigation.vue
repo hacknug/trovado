@@ -23,31 +23,8 @@
           </div>
         </div>
 
-        <div class="lg:ml-6 lg:justify-end flex items-center justify-center flex-1 px-2">
-          <div class="lg:max-w-xs w-full max-w-lg">
-            <label for="search" class="sr-only">Search</label>
-            <div class="relative">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-                </svg>
-              </div>
-              <input id="search" class="focus:outline-none focus:placeholder-gray-400 focus:border-blue-300 focus:shadow-outline-blue sm:text-sm block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md" placeholder="Looking for an item?" />
-            </div>
-          </div>
-        </div>
-
-        <!-- <div class="flex items-center">
-          <span class="relative z-0 inline-flex shadow-sm">
-            <select
-              v-model="$context.locale"
-              class="form-select pr-9 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 block w-full py-2 pl-3 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md"
-              ><option v-for="(lang, key) in langs" :key="key" :value="key">{{ lang }}</option>
-                <option value="pt" disabled>Portuguese</option>
-            </select>
-          </span>
-        </div> -->
-
+        <SiteNavigationSearch />
+        <!-- <SiteNavigationLang /> -->
         <SiteNavigationUser />
 
         <div class="sm:hidden flex items-center -mr-2">
@@ -91,11 +68,17 @@
 </template>
 
 <script>
+import SiteNavigationSearch from '~/components/site/SiteNavigationSearch'
+import SiteNavigationLang from '~/components/site/SiteNavigationLang'
 import SiteNavigationUser from '~/components/site/SiteNavigationUser'
 
 export default {
   name: 'SiteNavigation',
-  components: { SiteNavigationUser },
+  components: {
+    SiteNavigationSearch,
+    SiteNavigationLang,
+    SiteNavigationUser,
+  },
   props: {
     siteName: {
       type: String,
@@ -105,10 +88,6 @@ export default {
   data () {
     return {
       open: false,
-      langs: {
-        en: 'English',
-        es: 'Spanish',
-      },
       main: {
         '/': 'Home',
         '/shops': 'Shops',
