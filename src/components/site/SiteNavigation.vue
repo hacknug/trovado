@@ -15,18 +15,11 @@
             </g-link>
           </div>
           <div class="sm:ml-6 sm:flex owl:ml-8 hidden">
-            <g-link
-              to="/"
+            <g-link :key="route"
+              v-for="(label, route) in main"
               class="focus:outline-none hover:text-gray-700 focus:text-gray-700 hover:border-gray-300 focus:border-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out border-b-2 border-transparent"
-              >Home</g-link>
-            <g-link
-              to="/shops"
-              class="focus:outline-none hover:text-gray-700 focus:text-gray-700 hover:border-gray-300 focus:border-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out border-b-2 border-transparent"
-              >Shops</g-link>
-            <!-- <g-link
-              to="/about/"
-              class="focus:outline-none hover:text-gray-700 focus:text-gray-700 hover:border-gray-300 focus:border-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out border-b-2 border-transparent"
-              >About</g-link> -->
+              :to="route"
+              >{{ label }}</g-link>
           </div>
         </div>
 
@@ -146,6 +139,11 @@ export default {
       langs: {
         en: 'English',
         es: 'Spanish',
+      },
+      main: {
+        '/': 'Home',
+        '/shops': 'Shops',
+        // '/about/': 'About',
       },
     }
   },
