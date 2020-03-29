@@ -9,7 +9,7 @@
 
 <page-query>
   query ($page: Int) {
-    shops: allMercadona (perPage: 12, page: $page) @paginate {
+    shops: allShop (perPage: 12, page: $page) @paginate {
       pageInfo {
         totalPages
         currentPage
@@ -17,6 +17,7 @@
       edges {
         node {
           id
+          path
 
           country: p
           province: pv

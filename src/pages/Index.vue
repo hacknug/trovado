@@ -1,18 +1,19 @@
 <template>
   <Layout>
     <template slot="bleed">
-      <HeroMap :shops="$page.allShops.edges" />
-      <ShopList :shops="$page.shops.edges" />
+      <HeroMap :shops="$page.heroMap.edges" />
+      <ShopList :shops="$page.shopList.edges" />
     </template>
   </Layout>
 </template>
 
 <page-query>
   query {
-    shops: allMercadona (limit: 3, filter: { lt: { ne: 0 } }) {
+    shopList: allShop (limit: 3, filter: { lt: { ne: 0 } }) {
       edges {
         node {
           id
+          path
 
           country: p
           province: pv
@@ -33,7 +34,7 @@
         }
       }
     }
-    allShops: allMercadona (filter: { lt: { ne: 0 } }) {
+    heroMap: allShop (filter: { lt: { ne: 0 } }) {
       edges {
         node {
           id
@@ -67,7 +68,7 @@ import ShopList from '~/components/ShopList'
 export default {
   components: { HeroMap, ShopList },
   metaInfo: {
-    title: 'Home'
+    title: 'Home',
   },
 }
 </script>

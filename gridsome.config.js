@@ -8,14 +8,14 @@ module.exports = {
   siteName: 'Charcuterio',
 
   templates: {
-    Mercadona: '/shops/:id',
+    Shop: '/shop/:id',
   },
 
   plugins: [
     {
       use: '@gridsome/source-filesystem',
       options: {
-        typeName: 'Mercadona',
+        typeName: 'Shop',
         path: './static/data/**/*.json',
       },
     },

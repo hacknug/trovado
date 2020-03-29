@@ -12,14 +12,10 @@
             {{ shop.country === 'ES' ? 'Spain' : shop.country === 'PT' ? 'Portugal' : shop.country }}
           </span>
         </p>
-        <a href="#" class="block">
-          <h3 class="mt-2 text-xl font-semibold leading-7 text-gray-900">
-            {{ shop.address }}
-          </h3>
-          <p class="mt-3 text-base leading-6 text-gray-500">
-            {{ shop.state }} ({{ shop.province }})<br />{{ shop.zipcode }}
-          </p>
-        </a>
+        <g-link :to="shop.path" class="block">
+          <h3 class="mt-2 text-xl font-semibold leading-7 text-gray-900">{{ shop.address }}</h3>
+          <p class="mt-3 text-base leading-6 text-gray-500">{{ shop.state }} ({{ shop.province }})<br />{{ shop.zipcode }}</p>
+        </g-link>
       </div>
       <div class="flex items-center mt-6">
         <div class="flex-shrink-0">
