@@ -21,13 +21,14 @@
         <div v-if="searchTerm" class="absolute inset-y-0 right-0 flex items-center pr-3">
           <button @click="searchTerm = ''" class="hover:text-gray-700 focus:outline-none focus:shadow-outline-blue flex items-center justify-center w-5 h-5 p-1 -m-1 text-xs text-gray-500 bg-gray-100 rounded-full">✕</button>
         </div>
-        <dl v-if="searchResults.length" class="top-full sm:text-sm absolute inset-x-0 text-sm leading-4 lowercase">
+        <dl v-if="searchResults.length" class="top-full sm:text-sm absolute inset-x-0 text-sm leading-4">
           <div class="rounded-b-md py-1 -mt-px bg-white border border-gray-300">
             <dt class="sr-only">Results</dt>
             <div class="owl:border-t">
               <dd v-for="result in searchResults" :key="result.id" class="block border-gray-100">
-                <g-link :to="result.path" class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block px-3 py-2 text-gray-700 transition duration-150 ease-in-out">
-                  {{ result.dr }} ({{ result.lc }})
+                <g-link :to="result.path" class="owl:ml-2 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 flex block px-3 py-2 text-gray-700 transition duration-150 ease-in-out">
+                  <span class="text-blue-600 uppercase">{{ result.p }}</span>
+                  <span class="lowercase">{{ result.dr }} ({{ result.lc }})</span>
                 </g-link>
               </dd>
             </div>
