@@ -15,6 +15,12 @@ module.exports = {
       '4/3': [4, 3],
       '21/9': [21, 9],
     },
+    filter: {
+      blur: 'blur(0.125rem)',
+    },
+    backdropFilter: {
+      blur: 'blur(0.25rem)',
+    },
   },
 
   variants: {
