@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-50 lg:pt-24 lg:pb-28 relative pt-16 pb-20">
+  <div class="lg:pt-24 lg:pb-28 relative pt-16 pb-20">
     <!-- <div class="absolute inset-0">
       <div class="h-1/3 sm:h-2/3 bg-white"></div>
     </div> -->
