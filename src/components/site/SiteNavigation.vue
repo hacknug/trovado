@@ -94,7 +94,7 @@ export default {
 </script>
 
 <style>
-  a.active--exact {
+  a.border-b-2.active--exact {
     @apply text-gray-900 border-blue-500;
     &:matches(:hover, :focus) { @apply border-blue-700; }
   }
