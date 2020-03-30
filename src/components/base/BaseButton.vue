@@ -15,7 +15,13 @@
         variant === 'primary' && 'text-white bg-blue-600 hover:bg-blue-500 active:bg-blue-700 border-transparent focus:border-blue-700 focus:outline-none focus:shadow-outline-blue',
         variant === 'secondary' && 'text-gray-700 hover:text-gray-500 active:text-gray-800 bg-white active:bg-gray-50 border-gray-300 focus:border-blue-300 focus:shadow-outline-blue',
       ]"
-      ><slot />
+    >
+      <span v-if="$slots.icon" class="flex items-center mr-2 -ml-0.5 opacity-50">
+        <slot name="icon" />
+      </span>
+
+      <slot />
+
     </button>
 
   </span>
