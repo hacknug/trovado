@@ -5,7 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Charcuterio',
+  siteName: 'Trova.do',
   siteDescription: 'A safer way to shop during the quarantine.',
 
   templates: {
