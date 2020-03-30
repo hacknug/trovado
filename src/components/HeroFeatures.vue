@@ -5,7 +5,7 @@
         <p class="text-base font-semibold leading-6 tracking-wide text-blue-600 uppercase">How it works?</p>
         <h3 class="sm:text-4xl sm:leading-10 mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900">
           <ClientOnly>
-            A <vue-typer :text="['better', 'safer']" initialAction="erasing" /> way to shop during quarantine
+            A <vue-typer :text="['better', 'safer']" :repeat="0" initialAction="erasing" /> way to shop during quarantine
           </ClientOnly>
         </h3>
         <p class="lg:mx-auto max-w-2xl mt-4 text-xl leading-7 text-gray-500">
@@ -14,10 +14,7 @@
       </div>
 
       <div class="lg:mt-16 lg:flex-row flex flex-col items-center mt-10">
-        <figure class="lg:w-1/2 relative z-0">
-          <g-image class="-mt-14 lg:-mt-28 lg:mb-0 w-full pr-16 mb-12" src="~/assets/img/cart.png" alt="Shopping cartio" />
-        </figure>
-        <ul class="md:grid md:grid-cols-1 md:col-gap-8 md:row-gap-10 md:owl:mt-0 owl:mt-10 lg:w-1/3">
+        <ul class="md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-10 md:owl:mt-0 owl:mt-10">
           <li v-for="(feature, index) in features" :key="index">
             <div class="flex">
               <div class="flex-shrink-0">
