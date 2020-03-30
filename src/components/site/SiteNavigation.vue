@@ -86,7 +86,7 @@ export default {
         // '/': 'Home',
         '/shops': 'Shops',
         '/all-shops': 'All Shops',
-        // '/about/': 'About',
+        '/about/': 'About',
       },
     }
   },

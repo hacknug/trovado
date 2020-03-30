@@ -1,14 +1,18 @@
 <template>
   <Layout>
-    <h1>About us</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error doloremque omnis animi, eligendi magni a voluptatum, vitae, consequuntur rerum illum odit fugit assumenda rem dolores inventore iste reprehenderit maxime! Iusto.</p>
+    <template slot="bleed">
+      <HeroForm />
+    </template>
   </Layout>
 </template>
 
 <script>
+import HeroForm from '~/components/HeroForm'
+
 export default {
+  components: { HeroForm },
   metaInfo: {
-    title: 'About Us'
-  }
+    title: 'About',
+  },
 }
 </script>
