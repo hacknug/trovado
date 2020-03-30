@@ -1,12 +1,13 @@
 <template>
   <portal to="modal" v-if="isVisible">
     <BaseModal @close="$emit('close')" @prev="$emit('prev')" @next="$emit('next')">
-      <BaseCard class="w-full max-w-md">
+      <BaseCard class="w-full" :class="[isAuthForm ? 'max-w-md' : 'max-w-2xl']">
 
-        <template slot="title">{{ form === 'Sign In' ? 'Sign in to your account' : form === 'Sign Up' ? 'Sign up for an account' : form }}</template>
+        <template slot="title">{{ formTitle }}</template>
         <template slot="description">
-          {{ changeForm.description }}
+          {{ formDescription }}
           <button
+            v-if="isAuthForm"
             type="button"
             class="hover:text-blue-500 focus:outline-none focus:underline font-medium text-blue-600 transition duration-150 ease-in-out"
             @click="$emit('changeForm', changeForm)"
@@ -14,6 +15,8 @@
         </template>
 
         <UserAuthForm
+          v-if="isAuthForm"
+
           :user="user"
           :event="form"
           @changeForm="$emit('changeForm', $event)"
@@ -24,24 +27,31 @@
           @deleteAccount="deleteAccount($event)"
         />
 
+        <div v-else>
+          <div class="lg:max-w-none grid max-w-xl gap-5 mx-auto mt-12">
+            <ShopCard v-for="node in userFavourites" :key="node.id" :shop="node" />
+          </div>
+        </div>
+
       </BaseCard>
     </BaseModal>
   </portal>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 
 import { alert } from '~/mixins/Alert'
 
 import BaseCard from '~/components/base/BaseCard'
 import BaseModal from '~/components/base/BaseModal'
 import UserAuthForm from '~/components/UserAuthForm'
+import ShopCard from '~/components/ShopCardAlt'
 
 export default {
   name: 'UserAuthModal',
   mixins: [alert],
-  components: { BaseCard, BaseModal, UserAuthForm },
+  components: { BaseCard, BaseModal, UserAuthForm, ShopCard },
   props: {
     form: {
       type: String,
@@ -55,6 +65,26 @@ export default {
   },
   computed: {
     ...mapState(['user']),
+    ...mapGetters(['userFavourites']),
+
+    isAuthForm () {
+      return this.form.includes('Sign')
+    },
+
+    formTitle () {
+      return {
+        'Sign In': 'Sign in to your account',
+        'Sign Up': 'Sign up for an account',
+        'Favourites': 'Your Favourites',
+        'Settings': 'Sign up for an account',
+      }[this.form] || this.form
+    },
+    formDescription () {
+      return {
+        'Favourites': 'Manage and browse your favourite shops',
+        'Settings': 'Sign up for an account',
+      }[this.form] || this.changeForm.description
+    },
 
     changeForm () {
       return this.form === 'Sign In' ? {

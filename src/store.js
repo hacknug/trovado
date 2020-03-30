@@ -16,9 +16,9 @@ export default new Vuex.Store({
 
   getters: {
     userDoc: ({ user }) => user && db.collection('users').doc(user.uid),
-    userAlias: ({ user, userData }) => userData?.userDetails?.displayName || user?.email,
-    // userFeaturedParts: ({ userData }) => userData?.userDetails?.featuredParts || {},
-    userPhotoURL: ({ userData }) => userData?.userDetails?.photoURL,
+    // userAlias: ({ user, userData }) => userData?.userDetails?.displayName || user?.email,
+    userFavourites: ({ userData }) => userData && userData.favourites || {},
+    // userPhotoURL: ({ userData }) => userData?.userDetails?.photoURL,
     // userBadgeURL: (state, { userFeaturedParts: { badges } }) => badges?.attachments?.[0]?.url || badges?.gameBadge[0]?.url,
     // userAvatar: (state, { userPhotoURL, userBadgeURL }) => userBadgeURL || userPhotoURL,
   },
@@ -76,16 +76,10 @@ export default new Vuex.Store({
       return getters.userDoc?.update(doc)
     },
 
-    async UPDATE_USER_FEATURED_PARTS ({ state, dispatch }, [type, part]) {
+    async UPDATE_USER_FAVOURITES ({ state, dispatch }, shop) {
       return dispatch('UPDATE_USER_DOC', {
         ...state.userData,
-        userDetails: {
-          ...state.userData?.userDetails,
-          featuredParts: {
-            ...state.userData?.userDetails?.featuredParts,
-            [type]: part,
-          },
-        },
+        favourites: [...(state.userData ? state.userData.favourites : []), shop],
       })
     },
 

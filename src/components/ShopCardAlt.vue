@@ -29,11 +29,12 @@
               </dd>
             </div>
           </dl>
-          <BaseButton variant="primary" size="sm">
+
+          <BaseButton @click.native="addToFavourites(shop)" variant="primary" size="sm">
             <template slot="icon"><CalendarIcon class="w-5 h-5 stroke-current" /></template> Save your Timeslot
           </BaseButton>
-          <BaseButton variant="secondary" size="xs" class="absolute top-0 right-0">
-            <template slot="icon"><BookmarkIcon class="w-4 h-4 stroke-current" /></template> Add to Favourites
+          <BaseButton @click.native="handleEdit('favourites', shop)" variant="secondary" size="xs" class="absolute top-0 right-0">
+            <template slot="icon"><BookmarkIcon class="w-4 h-4 stroke-current" /></template> {{ isFavourite ? 'Remove from' : 'Add to' }} Favourites
           </BaseButton>
         </div>
       </div>
@@ -74,26 +75,13 @@
         </span>
       </div>
 
-      <!-- <div class="sm:flex sm:flex-row-reverse">
-        <span class="sm:ml-3 sm:w-auto flex w-full rounded-md shadow-sm">
-          <button @click="open = false; setTimeout(() => open = true, 1000)" type="button" class="hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red sm:text-sm sm:leading-5 inline-flex justify-center w-full px-4 py-2 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-red-600 border border-transparent rounded-md shadow-sm">
-            Deactivate
-          </button>
-        </span>
-
-        <span class="sm:mt-0 sm:w-auto flex w-full mt-3 rounded-md shadow-sm">
-          <button @click="open = false; setTimeout(() => open = true, 1000)" type="button" class="hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline sm:text-sm sm:leading-5 inline-flex justify-center w-full px-4 py-2 text-base font-medium leading-6 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md shadow-sm">
-            Cancel
-          </button>
-        </span>
-      </div> -->
-
     </div>
 
   </div>
 </template>
 
 <script>
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 import { BarChart2Icon, BookmarkIcon, CalendarIcon, ChevronDownIcon } from 'vue-feather-icons'
 
 import BaseButton from '~/components/base/BaseButton'
@@ -127,6 +115,30 @@ export default {
         ['no info', 'text-black-400'],
       ],
     }
+  },
+  computed: {
+    ...mapState(['user', 'userData']),
+
+    isFavourite () {
+      return this.userData && this.userData.favourites && this.userData.favourites[this.shop.id]
+    },
+  },
+  methods: {
+    ...mapMutations(['SET_AUTH_INTENT']),
+    ...mapActions(['UPDATE_USER_DOC']),
+
+    async handleEdit (type, shop) {
+      const data = { ...this.userData }
+      if (!data[type]) data[type] = {}
+
+      const favs = data[type]
+      const index = favs.hasOwnProperty(shop.id)
+
+      if (favs.hasOwnProperty(shop.id)) delete favs[shop.id]
+      else favs[shop.id] = shop
+
+      await this.UPDATE_USER_DOC({ ...data, [type]: favs })
+    },
   },
   mounted () {
     this.stock = this.items.map(() => {

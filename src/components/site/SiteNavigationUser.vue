@@ -29,10 +29,11 @@
           leave-to-class="transform scale-95 opacity-0"
           ><div v-show="open" class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg">
             <div class="py-1 bg-white rounded-md shadow-xs">
-              <a href="#" class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out"
-                >Your Profile</a>
-              <a href="#" class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out"
-                >Settings</a>
+              <button :key="key"
+                v-for="(item, key) in main"
+                @click="setIntent(item)"
+                class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block w-full px-4 py-2 text-sm leading-5 text-left text-gray-700 transition duration-150 ease-in-out"
+                >{{ item }}</button>
               <button @click="signOut" class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block w-full px-4 py-2 text-sm leading-5 text-left text-gray-700 transition duration-150 ease-in-out"
                 >Sign Out</button>
             </div>
@@ -70,6 +71,11 @@ export default {
   data () {
     return {
       open: false,
+      main: {
+        favourites: 'Favourites',
+        // settings: 'Settings',
+        // signOut: 'Sign Out',
+      },
     }
   },
   computed: {
@@ -80,6 +86,10 @@ export default {
     ...mapMutations(['SET_AUTH_INTENT']),
     ...mapActions(['SIGN_OUT']),
 
+    setIntent (intent) {
+      this.open = false
+      this.SET_AUTH_INTENT(intent)
+    },
     signOut () {
       this.open = false
       this.SIGN_OUT()

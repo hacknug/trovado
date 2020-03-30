@@ -1,5 +1,5 @@
 <template>
-  <div class="sm:mx-auto sm:w-full sm:max-w-md mt-8">
+  <div class="sm:mx-auto sm:w-full mt-8">
     <div class="sm:rounded-lg sm:px-10 owl:mt-8 px-4 py-8 bg-white shadow">
 
       <header v-if="$slots.title || $slots.description" class="sm:mx-auto sm:w-full sm:max-w-md">
