@@ -1,7 +1,7 @@
 <template>
   <div class="lg:py-24 py-16">
     <BaseContainer>
-      <div class="lg:text-center">
+      <div class="lg:text-center relative z-10">
         <p class="text-base font-semibold leading-6 tracking-wide text-blue-600 uppercase">How it works?</p>
         <h3 class="sm:text-4xl sm:leading-10 mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900">
           <ClientOnly>
@@ -13,7 +13,10 @@
         </p>
       </div>
 
-      <div class="lg:mt-16 flex flex-col justify-center mt-10">
+      <div class="lg:mt-16 lg:flex-row flex flex-col items-center mt-10">
+        <figure class="lg:w-1/2 relative z-0">
+          <g-image class="-mt-14 lg:-mt-28 lg:mb-0 w-full pr-16 mb-12" src="~/assets/img/cart.png" alt="Shopping cartio" />
+        </figure>
         <ul class="md:grid md:grid-cols-1 md:col-gap-8 md:row-gap-10 md:owl:mt-0 owl:mt-10 lg:w-1/3">
           <li v-for="(feature, index) in features" :key="index">
             <div class="flex">
