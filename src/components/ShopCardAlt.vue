@@ -33,7 +33,7 @@
             <template slot="icon"><CalendarIcon class="w-5 h-5 stroke-current" /></template> Save your Timeslot
           </BaseButton>
           <BaseButton variant="secondary" size="xs" class="absolute top-0 right-0">
-            <template slot="icon"><BookmarkIcon class="w-4 h-4 stroke-current" /></template> Add to Favorites
+            <template slot="icon"><BookmarkIcon class="w-4 h-4 stroke-current" /></template> Add to Favourites
           </BaseButton>
         </div>
       </div>
