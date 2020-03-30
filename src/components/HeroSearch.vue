@@ -1,5 +1,5 @@
 <template>
-  <div class="relative overflow-hidden bg-white" style="height: 50vh;">
+  <div class="relative overflow-hidden" style="height: 50vh;">
     <div class="lg:block lg:absolute lg:inset-0 hidden">
       <svg class="left-1/2 absolute top-0 transform translate-x-64 -translate-y-8" width="640" height="784" fill="none" viewBox="0 0 640 784">
         <defs>
@@ -16,13 +16,14 @@
       <div class="flex flex-col justify-center h-full">
         <ClientOnly>
           <h2 class="sm:text-4xl sm:leading-10 lg:w-1/2 flex flex-col text-3xl font-extrabold leading-9 tracking-tight">
-            <span class="text-gray-900">Need <vue-typer :text="['toilet paper', 'pasta', 'flour']" initialAction="erasing" />?</span>
-            <span class="text-blue-600">Check the availability of your closest supermarket.</span>
+            <span class="text-gray-900">Need <vue-typer :text="items" :shuffle="true" initialAction="erasing" />?</span>
+            <span class="text-blue-600">Check the availability of your closest shops and pharmacies.</span>
+            <!-- <span class="text-blue-600">Optimise your supermarket &amp; pharmacy visit during the COVID-19 quarantine.</span> -->
           </h2>
         </ClientOnly>
-        <!-- <p class="mt-3 text-lg leading-7 text-gray-500">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam sed. Quam a scelerisque amet ullamcorper eu enim et fermentum, augue. Aliquet amet volutpat quisque ut interdum tincidunt duis.
-        </p> -->
+        <p class="mt-3 text-lg leading-7 text-gray-500">
+          Find everything you need and reduce unnecessary movements to risk areas.
+        </p>
         <form class="flex mt-8" @submit.prevent="handleSubmit">
           <!-- <BaseInput v-model="zipCode" placeholder="Enter your zip-code" aria-label="Zipcode" required /> -->
           <input
@@ -59,6 +60,7 @@ export default {
   data () {
     return {
       zipCode: '',
+      items: ['toilet paper', 'pasta', 'yeast', 'bread', 'rice', 'flour', 'hand sanitiser', 'cleaning products'],
     }
   },
   methods: {

@@ -1,8 +1,9 @@
 <template>
   <Layout>
     <template slot="bleed">
-      <HeroSearch />
-      <ShopList :shops="$page.shopList.edges" />
+      <HeroSearch class="bg-white" />
+      <HeroFeatures class="bg-gray-50" />
+      <ShopList class="bg-gray-100" :shops="$page.shopList.edges" />
     </template>
   </Layout>
 </template>
@@ -39,10 +40,11 @@
 
 <script>
 import HeroSearch from '~/components/HeroSearch'
+import HeroFeatures from '~/components/HeroFeatures'
 import ShopList from '~/components/ShopList'
 
 export default {
-  components: { HeroSearch, ShopList },
+  components: { HeroSearch, HeroFeatures, ShopList },
   metaInfo: {
     title: 'Home',
   },
