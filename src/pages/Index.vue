@@ -9,7 +9,7 @@
 
 <page-query>
   query {
-    shopList: allShop (limit: 3, filter: { lt: { ne: 0 } }) {
+    shopList: allShop (limit: 6, filter: { lt: { ne: 0 } }) {
       edges {
         node {
           id
