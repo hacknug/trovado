@@ -14,11 +14,11 @@
       <MapboxGeocoder />
       <MapboxNavigationControl position="bottom-right" />
 
-      <MapboxMarker v-for="{ node } in shops" :key="node.id" :lngLat="[node.lng, node.lat]" popup>
+      <MapboxMarker v-for="{ node } in shops" :key="node.id" :lngLat="[node.lng, node.lat]">
         <LocationPin class="text-blue-600" />
-        <template v-slot:popup>
+        <!-- <template v-slot:popup>
           <p>Hello world!</p>
-        </template>
+        </template> -->
       </MapboxMarker>
 
     </MapboxMap>
