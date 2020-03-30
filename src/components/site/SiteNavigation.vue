@@ -6,7 +6,7 @@
 
         <div class="flex">
           <div class="flex items-center flex-shrink-0">
-            <g-link class="owl:ml-3 inline-flex items-center text-xl font-bold text-blue-700" to="/">{{ siteName }}</g-link>
+            <g-link class="owl:ml-3 inline-flex items-center text-xl font-black text-blue-700" to="/">{{ siteName }}</g-link>
           </div>
           <div class="sm:ml-12 sm:flex owl:ml-8 hidden">
             <g-link :key="route"
