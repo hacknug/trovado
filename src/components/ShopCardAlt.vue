@@ -19,8 +19,11 @@
                 <span>Stock Levels:</span>
               </dt>
               <dd class="font-medium text-green-500">
-                <button @click="open = !open" class="owl:ml-0.5 flex items-center" aria-label="See Details">
-                  <span>High</span>
+                <button
+                  @click="open = !open"
+                  class="owl:ml-0.5 inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium leading-5 bg-green-100 text-green-800 focus:outline-none focus:shadow-outline-blue"
+                  aria-label="See Details"
+                  ><span>High</span>
                   <ChevronDownIcon class="w-5 h-5" />
                 </button>
               </dd>
