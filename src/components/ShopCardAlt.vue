@@ -51,7 +51,7 @@
           </div>
         </dl>
         <p class="mt-6 text-gray-400">
-          <small>Updated 30 minutes ago by
+          <small>Updated yesterday by
             <a href="#" class="px-1.5 py-1 text-gray-500 bg-gray-100 hover:text-gray-600 focus:bg-text-600 rounded">
               <code class="font-mono">concerned_citizen</code>
             </a>
