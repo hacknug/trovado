@@ -4,17 +4,17 @@
       class="w-full h-full"
       :accessToken="token"
       :mapStyle="style"
-      :zoom="16"
+      :zoom="17"
       :pitch="0"
       :center="center"
       @mb-created="handleInstance"
       @mb-moveend="handleMoving"
     >
-      <MapboxGeocoder />
+      <MapboxGeocoder types="poi" :enableEventLogging="false" />
       <MapboxNavigationControl position="bottom-right" />
 
       <MapboxMarker v-for="{ id, geometry, properties } in features" :key="id" :lngLat="geometry.coordinates" popup>
-        <template slot="popup"><pre>{{ properties }}</pre></template>
+        <template slot="popup"><pre>{{ { id, geometry, properties } }}</pre></template>
         <LocationPin :class="[
           properties.class === 'food_and_drink_stores' ? 'text-blue-600'
           : properties.class === 'medical' ? 'text-green-600'
@@ -61,7 +61,7 @@ export default {
   props: {
     shops: {
       type: Array,
-      required: true,
+      required: false,
     },
     filteredShops: {
       type: Array,

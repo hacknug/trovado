@@ -7,8 +7,8 @@
       </div>
     </header>
 
-    <main>
-      <div v-if="$slots.bleed" class="-my-10">
+    <main class="flex flex-col flex-1">
+      <div v-if="$slots.bleed" class="flex flex-col flex-1 -my-10">
         <slot name="bleed" />
       </div>
 

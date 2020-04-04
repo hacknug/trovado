@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white">
+  <div class="relative bg-white">
     <div class="sm:px-6 md:flex md:items-center md:justify-between lg:px-8 max-w-screen-xl px-4 py-12 mx-auto">
 
       <div class="md:order-2 flex justify-center">
