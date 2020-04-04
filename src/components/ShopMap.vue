@@ -2,23 +2,24 @@
   <ClientOnly>
     <MapboxMap
       class="w-full h-full"
-      access-token="pk.eyJ1IjoiaGFja251ZyIsImEiOiJjazhjMDN2Mm4waDN6M2VtamV3ZmdnMjB4In0.SQvCWv7t6pKfk_HOK_sZQg"
-      map-style="mapbox://styles/mapbox/streets-v11"
-      :zoom="14"
+      :accessToken="token"
+      :mapStyle="style"
+      :zoom="16"
       :pitch="0"
       :center="center"
-      :bounds="filteredShops && filteredShops.map(({ node: { lat, lng } }) => [lng, lat])"
-      :fitBoundsOptions="{ padding: { top: 90, right: 160, bottom: 90, left: 160 } }"
       @mb-created="handleInstance"
+      @mb-moveend="handleMoving"
     >
       <MapboxGeocoder />
       <MapboxNavigationControl position="bottom-right" />
 
-      <MapboxMarker v-for="{ node } in shops" :key="node.id" :lngLat="[node.lng, node.lat]">
-        <LocationPin class="text-blue-600" />
-        <!-- <template v-slot:popup>
-          <p>Hello world!</p>
-        </template> -->
+      <MapboxMarker v-for="{ id, geometry, properties } in features" :key="id" :lngLat="geometry.coordinates" popup>
+        <template slot="popup"><pre>{{ properties }}</pre></template>
+        <LocationPin :class="[
+          properties.class === 'food_and_drink_stores' ? 'text-blue-600'
+          : properties.class === 'medical' ? 'text-green-600'
+          : 'text-gray-600',
+        ]" />
       </MapboxMarker>
 
     </MapboxMap>
@@ -52,6 +53,10 @@ export default {
       import ('@studiometa/vue-mapbox-gl')
       .then(m => m.MapboxGeocoder)
       .catch(),
+    MapboxLayer: () =>
+      import ('@studiometa/vue-mapbox-gl')
+      .then(m => m.MapboxLayer)
+      .catch(),
   },
   props: {
     shops: {
@@ -66,17 +71,47 @@ export default {
   data () {
     return {
       map: null,
-      center: [0, 0],
+      center: { lng: 2.15899, lat: 41.38879 },
+      features: {},
+
+      blacklist: [
+        'lodging', 'education', 'food_and_drink', 'public_facilities', 'historic',
+        'store_like', 'commercial_services', 'visitor_amenities', 'arts_and_entertainment',
+        'motorist', 'park_like', 'sport_and_leisure', 'general', 'building', 'religion',
+        'industrial', 'place_like',
+
+        /*  ——— TYPES ———  */
+        // 'School', 'Theatre', 'Books', 'Library', 'Park', 'Garden', 'Mobile Phone',
+        // 'Drinking Water', 'Marketplace', 'Monument', 'Memorial', 'Community Centre',
+        // 'Restaurant', 'Fast Food', 'Cafe', 'Bar', 'Brewery', 'Pub', 'Employment Agency',
+        // 'Retail', 'Department Store', 'Confectionery', 'Toys', 'Post Office',
+        // 'Bank', 'Hairdresser', 'Dentist', 'Pet', 'Bicycle', 'Social Facility',
+        // 'Hotel', 'Hostel', 'Laundry', 'Fabric', 'Parking', 'Optician', 'Shoes',
+        // 'Kindergarten', 'Clothes', 'Sports', 'Ice Cream', 'Car Repair', 'Playground',
+        // 'Driving School', 'Company', 'Fuel', 'Financial',
+      ],
+
+      // TODO: Load via process.env
+      token: 'pk.eyJ1IjoiaGFja251ZyIsImEiOiJjazhjMDN2Mm4waDN6M2VtamV3ZmdnMjB4In0.SQvCWv7t6pKfk_HOK_sZQg',
+      style: 'mapbox://styles/mapbox/streets-v11',
     }
   },
   methods: {
-    handleInstance (mapboxInstance) {
-      this.map = mapboxInstance
-    },
     flyTo () {
       this.map && this.map.flyTo({ center: this.center })
     },
 
+    async getPlaces (center = this.center) {
+      const coords = `${center.lng},${center.lat}`
+      const endpoint = 'https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v8/tilequery'
+      await fetch(`${endpoint}/${coords}.json?radius=500&limit=50&geometry=point&layers=poi_label&access_token=${this.token}`)
+        .then((res) => res.json())
+        .then((data) => {
+          data.features
+            .filter(({ properties }) => !this.blacklist.includes(properties.class))
+            .forEach((feature) => this.$set(this.features, feature.id, feature))
+        })
+    },
     geolocateUser () {
       if (process.isClient) {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -86,13 +121,26 @@ export default {
           }
         })
       }
-    }
+    },
+
+    handleInstance (mapboxInstance) {
+      this.map = mapboxInstance
+    },
+    handleMoving () {
+      this.getPlaces(this.map.getCenter())
+    },
   },
   watch: {
-    center: 'flyTo',
+    center: {
+      immediate: true,
+      handler: function () {
+        this.getPlaces()
+        this.flyTo()
+      },
+    },
   },
   async mounted () {
-    !this.filteredShops && this.geolocateUser()
+    this.geolocateUser()
   },
 }
 </script>
