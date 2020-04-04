@@ -78,7 +78,7 @@ export default {
         'lodging', 'education', 'food_and_drink', 'public_facilities', 'historic',
         'store_like', 'commercial_services', 'visitor_amenities', 'arts_and_entertainment',
         'motorist', 'park_like', 'sport_and_leisure', 'general', 'building', 'religion',
-        'industrial', 'place_like',
+        'industrial', 'place_like', 'landmark',
 
         /*  ——— TYPES ———  */
         // 'School', 'Theatre', 'Books', 'Library', 'Park', 'Garden', 'Mobile Phone',
