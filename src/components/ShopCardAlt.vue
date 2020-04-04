@@ -34,7 +34,8 @@
             <template slot="icon"><CalendarIcon class="w-5 h-5 stroke-current" /></template> Save your Timeslot
           </BaseButton>
           <BaseButton @click.native="handleEdit('favourites', shop)" variant="secondary" size="xs" class="absolute top-0 right-0">
-            <template slot="icon"><BookmarkIcon class="w-4 h-4 stroke-current" /></template> {{ isFavourite ? 'Remove from' : 'Add to' }} Favourites
+            <!-- <template slot="icon"><BookmarkIcon class="w-4 h-4 stroke-current" /></template> {{ isFavourite ? 'Remove from' : 'Add to' }} Favourites -->
+            <BookmarkIcon class="w-4 h-4 stroke-current" :class="[isFavourite ? 'opacity-75 text-red-700 fill-current' : 'opacity-50']" />
           </BaseButton>
         </div>
       </div>
