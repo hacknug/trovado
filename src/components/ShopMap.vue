@@ -132,7 +132,7 @@ export default {
   },
   watch: {
     center: {
-      immediate: true,
+      immediate: process.isClient,
       handler: function () {
         this.getPlaces()
         this.flyTo()
