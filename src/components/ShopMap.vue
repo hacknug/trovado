@@ -93,7 +93,7 @@ export default {
 
       // TODO: Load via process.env
       token: 'pk.eyJ1IjoiaGFja251ZyIsImEiOiJjazhjMDN2Mm4waDN6M2VtamV3ZmdnMjB4In0.SQvCWv7t6pKfk_HOK_sZQg',
-      style: 'mapbox://styles/mapbox/streets-v11',
+      style: 'mapbox://styles/hacknug/ck8lvwnj912cf1ilbq2wt1sz6',
     }
   },
   methods: {
