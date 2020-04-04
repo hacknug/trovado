@@ -14,7 +14,7 @@
         </div>
 
         <SiteNavigationSearch />
-        <!-- <SiteNavigationLang /> -->
+        <SiteNavigationLang />
         <SiteNavigationUser />
 
         <div class="sm:hidden flex items-center -mr-2">

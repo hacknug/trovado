@@ -2,15 +2,13 @@
   <div class="lg:py-24 py-16">
     <BaseContainer>
       <div class="lg:text-center relative z-10">
-        <p class="text-base font-semibold leading-6 tracking-wide text-blue-600 uppercase">How it works?</p>
+        <p class="text-base font-semibold leading-6 tracking-wide text-blue-600 uppercase">{{ $t('components.HeroFeatures.intro') }}</p>
         <h3 class="sm:text-4xl sm:leading-10 mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900">
           <ClientOnly>
             A <vue-typer :text="['better', 'safer']" :repeat="0" initialAction="erasing" /> way to shop during quarantine
           </ClientOnly>
         </h3>
-        <p class="lg:mx-auto max-w-2xl mt-4 text-xl leading-7 text-gray-500">
-          We want to reduce people’s exposure to the COVID-19 by letting everyone know whether the items they’re looking for are available in their nearest supermarket or not.
-        </p>
+        <p class="lg:mx-auto max-w-2xl mt-4 text-xl leading-7 text-gray-500">{{ $t('components.HeroFeatures.description') }}</p>
       </div>
 
       <div class="lg:mt-16 lg:flex-row flex flex-col items-center mt-10">

@@ -12,6 +12,42 @@
       "signout": "Sign Out"
     }
   },
+  "components": {
+    "HeroSearch": {
+      "title": [
+        "Need anything from the shop?",
+        "Check the availability of your closest shops and pharmacies."
+      ],
+      "description": "Find everything you need and reduce unnecessary movements to risk areas."
+    },
+    "HeroFeatures": {
+      "intro": "How it works?",
+      "title": "A safer way to shop during quarantine",
+      "description": "We want to reduce people’s exposure to the COVID-19 by letting everyone know whether the items they’re looking for are available in their nearest supermarket or not.",
+      "features": [
+        {
+          "title": "Explore your neighbourhood",
+          "description": "Find supermarkets and pharmacies near your home that offer the products you need."
+        },
+        {
+          "title": "Plan ahead",
+          "description": "Let us know the items that you need in and your location. We'll take care of the rest."
+        },
+        {
+          "title": "Go safely to the supermarket!",
+          "description": "We'll let you know the best time to go so you can avoid the long lines and empty shelves."
+        },
+        {
+          "title": "Help your community",
+          "description": "Update product availability levels from what you’ve seen at your local supermarket."
+        },
+        {
+          "title": "Unlock shiny rewards",
+          "description": "Become a trusted contributor and gain badges by improving the accuracy of your supermarket shelf information."
+        }
+      ]
+    }
+  },
   "index": {
     "hero": {
       "description": "We want to reduce people’s exposure to the COVID-19 by letting people know whether the items they’re looking for are available in their nearest supermarket."
