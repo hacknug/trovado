@@ -8,12 +8,8 @@
           <div class="flex items-center flex-shrink-0">
             <g-link class="owl:ml-3 inline-flex items-center text-xl font-black text-blue-700" to="/">{{ siteName }}</g-link>
           </div>
-          <div class="sm:ml-12 sm:flex owl:ml-8 hidden">
-            <g-link :key="route"
-              v-for="(label, route) in main"
-              class="focus:outline-none hover:text-gray-700 focus:text-gray-700 hover:border-gray-300 focus:border-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out border-b-2 border-transparent"
-              :to="route"
-              >{{ label }}</g-link>
+          <div data-nav="desktop" class="sm:ml-12 sm:flex owl:ml-8 hidden">
+            <g-link :key="route" v-for="(label, route) in main" :class="className.nav.desktop" :to="route">{{ label }}</g-link>
           </div>
         </div>
 
@@ -31,12 +27,11 @@
 
     <!-- TODO: Add links and localizations -->
     <div :class="{ 'block': open, 'hidden': !open }" class="sm:hidden">
-      <div class="pt-2 pb-3">
-        <a href="#" class="bg-blue-50 focus:outline-none focus:text-blue-800 focus:bg-blue-100 focus:border-blue-700 block py-2 pl-3 pr-4 text-base font-medium text-blue-700 transition duration-150 ease-in-out border-l-4 border-blue-500">Dashboard</a>
-        <a href="#" class="hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 block py-2 pl-3 pr-4 mt-1 text-base font-medium text-gray-600 transition duration-150 ease-in-out border-l-4 border-transparent">Team</a>
-        <a href="#" class="hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 block py-2 pl-3 pr-4 mt-1 text-base font-medium text-gray-600 transition duration-150 ease-in-out border-l-4 border-transparent">Projects</a>
-        <a href="#" class="hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 block py-2 pl-3 pr-4 mt-1 text-base font-medium text-gray-600 transition duration-150 ease-in-out border-l-4 border-transparent">Calendar</a>
+
+      <div data-nav="mobile" class="owl:mt-1 pt-2 pb-3">
+        <g-link :key="route" v-for="(label, route) in main" :class="className.nav.mobile" :to="route">{{ label }}</g-link>
       </div>
+
       <div class="pt-4 pb-3 border-t border-gray-200">
         <div class="flex items-center px-4">
           <div class="flex-shrink-0">
@@ -53,6 +48,7 @@
           <a href="#" class="hover:text-gray-800 hover:bg-gray-100 focus:outline-none focus:text-gray-800 focus:bg-gray-100 block px-4 py-2 mt-1 text-base font-medium text-gray-500 transition duration-150 ease-in-out" role="menuitem">Sign out</a>
         </div>
       </div>
+
     </div>
 
   </nav>
@@ -90,12 +86,28 @@ export default {
       },
     }
   },
+  computed: {
+    className () {
+      return {
+        nav: {
+          mobile: 'hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 block py-2 pl-3 pr-4 mt-1 text-base font-medium text-gray-600 transition duration-150 ease-in-out border-l-4 border-transparent',
+          desktop: 'focus:outline-none hover:text-gray-700 focus:text-gray-700 hover:border-gray-300 focus:border-gray-300 inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out border-b-2 border-transparent',
+        },
+      }
+    },
+  },
 }
 </script>
 
 <style>
-  a.border-b-2.active--exact {
-    @apply text-gray-900 border-blue-500;
-    &:matches(:hover, :focus) { @apply border-blue-700; }
+  [data-nav] {
+    &[data-nav="mobile"] a.active {
+      @apply text-blue-700 bg-blue-50 border-blue-500;
+      &:matches(:hover, :focus) { @apply text-blue-800 bg-blue-100 border-blue-700; }
+    }
+    &[data-nav="desktop"] a.active {
+      @apply text-gray-900 border-blue-500;
+      &:matches(:hover, :focus) { @apply border-blue-700; }
+    }
   }
 </style>
