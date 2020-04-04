@@ -144,3 +144,8 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss">
+  .mapboxgl-ctrl-attrib-inner,
+  .mapboxgl-ctrl-logo { @apply hidden !important; }
+</style>
