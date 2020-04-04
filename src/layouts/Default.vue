@@ -28,3 +28,10 @@
 export default {
 }
 </script>
+
+<style lang="postcss">
+  html {
+    font-size: 14px;
+    @screen md { font-size: 16px; }
+  }
+</style>

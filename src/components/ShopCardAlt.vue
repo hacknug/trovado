@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-col self-start overflow-hidden rounded-lg shadow-lg">
+  <div class="flex flex-col self-start overflow-hidden leading-5 rounded-lg shadow-lg">
 
-    <div class="sm:flex-row flex flex-col items-start justify-between flex-1 p-6 bg-white">
-      <div class="relative flex-1">
+    <div class="sm:flex-row sm:p-6 flex flex-col items-start justify-between flex-1 p-4 bg-white">
+      <div class="relative flex-1 w-full">
         <p class="text-sm font-medium leading-5 text-blue-600">
           <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 bg-blue-100 text-blue-800 lowercase">Mercadona</span>
         </p>
@@ -31,8 +31,11 @@
             </div>
           </dl>
 
-          <BaseButton @click.native="addToFavourites(shop)" variant="primary" size="sm">
+          <BaseButton @click.native="addToFavourites(shop)" variant="primary" size="sm" class="md:inline-flex hidden">
             <template slot="icon"><CalendarIcon class="w-5 h-5 stroke-current" /></template> Save your Timeslot
+          </BaseButton>
+          <BaseButton @click.native="addToFavourites(shop)" variant="primary" size="sm" class="md:hidden">
+            <CalendarIcon class="w-5 h-5 stroke-current" />
           </BaseButton>
           <BaseButton @click.native="handleEdit('favourites', shop)" variant="secondary" size="xs" class="absolute top-0 right-0">
             <!-- <template slot="icon"><BookmarkIcon class="w-4 h-4 stroke-current" /></template> {{ isFavourite ? 'Remove from' : 'Add to' }} Favourites -->
@@ -46,7 +49,7 @@
     <div v-if="open" class="bg-gray-50 sm:px-6 owl:mt-8 flex flex-col items-center justify-between px-4 py-6 border-t-2 border-gray-100">
 
       <div class="mr-auto">
-        <dl class="grid grid-cols-2 row-gap-2 col-gap-12">
+        <dl class="md:grid-cols-2 grid grid-cols-1 row-gap-2 col-gap-12">
           <div class="owl:ml-2 flex justify-between" v-for="({ item, stock }, index) in stock" :key="index">
             <dt class="owl:ml-1 flex items-center text-gray-500">{{ item }}:</dt>
             <dd :class="classNames[stock]" class="font-medium">{{ stock }}</dd>
