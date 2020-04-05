@@ -5,7 +5,7 @@
 
       <div class="relative flex-1 w-full">
         <p class="text-sm font-medium leading-5 text-blue-600">
-          <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 bg-blue-100 text-blue-800 uppercase">{{ shop.properties.type }}</span>
+          <span :class="labelClass">{{ shop.properties.type }}</span>
         </p>
         <span class="block mt-2">
           <h3 class="text-xl font-semibold leading-7 text-gray-900 truncate">{{ shop.properties.name }}</h3>
@@ -146,6 +146,14 @@ export default {
 
     averageLabels () {
       return [ 'Unknown', 'None', 'Low', 'Medium', 'High' ]
+    },
+    labelClass () {
+      return [
+        'inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 uppercase',
+        this.shop.properties.class === 'food_and_drink_stores' ? 'bg-blue-100 text-blue-800'
+          : this.shop.properties.class === 'medical' ? 'bg-green-100 text-green-800'
+            : 'bg-gray-100 text-gray-800',
+      ]
     },
     classNames () {
       return {

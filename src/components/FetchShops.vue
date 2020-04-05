@@ -4,7 +4,7 @@ export default {
   props: {
     center: {
       type: Object,
-      required: true,
+      required: false,
     }
   },
   data () {
@@ -40,18 +40,20 @@ export default {
   },
   methods: {
     async fetchFeatures () {
-      const coords = `${this.center.lng},${this.center.lat}`
-      const endpoint = 'https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v8/tilequery'
+      if (this.center) {
+        const coords = `${this.center.lng},${this.center.lat}`
+        const endpoint = 'https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v8/tilequery'
 
-      await fetch(`${endpoint}/${coords}.json?radius=500&limit=50&geometry=point&layers=poi_label&access_token=${this.token}`)
-        .then((response) => response.json())
-        .then((response) => {
-          this.response = response.features
-            .filter(({ properties }) => !this.blacklist.class.includes(properties.class))
-            .filter(({ properties }) => !this.blacklist.types.includes(properties.types))
-            .forEach((feature) => feature.properties.name && this.$set(this.features, feature.id, feature))
-          this.loading = false
-        })
+        await fetch(`${endpoint}/${coords}.json?radius=500&limit=50&geometry=point&layers=poi_label&access_token=${this.token}`)
+          .then((response) => response.json())
+          .then((response) => {
+            this.response = response.features
+              .filter(({ properties }) => !this.blacklist.class.includes(properties.class))
+              .filter(({ properties }) => !this.blacklist.types.includes(properties.types))
+              .forEach((feature) => feature.properties.name && this.$set(this.features, feature.id, feature))
+            this.loading = false
+          })
+      }
     },
   },
   watch: {
