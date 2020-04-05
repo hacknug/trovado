@@ -21,8 +21,8 @@ export default function (Vue, { appOptions, router, head, isClient }) {
   Vue.filter('phone', (number, country, format = 'RFC3966') => parsePhoneNumberFromString(number, country).format(format))
 
   appOptions.store = store
-  appOptions.i18n.setLocaleMessage('en', require('./locales/en.json'))
-  appOptions.i18n.setLocaleMessage('es', require('./locales/es.json'))
+  isClient && appOptions.i18n.setLocaleMessage('en', require('./locales/en.json'))
+  isClient && appOptions.i18n.setLocaleMessage('es', require('./locales/es.json'))
 
   head.meta = head.meta.filter((meta) => meta.key !== 'viewport')
   head.meta.push({
