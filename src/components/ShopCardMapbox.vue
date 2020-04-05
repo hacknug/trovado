@@ -1,17 +1,13 @@
 <template>
-  <div class="relative z-0 flex flex-col self-start overflow-hidden leading-5 rounded-lg shadow-lg">
+  <div @click="open = !open" class="relative z-0 flex flex-col self-start overflow-hidden leading-5 rounded-lg shadow-lg">
 
     <div class="sm:flex-row flex flex-col items-start justify-between flex-1 p-4 bg-white">
 
       <div class="relative flex-1 w-full">
-        <p class="text-sm font-medium leading-5 text-blue-600">
-          <span :class="labelClass">{{ shop.properties.type }}</span>
-        </p>
-        <span class="block mt-2">
+        <header>
+          <p :class="labelClass">{{ shop.properties.type }}</p>
           <h3 class="text-xl font-semibold leading-7 text-gray-900 truncate">{{ shop.properties.name }}</h3>
-          <!-- <p class="mt-1 text-base leading-6 text-gray-500 lowercase truncate">{{ `${ shop.zipcode } ${ shop.state } (${ shop.province })` }}</p> -->
-          <!-- <pre>{{ shop.properties }}</pre> -->
-        </span>
+        </header>
 
         <div class="flex items-end justify-between w-full mt-4">
           <dl class="text-sm">
@@ -22,7 +18,7 @@
               </dt>
               <dd class="font-medium text-green-500">
                 <button
-                  @click="open = !open"
+                  @click.self="open = !open"
                   class="owl:ml-1 inline-flex items-center px-2.5 py-0.5 rounded-md font-medium leading-5 focus:outline-none focus:shadow-outline-blue"
                   :class="classNames[averageLabels[average]]"
                   aria-label="See Details"
@@ -149,10 +145,10 @@ export default {
     },
     labelClass () {
       return [
-        'inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 uppercase',
-        this.shop.properties.class === 'food_and_drink_stores' ? 'bg-blue-100 text-blue-800'
-          : this.shop.properties.class === 'medical' ? 'bg-green-100 text-green-800'
-            : 'bg-gray-100 text-gray-800',
+        'inline-flex items-center text-xs font-medium leading-4 uppercase tracking-wider',
+        this.shop.properties.class === 'food_and_drink_stores' ? 'text-blue-800'
+          : this.shop.properties.class === 'medical' ? 'text-green-800'
+            : 'text-gray-800',
       ]
     },
     classNames () {
