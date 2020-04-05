@@ -5,10 +5,10 @@
       <button @click="geolocateUser">Geolocate</button>
     </div>
     <FetchShops v-else :center="center || userLocation" v-slot="{ features, loading }">
-      <div class="flex flex-1">
+      <div class="md:flex-row flex flex-col-reverse flex-1">
 
-        <div class="owl:mt-5 bg-gray-50 flex-grow w-full max-w-lg p-5 pt-0 border-r border-gray-100 shadow">
-          <header class="bg-gray-50 md:flex md:items-center md:justify-between sticky top-0 z-10 p-5 -mx-5 border-b border-gray-200">
+        <div class="owl:mt-5 bg-gray-50 z-10 flex-grow w-full max-w-lg p-5 pt-0 border-r border-gray-100 shadow">
+          <header class="bg-gray-50 sticky top-0 z-10 flex items-center justify-between p-5 -mx-5 border-b border-gray-200">
             <h2 class="sm:text-3xl sm:leading-9 sm:truncate text-2xl font-bold leading-7 text-gray-900">Closest Shops</h2>
             <p class="sm:text-3xl sm:leading-9 sm:truncate text-2xl font-bold leading-7 text-gray-900">{{ Object.keys(features).length }}</p>
           </header>
@@ -18,8 +18,10 @@
           </div>
         </div>
 
-        <div class="sticky top-0 w-full max-h-screen">
-          <ShopMap ref="map" :shops="features" :center="userLocation" @move="center = $event" @center="center = $event" />
+        <div class="aspect-ratio-16/9 md:aspect-ratio-none relative sticky top-0 w-full max-h-screen">
+          <div class="md:static absolute inset-0 w-full h-full">
+            <ShopMap ref="map" :shops="features" :center="userLocation" @move="center = $event" @center="center = $event" />
+          </div>
         </div>
 
       </div>
