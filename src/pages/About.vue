@@ -13,7 +13,7 @@ export default {
   components: { HeroForm },
   metaInfo () {
     return {
-      title: this.$t('navigation.main.about'),
+      title: this.$t && this.$t('navigation.main.about'),
     }
   },
 }

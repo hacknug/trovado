@@ -49,7 +49,7 @@ export default {
   components: { BasePager, ShopList },
   metaInfo () {
     return {
-      title: this.$t('navigation.main.all_shops'),
+      title: this.$t && this.$t('navigation.main.all_shops'),
     }
   },
 }

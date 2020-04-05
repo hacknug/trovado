@@ -13,7 +13,7 @@ export default {
   components: { ShopFilters },
   metaInfo () {
     return {
-      title: this.$t('navigation.main.shops'),
+      title: this.$t && this.$t('navigation.main.shops'),
     }
   },
 }

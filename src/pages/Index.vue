@@ -15,7 +15,7 @@ export default {
   components: { HeroSearch, HeroFeatures },
   metaInfo () {
     return {
-      title: this.$t('navigation.main.home'),
+      title: this.$t && this.$t('navigation.main.home'),
     }
   },
 }
