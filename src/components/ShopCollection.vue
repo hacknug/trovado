@@ -23,7 +23,7 @@ import BaseContainer from '~/components/base/BaseContainer'
 import ShopCard from '~/components/ShopCardAlt'
 
 export default {
-  name: 'ShopList',
+  name: 'ShopCollection',
   components: { BaseContainer, ShopCard },
   props: {
     shops: {

@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <template slot="bleed">
-      <ShopList :shops="$page.pagedShops.edges" />
+      <ShopCollection :shops="$page.pagedShops.edges" />
       <BasePager :pageInfo="$page.pagedShops.pageInfo" />
     </template>
   </Layout>
@@ -43,10 +43,10 @@
 
 <script>
 import BasePager from '~/components/base/BasePager'
-import ShopList from '~/components/ShopList'
+import ShopCollection from '~/components/ShopCollection'
 
 export default {
-  components: { BasePager, ShopList },
+  components: { BasePager, ShopCollection },
   metaInfo () {
     return {
       title: this.$t && this.$t('navigation.main.all_shops'),
