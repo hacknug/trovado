@@ -26,10 +26,6 @@ module.exports = {
       options: {
         locales: ['en', 'es'],
         fallbackLocale: 'en',
-        messages: {
-          'en': require('./src/locales/en.json'),
-          'es': require('./src/locales/es.json'),
-        },
       },
     },
     {
