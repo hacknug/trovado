@@ -16,9 +16,7 @@
             A <vue-typer :text="['better', 'safer']" initialAction="erasing" /> way to shop during quarantine
           </ClientOnly>
         </h3>
-        <p class="max-w-3xl mx-auto mt-4 text-xl leading-7 text-center text-gray-500">
-          We want to reduce people’s exposure to the COVID-19 by letting people know whether the items they’re looking for are available in their nearest supermarket.
-        </p>
+        <p class="max-w-3xl mx-auto mt-4 text-xl leading-7 text-center text-gray-500">{{ $t && $t('components.HeroForm.description') }}</p>
       </div>
 
       <div class="sm:rounded-lg relative mt-12 overflow-hidden bg-white shadow">

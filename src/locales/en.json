@@ -4,6 +4,7 @@
     "main": {
       "home": "Home",
       "shops": "Shops",
+      "all_shops": "All Shops",
       "about": "About"
     },
     "user": {
@@ -46,12 +47,13 @@
           "description": "Become a trusted contributor and gain badges by improving the accuracy of your supermarket shelf information."
         }
       ]
+    },
+    "HeroForm": {
+      "title": "A safer way to shop during quarantine",
+      "description": "We want to reduce people’s exposure to the COVID-19 by letting people know whether the items they’re looking for are available in their nearest supermarket."
     }
   },
   "index": {
-    "hero": {
-      "description": "We want to reduce people’s exposure to the COVID-19 by letting people know whether the items they’re looking for are available in their nearest supermarket."
-    },
     "shops": {
       "title": "Supermarkets with more stock",
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed."

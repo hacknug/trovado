@@ -26,7 +26,7 @@ module.exports = {
       options: {
         locales: ['en', 'es'],
         fallbackLocale: 'en',
-        messages: {
+        messages: process.env.NODE_ENV === 'production' && {
           en: require('./src/locales/en.json'),
           es: require('./src/locales/es.json'),
         },

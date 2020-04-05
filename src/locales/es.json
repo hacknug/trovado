@@ -4,7 +4,8 @@
     "main": {
       "home": "Inicio",
       "shops": "Tiendas",
-      "about": "About"
+      "all_shops": "Todas las Tiendas",
+      "about": "Acerca de"
     },
     "user": {
       "profile": "Tu Perfil",
@@ -46,12 +47,13 @@
           "description": "Become a trusted contributor and gain badges by improving the accuracy of your supermarket shelf information."
         }
       ]
+    },
+    "HeroForm": {
+      "title": "Una forma más segura de comprar durante la cuarentena",
+      "description": "Queremos reducir las exposiciones al COVID-19, optimizando tu visita al supermercado o farmacia, informándote sobre disponibilidad de productos en tu tienda más cercana."
     }
   },
   "index": {
-    "hero": {
-      "description": "Queremos reducir el número de gente que baja al supermercado, poniéndose en riesgo, informándote de la disponibilidad de los productos más esenciales."
-    },
     "shops": {
       "title": "Supermercados con más stock",
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed."

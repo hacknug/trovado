@@ -81,7 +81,7 @@ export default {
       main: {
         // '/': 'Home',
         '/shops': 'Shops',
-        '/all-shops': 'All Shops',
+        // '/all-shops': 'All Shops',
         '/about/': 'About',
       },
     }

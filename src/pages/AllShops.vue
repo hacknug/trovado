@@ -47,8 +47,10 @@ import ShopList from '~/components/ShopList'
 
 export default {
   components: { BasePager, ShopList },
-  metaInfo: {
-    title: 'Shops',
+  metaInfo () {
+    return {
+      title: this.$t('navigation.main.all_shops'),
+    }
   },
 }
 </script>

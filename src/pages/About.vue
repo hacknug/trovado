@@ -11,8 +11,10 @@ import HeroForm from '~/components/HeroForm'
 
 export default {
   components: { HeroForm },
-  metaInfo: {
-    title: 'About',
+  metaInfo () {
+    return {
+      title: this.$t('navigation.main.about'),
+    }
   },
 }
 </script>
