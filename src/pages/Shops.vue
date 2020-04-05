@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <template slot="bleed">
-      <ShopFilters :shops="$page.pagedShops.edges" />
+      <ShopFilters />
       <!-- <HeroMap :shops="$page.heroMap.edges" :filteredShops="filteredShops" /> -->
       <!-- <ShopList :shops="$page.pagedShops.edges" /> -->
       <!-- <BasePager :pageInfo="$page.pagedShops.pageInfo" /> -->

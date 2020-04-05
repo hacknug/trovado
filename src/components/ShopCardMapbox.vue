@@ -1,18 +1,20 @@
 <template>
   <div class="relative z-0 flex flex-col self-start overflow-hidden leading-5 rounded-lg shadow-lg">
 
-    <div class="sm:flex-row sm:p-6 flex flex-col items-start justify-between flex-1 p-4 bg-white">
+    <div class="sm:flex-row flex flex-col items-start justify-between flex-1 p-4 bg-white">
+
       <div class="relative flex-1 w-full">
         <p class="text-sm font-medium leading-5 text-blue-600">
-          <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 bg-blue-100 text-blue-800 lowercase">Mercadona</span>
+          <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 bg-blue-100 text-blue-800 uppercase">{{ shop.properties.type }}</span>
         </p>
         <span class="block mt-2">
-          <h3 class="text-xl font-semibold leading-7 text-gray-900 lowercase truncate">{{ shop.address }}</h3>
-          <p class="mt-1 text-base leading-6 text-gray-500 lowercase truncate">{{ `${ shop.zipcode } ${ shop.state } (${ shop.province })` }}</p>
+          <h3 class="text-xl font-semibold leading-7 text-gray-900 truncate">{{ shop.properties.name }}</h3>
+          <!-- <p class="mt-1 text-base leading-6 text-gray-500 lowercase truncate">{{ `${ shop.zipcode } ${ shop.state } (${ shop.province })` }}</p> -->
+          <!-- <pre>{{ shop.properties }}</pre> -->
         </span>
 
         <div class="flex items-end justify-between w-full mt-4">
-          <dl>
+          <dl class="text-sm">
             <div class="owl:ml-2 flex justify-between">
               <dt class="owl:ml-1 flex items-center text-gray-400">
                 <BarChart2Icon class="w-5 h-5" />
@@ -21,7 +23,7 @@
               <dd class="font-medium text-green-500">
                 <button
                   @click="open = !open"
-                  class="owl:ml-0.5 inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium leading-5 focus:outline-none focus:shadow-outline-blue"
+                  class="owl:ml-1 inline-flex items-center px-2.5 py-0.5 rounded-md font-medium leading-5 focus:outline-none focus:shadow-outline-blue"
                   :class="classNames[averageLabels[average]]"
                   aria-label="See Details"
                   ><span>{{ averageLabels[average] }}</span>
@@ -37,10 +39,16 @@
           <BaseButton @click.native="addToFavourites(shop)" variant="primary" size="sm" class="md:hidden">
             <CalendarIcon class="w-5 h-5 stroke-current" />
           </BaseButton>
-          <BaseButton @click.native="handleEdit('favourites', shop)" variant="secondary" size="xs" class="absolute top-0 right-0">
-            <!-- <template slot="icon"><BookmarkIcon class="w-4 h-4 stroke-current" /></template> {{ isFavourite ? 'Remove from' : 'Add to' }} Favourites -->
-            <BookmarkIcon class="w-4 h-4 stroke-current" :class="[isFavourite ? 'opacity-75 text-red-700 fill-current' : 'opacity-50']" />
-          </BaseButton>
+
+          <div class="owl:ml-1 absolute top-0 right-0">
+            <BaseButton @click.native="$emit('flyTo', lngLat)" variant="secondary" size="xs">
+              <MapPinIcon class="group-hover:opacity-100 w-4 h-4 opacity-50 stroke-current" />
+            </BaseButton>
+            <BaseButton @click.native="handleEdit('favourites', shop)" variant="secondary" size="xs">
+              <BookmarkIcon class="w-4 h-4 stroke-current" :class="[isFavourite ? 'opacity-75 text-red-700 fill-current' : 'group-hover:opacity-100 opacity-50']" />
+            </BaseButton>
+          </div>
+
         </div>
       </div>
 
@@ -50,9 +58,9 @@
 
       <div class="mr-auto">
         <dl class="md:grid-cols-2 grid grid-cols-1 row-gap-2 col-gap-12">
-          <div class="owl:ml-2 flex justify-between" v-for="({ item, stock }, index) in stock" :key="index">
+          <div class="owl:ml-2 flex justify-between text-sm" v-for="({ item, stock }, index) in stock" :key="index">
             <dt class="owl:ml-1 flex items-center text-gray-500">{{ item }}:</dt>
-            <dd :class="classNames[stock]" class="font-medium">{{ stock }}</dd>
+            <dd :class="classNames[stock]" class="font-medium text-right">{{ stock }}</dd>
           </div>
         </dl>
         <p class="mt-6 text-gray-400">
@@ -87,7 +95,7 @@
 
 <script>
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
-import { BarChart2Icon, BookmarkIcon, CalendarIcon, ChevronDownIcon } from 'vue-feather-icons'
+import { BarChart2Icon, BookmarkIcon, CalendarIcon, ChevronDownIcon, MapPinIcon } from 'vue-feather-icons'
 
 import BaseButton from '~/components/base/BaseButton'
 
@@ -98,6 +106,7 @@ export default {
     BookmarkIcon,
     CalendarIcon,
     ChevronDownIcon,
+    MapPinIcon,
     BaseButton,
   },
   props: {
@@ -125,6 +134,11 @@ export default {
   },
   computed: {
     ...mapState(['user', 'userData']),
+
+    lngLat () {
+      const [lng, lat] = this.shop.geometry.coordinates
+      return { lng, lat }
+    },
 
     isFavourite () {
       return this.userData && this.userData.favourites && this.userData.favourites[this.shop.id]

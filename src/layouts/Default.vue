@@ -1,5 +1,5 @@
 <template>
-  <div class="py-10">
+  <div class="flex flex-col flex-1 py-10">
 
     <header v-if="$slots.header">
       <div class="max-w-7xl sm:px-6 lg:px-8 px-4 mx-auto">

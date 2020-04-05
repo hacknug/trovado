@@ -4,6 +4,7 @@
     <button
       :type="type"
       :class="[
+        'group',
         'inline-flex justify-center items-center w-full font-medium border',
         'transition ease-in-out duration-150',
         'focus:outline-none',

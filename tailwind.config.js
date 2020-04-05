@@ -26,6 +26,7 @@ module.exports = {
   variants: {
     borderWidth: ['responsive', 'owl'],
     margin: ['responsive', 'owl'],
+    opacity: ['responsive', 'hover', 'focus', 'group-hover'],
     pointerEvents: ['responsive', 'children'],
   },
 
