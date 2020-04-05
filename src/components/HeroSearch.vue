@@ -29,11 +29,11 @@
         <ClientOnly>
           <h2 class="sm:text-4xl sm:leading-10 lg:w-1/2 flex flex-col text-3xl font-extrabold leading-9 tracking-tight">
             <span class="text-gray-900">Need <vue-typer :text="items" :shuffle="true" initialAction="erasing" />?</span>
-            <span class="text-blue-600">{{ $t('components.HeroSearch.title')[1] }}</span>
+            <span class="text-blue-600">{{ $t && $t('components.HeroSearch.title')[1] }}</span>
             <!-- <span class="text-blue-600">Optimise your supermarket &amp; pharmacy visit during the COVID-19 quarantine.</span> -->
           </h2>
         </ClientOnly>
-        <p class="mt-3 text-lg leading-7 text-gray-500">{{ $t('components.HeroSearch.description') }}</p>
+        <p class="mt-3 text-lg leading-7 text-gray-500">{{ $t && $t('components.HeroSearch.description') }}</p>
         <form class="flex mt-8" @submit.prevent="handleSubmit">
           <!-- <BaseInput v-model="zipCode" placeholder="Enter your zip-code" aria-label="Zipcode" required /> -->
           <input
