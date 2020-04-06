@@ -58,6 +58,10 @@ export default {
     ...mapActions(['BIND_USER']),
   },
   async mounted () {
+    this.$context.locale = navigator.languages.find((lang) => {
+      return this.$i18n.availableLocales.includes(lang)
+    })
+
     auth.onAuthStateChanged((user) => this.BIND_USER(user))
   },
 }
