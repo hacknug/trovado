@@ -16,7 +16,7 @@
           <li v-for="(feature, index) in features" :key="index">
             <div class="flex">
               <div class="flex-shrink-0">
-                <div class="flex items-center justify-center w-12 h-12 text-white bg-blue-500 rounded-md">
+                <div class="flex items-center justify-center w-12 h-12 text-white bg-blue-600 rounded-md">
                   <component v-if="feature.icon" :is="feature.icon" class="w-6 h-6" />
                 </div>
               </div>
