@@ -7,7 +7,7 @@
 module.exports = {
   siteName: 'Trova.do',
   siteDescription: 'A safer way to shop during the quarantine.',
-  siteUrl: 'https://trovado.now.sh/',
+  siteUrl: 'https://trovado.now.sh',
 
   templates: {
     Shop: '/shop/:id',
