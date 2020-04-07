@@ -24,8 +24,21 @@
   </div>
 </template>
 
+<static-query>
+  query {
+    metadata {
+      siteName
+      siteDescription
+      siteUrl
+    }
+  }
+</static-query>
+
 <script>
+import SiteSEO from '~/mixins/SiteSEO'
+
 export default {
+  mixins: [SiteSEO],
 }
 </script>
 
