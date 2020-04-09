@@ -6,7 +6,7 @@
         <div class="bg-gray-50 md:p-5 z-10 flex items-center justify-between px-4 py-3 border-b border-gray-200">
           <div class="owl:ml-2 flex">
             <h2 class="sm:text-3xl sm:leading-9 sm:truncate text-2xl font-bold leading-7 text-gray-900">Closest Shops</h2>
-            <p class="sm:text-3xl sm:leading-9 sm:truncate text-2xl font-bold leading-7 text-blue-600">{{ Object.keys(shops).length }}</p>
+            <p class="sm:text-3xl sm:leading-9 sm:truncate text-2xl font-bold leading-7 text-blue-600">{{ Object.keys(filteredShops).length }}</p>
           </div>
           <div class="owl:ml-2 flex">
             <BaseButton @click.native="showFilters = !showFilters" variant="secondary" size="sm">
@@ -16,33 +16,29 @@
         </div>
         <div v-if="showFilters" class="top-full md:p-5 bg-gray-50 absolute inset-x-0 z-0 w-full px-4 py-3 border-b border-gray-200">
           <dl class="owl:mt-6">
-            <div class="owl:mt-2 grid grid-cols-3">
+            <div class="grid grid-cols-3 gap-2">
               <dt class="w-full col-span-3">
                 <div class="text-sm font-medium text-gray-400 uppercase">Type of Store</div>
               </dt>
-              <dd class="w-full col-span-1" v-for="(label, key) in shopTypes" :key="key">
-                <div class="flex items-start">
-                  <div class="absolute flex items-center h-5">
-                    <input v-model="shopTypeTerms" :value="key" :id="key" type="checkbox" class="form-checkbox w-4 h-4 text-blue-600 transition duration-150 ease-in-out" />
-                  </div>
-                  <div class="pl-7 text-sm leading-5">
-                    <label :for="key" class="text-gray-600">{{ label }}</label>
-                  </div>
+              <dd class="flex items-start w-full col-span-1" v-for="(label, key) in shopTypes" :key="key">
+                <div class="absolute flex items-center h-5">
+                  <input v-model="shopTypeTerms" :value="key" :id="key" type="checkbox" class="form-checkbox w-4 h-4 text-blue-600 transition duration-150 ease-in-out" />
+                </div>
+                <div class="pl-7 text-sm leading-5">
+                  <label :for="key" class="text-gray-600">{{ label }}</label>
                 </div>
               </dd>
             </div>
-            <!-- <div class="owl:mt-2 grid grid-cols-3">
+            <!-- <div class="grid grid-cols-3 gap-2">
               <dt class="w-full col-span-3">
                 <div class="text-sm font-medium text-gray-400 uppercase">Products</div>
               </dt>
-              <dd class="w-full col-span-1" v-for="(item, index) in items" :key="index">
-                <div class="flex items-start">
-                  <div class="absolute flex items-center h-5">
-                    <input :id="$options.filters.camel(item)" type="checkbox" class="form-checkbox w-4 h-4 text-blue-600 transition duration-150 ease-in-out" checked />
-                  </div>
-                  <div class="pl-7 text-sm leading-5">
-                    <label :for="$options.filters.camel(item)" class="text-gray-600">{{ item }}</label>
-                  </div>
+              <dd class="flex items-start w-full col-span-1" v-for="(item, index) in items" :key="index">
+                <div class="absolute flex items-center h-5">
+                  <input :id="$options.filters.camel(item)" type="checkbox" class="form-checkbox w-4 h-4 text-blue-600 transition duration-150 ease-in-out" checked />
+                </div>
+                <div class="pl-7 text-sm leading-5">
+                  <label :for="$options.filters.camel(item)" class="text-gray-600">{{ item }}</label>
                 </div>
               </dd>
             </div> -->
@@ -51,13 +47,13 @@
       </header>
       <div v-if="loading" class="m-auto text-center">Loading…</div>
       <div v-else class="owl:mt-5">
-        <ShopCard :key="shop.id" v-for="shop in shops" :id="String(shop.id)" :shop="shop" @flyTo="$refs.map.flyTo($event)" />
+        <ShopCard :key="shop.id" v-for="shop in filteredShops" :id="String(shop.id)" :shop="shop" @flyTo="$refs.map.flyTo($event)" />
       </div>
     </div>
 
     <div class="aspect-ratio-16/9 md:aspect-ratio-none relative sticky top-0 w-full max-h-screen">
       <div class="md:static absolute inset-0 w-full h-full">
-        <ShopMap v-if="userLocation" ref="map" :shops="shops" :center="userLocation" @move="$emit('changeCenter', $event)" />
+        <ShopMap v-if="userLocation" ref="map" :shops="filteredShops" :center="userLocation" @move="$emit('changeCenter', $event)" />
       </div>
     </div>
 
@@ -94,18 +90,16 @@ export default {
       },
       // itemTerms: [],
       // items: [
-      //   'Toilet Paper', 'Hand Sanitiser', 'Fruit', 'Vegetables',
-      //   'Rice', 'Pasta', 'Bread', 'Flour', 'Yeast', 'Cleaning Products',
+      //     'Fruit', 'Vegetables', 'Rice', 'Pasta', 'Bread', 'Flour', 'Yeast',
+      //     'Toilet Paper', 'Hand Sanitiser', 'Cleaning Products',
       // ],
     }
   },
-  watch: {
-    shopTypeTerms: function () {
-      this.$emit('updateTerms', this.shopTypeTerms)
+  computed: {
+    filteredShops () {
+      return Object.values(this.shops)
+        .filter((shop) => this.shopTypeTerms.includes(shop.properties.class))
     },
-    // itemTerms: function () {
-    //   this.$emit('updateTerms', itemTerms)
-    // },
   },
 }
 </script>

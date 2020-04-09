@@ -3,11 +3,10 @@
     <template slot="bleed">
       <FetchShops :center="center || userLocation" v-slot="{ features, loading }">
         <ShopFilters
-          :shops="filterShops(features)"
+          :shops="features"
           :loading="loading"
           :userLocation="userLocation"
           @changeCenter="center = $event"
-          @updateTerms="shopTypeTerms = $event"
         />
       </FetchShops>
     </template>
@@ -29,8 +28,6 @@ export default {
     return {
       center: null,
       userLocation: null,
-
-      shopTypeTerms: [ 'food_and_drink_stores', 'medical' ],
     }
   },
   methods: {
@@ -45,12 +42,6 @@ export default {
           { enableHighAccuracy: true },
         )
       }
-    },
-
-    filterShops (shops = {}) {
-      return Object.fromEntries(Object.entries(shops).filter(([id, shop]) => {
-        return this.shopTypeTerms.includes(shop.properties.class)
-      }))
     },
   },
   mounted () {
