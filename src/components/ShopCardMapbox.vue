@@ -232,7 +232,7 @@ export default {
     },
 
     async updateStock () {
-      const data = deepmerge({ ...this.shop, stock: this.newStock }, this.place || {})
+      const data = deepmerge(this.place || {}, { ...this.shop, stock: this.newStock })
       this.$firestoreRefs.place[this.place ? 'update' : 'set'](data)
         .then(() => console.log('place updated'))
         .then(() => this.edit = false)
