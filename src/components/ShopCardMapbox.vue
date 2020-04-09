@@ -98,7 +98,7 @@ import { BarChart2Icon, BookmarkIcon, CalendarIcon, ChevronDownIcon, MapPinIcon,
 import BaseButton from '~/components/base/BaseButton'
 
 const { db } = process.isClient ? require('~/firebase') : import('~/firebase')
-const places = db.collection('places')
+const places = db && db.collection('places')
 
 export default {
   name: 'ShopCardAlt',
