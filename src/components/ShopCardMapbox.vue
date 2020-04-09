@@ -100,7 +100,7 @@ const { db } = process.isClient ? require('~/firebase') : import('~/firebase')
 const places = db && db.collection('places')
 
 export default {
-  name: 'ShopCardAlt',
+  name: 'ShopCardMapbox',
   components: {
     BaseButton,
     BarChart2Icon,

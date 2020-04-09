@@ -1,7 +1,7 @@
 <template>
   <portal to="modal" v-if="isVisible">
     <BaseModal @close="$emit('close')" @prev="$emit('prev')" @next="$emit('next')">
-      <BaseCard class="w-full" :class="[isAuthForm ? 'max-w-md' : 'max-w-2xl']">
+      <BaseCard class="w-full" :class="[isAuthForm ? 'max-w-md' : 'max-w-xl']">
 
         <template slot="title">{{ formTitle }}</template>
         <template slot="description">
@@ -29,7 +29,7 @@
 
         <div v-else>
           <div class="lg:max-w-none grid max-w-xl gap-5 mx-auto mt-12">
-            <ShopCard v-for="node in userFavourites" :key="node.id" :shop="node" />
+            <ShopCard v-for="node in userFavourites" :key="node.id" :id="String(node.id)" :shop="node" />
           </div>
         </div>
 
@@ -46,7 +46,7 @@ import { alert } from '~/mixins/Alert'
 import BaseCard from '~/components/base/BaseCard'
 import BaseModal from '~/components/base/BaseModal'
 import UserAuthForm from '~/components/UserAuthForm'
-import ShopCard from '~/components/ShopCardAlt'
+import ShopCard from '~/components/ShopCardMapbox'
 
 export default {
   name: 'UserAuthModal',
