@@ -111,8 +111,14 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-  header {
+  header,
+  .max-h-screen {
     top: 56px;
     @screen md { top: 64px; }
+  }
+
+  .max-h-screen {
+    max-height: calc(100vh - 56px);
+    @screen md { max-height: calc(100vh - 64px); }
   }
 </style>
