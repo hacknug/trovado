@@ -34,8 +34,8 @@ export default {
     makeLngLat: (coords) => ({ lat: coords.latitude, lng: coords.longitude }),
     geolocateUser () {
       if (process.isClient) {
-        navigator.permissions.query({ name: 'geolocation' })
-          .then((status) => console.info(status))
+        // navigator.permissions.query({ name: 'geolocation' })
+        //   .then((status) => console.info(status))
         navigator.geolocation.getCurrentPosition(
           (position) => this.userLocation = this.makeLngLat(position.coords),
           (error) => console.error(error),
