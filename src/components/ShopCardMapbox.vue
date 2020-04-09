@@ -26,7 +26,6 @@
               </dt>
               <dd class="font-medium">
                 <button
-                  @click="open = !open"
                   class="owl:ml-1 inline-flex items-center px-2.5 py-0.5 rounded-md font-medium leading-5 focus:outline-none focus:shadow-outline-blue"
                   :class="classNames[averageLabels[average]]"
                   aria-label="See Details"
