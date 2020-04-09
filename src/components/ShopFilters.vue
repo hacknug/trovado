@@ -113,6 +113,6 @@ export default {
 
   .max-h-screen {
     max-height: calc(100vh - 56px);
-    @screen md { max-height: calc(100vh - 64px); }
+    @screen md { height: calc(100vh - 64px); }
   }
 </style>
