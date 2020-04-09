@@ -51,7 +51,7 @@
       </header>
       <div v-if="loading" class="m-auto text-center">Loading…</div>
       <div v-else class="owl:mt-5">
-        <ShopCard :key="shop.id" v-for="shop in shops" :shop="shop" @flyTo="$refs.map.flyTo($event)" />
+        <ShopCard :key="shop.id" v-for="shop in shops" :id="String(shop.id)" :shop="shop" @flyTo="$refs.map.flyTo($event)" />
       </div>
     </div>
 

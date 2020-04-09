@@ -17,7 +17,7 @@
         variant === 'secondary' && 'text-gray-700 hover:text-gray-500 active:text-gray-800 bg-white active:bg-gray-50 border-gray-300 focus:border-blue-300 focus:shadow-outline-blue',
       ]"
     >
-      <span v-if="$slots.icon" class="flex items-center mr-2 -ml-0.5 opacity-50">
+      <span v-if="$slots.icon" class="flex items-center mr-2.5 -ml-0.5">
         <slot name="icon" />
       </span>
 
