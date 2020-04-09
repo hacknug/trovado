@@ -68,7 +68,7 @@
 import { FilterIcon } from 'vue-feather-icons'
 
 import BaseButton from '~/components/base/BaseButton'
-import ShopCard from '~/components/ShopCardMapbox'
+import ShopCard from '~/components/ShopCard'
 import ShopMap from '~/components/ShopMap'
 
 export default {

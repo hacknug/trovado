@@ -1,59 +1,259 @@
 <template>
-  <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+  <div class="relative z-0 flex flex-col self-start overflow-hidden leading-5 bg-white rounded-lg shadow-lg">
 
-    <div class="flex-shrink-0">
-      <img class="object-cover w-full h-48" src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="" />
-    </div>
+    <div @click="open = !open" class="sm:flex-row flex flex-col items-start justify-between flex-1 p-4">
 
-    <div class="flex flex-col justify-between flex-1 p-6 bg-white">
-      <div class="flex-1">
-        <p class="text-sm font-medium leading-5 text-blue-600">
-          <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium leading-4 bg-blue-100 text-blue-800 uppercase">
-            {{ shop.country === 'ES' ? 'Spain' : shop.country === 'PT' ? 'Portugal' : shop.country }}
-          </span>
-        </p>
-        <g-link :to="shop.path" class="block">
-          <h3 class="mt-2 text-xl font-semibold leading-7 text-gray-900">{{ shop.address }}</h3>
-          <p class="mt-3 text-base leading-6 text-gray-500">{{ shop.state }} ({{ shop.province }})<br />{{ shop.zipcode }}</p>
-        </g-link>
-      </div>
-      <div class="flex items-center mt-6">
-        <div class="flex-shrink-0">
-          <a href="#">
-            <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-          </a>
-        </div>
-        <div class="ml-3">
-          <p class="text-sm font-medium leading-5 text-gray-900">Mercadona</p>
-          <dl class="flex text-sm leading-5 text-gray-500">
-            <div class="owl:ml-1 flex items-center">
-              <dt>
-                <span class="sr-only">Phone Number</span>
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
-                </svg>
+      <div class="relative flex-1 w-full">
+        <header class="flex flex-col-reverse">
+          <h3 class="text-xl font-semibold leading-7 text-gray-900 truncate">{{ shop.properties.name }}</h3>
+          <p :class="className.label">{{ shop.properties.type }}</p>
+          <div class="owl:ml-1 absolute top-0 right-0">
+            <BaseButton @click.native="$emit('flyTo', lngLat)" variant="secondary" size="xs">
+              <MapPinIcon class="group-hover:opacity-100 w-4 h-4 opacity-50 stroke-current" />
+            </BaseButton>
+            <BaseButton @click.native="handleEdit('favourites', shop)" variant="secondary" size="xs">
+              <BookmarkIcon class="w-4 h-4 stroke-current" :class="[isFavourite ? 'opacity-75 text-red-700 fill-current' : 'group-hover:opacity-100 opacity-50']" />
+            </BaseButton>
+          </div>
+        </header>
+
+        <div class="flex items-end justify-between w-full mt-4">
+          <dl class="text-sm">
+            <div class="owl:mt-1 flex flex-col">
+              <dt class="owl:ml-1 flex items-center text-gray-400">
+                <BarChart2Icon class="w-5 h-5" />
+                <span>Stock Levels:</span>
               </dt>
-              <dd>
-                <a class="hover:underline" :href="shop.phone|phone(shop.country)">
-                  {{ shop.phone|phone(shop.country, 'INTERNATIONAL') }}
-                </a>
+              <dd class="font-medium">
+                <button
+                  class="owl:ml-1 inline-flex items-center px-2.5 py-0.5 rounded-md font-medium leading-5 focus:outline-none focus:shadow-outline-blue"
+                  :class="classNames[averageLabels[average]]"
+                  aria-label="See Details"
+                  ><span>{{ averageLabels[average] }}</span>
+                  <ChevronDownIcon class="w-5 h-5" :class="[open && 'transform rotate-180']" />
+                </button>
               </dd>
             </div>
           </dl>
+
+          <BaseButton :disabled="true" variant="secondary" size="sm">
+            <template slot="icon"><CalendarIcon class="w-5 h-5 text-blue-600 stroke-current" /></template> Save your Timeslot
+          </BaseButton>
+
         </div>
       </div>
+
+    </div>
+
+    <div v-if="open" class="bg-gray-50 sm:px-6 owl:mt-8 flex flex-col px-4 py-6 border-t-2 border-gray-100">
+
+      <p class="w-full"><small class="text-lg">Updated yesterday by
+        <span class="bg-gray-300-25 hover:bg-gray-100 focus:bg-gray-100 px-2 py-1 rounded">
+          <code class="font-mono">concerned_citizen</code>
+        </span>
+      </small></p>
+
+      <div class="w-full">
+        <dl class="grid grid-cols-1 row-gap-1 col-gap-12">
+          <div class="owl:ml-2 flex justify-between text-sm" v-for="({ availability, product }, key) in (newStock || currentStock)" :key="key">
+            <dt class="owl:ml-1 flex items-center text-gray-500">{{ product }}</dt>
+            <dd :class="classNames[availability]" class="owl:ml-1 flex items-center leading-none text-right">
+              <button :class="[ ...className.button, availability === min && 'opacity-50 cursor-not-allowed']" :disabled="availability === min"
+                @click="changeStockLevel(key, -1)"><MinusIcon class="w-4 h-4 text-gray-300" /></button>
+              <span class="w-24 px-2 py-1 text-right bg-white border border-gray-200 rounded">{{ availability }}</span>
+              <button :class="[ ...className.button, availability === max && 'opacity-50 cursor-not-allowed']" :disabled="availability === max"
+                @click="changeStockLevel(key, +1)"><PlusIcon class="w-4 h-4 text-gray-300" /></button>
+            </dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="owl:mt-2 pt-6 text-center border-t border-gray-200">
+        <span class="text-sm text-blue-500">Have you been here recently?</span>
+        <div class="owl:ml-2 flex justify-center">
+          <BaseButton v-if="edit" @click.native="newStock = null; edit = false" variant="secondary" size="md">Cancel</BaseButton>
+          <BaseButton v-if="edit" @click.native="updateStock" variant="primary" size="md">Update</BaseButton>
+          <BaseButton v-if="!edit" @click.native="newStock = remoteStock; edit = true" variant="secondary" size="md">Update Stock
+            <template slot="icon">
+              <svg class="w-5 h-5 mr-2 text-gray-400 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6V10" /><path d="M12 14H12.01" /><path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" /></svg>
+            </template>
+          </BaseButton>
+        </div>
+      </div>
+
     </div>
 
   </div>
 </template>
 
 <script>
+import deepmerge from 'deepmerge'
+import { mapState, mapMutations, mapActions } from 'vuex'
+import { BarChart2Icon, BookmarkIcon, CalendarIcon, ChevronDownIcon, MapPinIcon, MinusIcon, PlusIcon } from 'vue-feather-icons'
+
+import BaseButton from '~/components/base/BaseButton'
+
+const { db } = process.isClient ? require('~/firebase') : import('~/firebase')
+const places = db && db.collection('places')
+
 export default {
-  name: 'ShopCard',
+  name: 'ShopCardMapbox',
+  components: {
+    BaseButton,
+    BarChart2Icon,
+    BookmarkIcon,
+    CalendarIcon,
+    ChevronDownIcon,
+    MapPinIcon,
+    MinusIcon,
+    PlusIcon,
+  },
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     shop: {
       type: Object,
       required: true,
+    },
+  },
+  firestore () {
+    return {
+      place: places.doc(this.id),
+    }
+  },
+  data () {
+    return {
+      open: false,
+      edit: false,
+      place:  null,
+      newStock: null,
+      average: 0,
+      sum: null,
+
+      recipe: {
+        stocks: [ 'no info', 'sold out', '1-10 qty', '10-30 qty', '+30 qty' ],
+        items: [
+          'Fruit', 'Vegetables', 'Rice', 'Pasta', 'Bread', 'Flour', 'Yeast',
+          'Toilet Paper', 'Hand Sanitiser', 'Cleaning Products',
+        ],
+      },
+    }
+  },
+  computed: {
+    ...mapState(['user', 'userData']),
+
+    min () {
+      return [...this.recipe.stocks].shift()
+    },
+    max () {
+      return [...this.recipe.stocks].pop()
+    },
+
+    remoteStock () {
+      return Object.fromEntries(Object.entries(this.place ? this.place.stock : {})
+        .sort((a, b) => this.recipe.items.indexOf(a[1].product) - this.recipe.items.indexOf(b[1].product)))
+    },
+    currentStock () {
+      return (this.place && this.place.stock) ? this.remoteStock : this.mockStock
+    },
+
+    lngLat () {
+      const [lng, lat] = this.shop.geometry.coordinates
+      return { lng, lat }
+    },
+    isFavourite () {
+      return this.userData && this.userData.favourites && this.userData.favourites[this.shop.id]
+    },
+
+    averageLabels () {
+      return [ 'Unknown', 'None', 'Low', 'Medium', 'High' ]
+    },
+    className () {
+      return {
+        label: [
+          'inline-flex items-center text-xs font-medium leading-4 uppercase tracking-wider',
+          this.shop.properties.class === 'food_and_drink_stores' ? 'text-blue-800'
+            : this.shop.properties.class === 'medical' ? 'text-green-800' : 'text-gray-800',
+        ],
+        button: [
+          !this.edit && 'invisible',
+          'flex flex-none bg-white border border-gray-200 rounded-full',
+          'focus:outline-none focus:shadow-outline-blue',
+        ],
+      }
+    },
+    classNames () {
+      return {
+        'Unknown': 'text-gray-800 bg-gray-100',
+        'None': 'text-gray-800 bg-gray-100',
+        'Low': 'text-red-800 bg-red-100',
+        'Medium': 'text-yellow-800 bg-yellow-100',
+        'High': 'text-green-800 bg-green-100',
+
+        'no info': 'text-gray-400',
+        'sold out': 'text-black-400',
+        '1-10 qty': 'text-red-400',
+        '10-30 qty': 'text-yellow-400',
+        '+30 qty': 'text-green-400',
+      }
+    },
+
+    mockStock () {
+      return Object.fromEntries(this.recipe.items.map((item) => {
+        return [this.$options.filters.camel(item), {
+          product: item,
+          availability: this.min,
+        }]
+      }))
+    }
+  },
+  methods: {
+    ...mapMutations(['SET_AUTH_INTENT']),
+    ...mapActions(['UPDATE_USER_DOC']),
+
+    changeStockLevel (item, increment) {
+      const stocks = this.recipe.stocks
+      const stock = this.newStock || this.remoteStock
+      const getNewLevel = (avail, inc) => stocks[stocks.indexOf(avail) + inc]
+      const newLevel = getNewLevel((stock && stock[item]
+        ? stock[item].availability : stocks[0]), increment)
+        || stocks[0]
+
+      this.newStock = deepmerge.all([
+        this.mockStock,
+        this.newStock || {},
+        { [item]: { availability: newLevel } },
+      ])
+    },
+
+    async updateStock () {
+      const data = deepmerge(this.place || {}, { ...this.shop, stock: this.newStock })
+      this.$firestoreRefs.place[this.place ? 'update' : 'set'](data)
+        .then(() => console.log('place updated'))
+        .then(() => this.edit = false)
+    },
+    async handleEdit (type, shop) {
+      if (this.user) {
+        const data = { ...this.userData }
+        if (!data[type]) data[type] = {}
+
+        const favs = data[type]
+        const index = favs.hasOwnProperty(shop.id)
+
+        if (favs.hasOwnProperty(shop.id)) delete favs[shop.id]
+        else favs[shop.id] = shop
+
+        await this.UPDATE_USER_DOC({ ...data, [type]: favs })
+      } else {
+        this.SET_AUTH_INTENT('Sign Up')
+      }
+    },
+  },
+  watch: {
+    id (id) {
+      this.$bind('place', places.doc(id))
     },
   },
 }

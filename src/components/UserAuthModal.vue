@@ -46,7 +46,7 @@ import { alert } from '~/mixins/Alert'
 import BaseCard from '~/components/base/BaseCard'
 import BaseModal from '~/components/base/BaseModal'
 import UserAuthForm from '~/components/UserAuthForm'
-import ShopCard from '~/components/ShopCardMapbox'
+import ShopCard from '~/components/ShopCard'
 
 export default {
   name: 'UserAuthModal',
