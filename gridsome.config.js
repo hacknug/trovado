@@ -7,7 +7,7 @@
 module.exports = {
   siteName: 'Trovado',
   siteDescription: 'A safer way to shop during the quarantine.',
-  siteUrl: 'https://trovado.now.sh',
+  siteUrl: process.env.NOW_URL || 'https://trovado.now.sh',
 
   templates: {
     Shop: '/shop/:id',

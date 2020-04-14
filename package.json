@@ -19,6 +19,7 @@
     "gridsome-plugin-i18n": "1.0.1",
     "libphonenumber-js": "1.7.48",
     "mapbox-gl": "1.9.0",
+    "node-fetch": "^2.6.0",
     "portal-vue": "2.1.7",
     "vue-feather-icons": "5.0.0",
     "vue-toast-notification": "0.2.0",
