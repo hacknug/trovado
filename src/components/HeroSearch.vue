@@ -25,9 +25,9 @@
           </figure>
       </div>
 
-      <div class="relative z-10 flex flex-col justify-center h-full">
+      <div class="lg:w-1/2 relative z-10 flex flex-col justify-center h-full">
         <ClientOnly>
-          <h2 class="sm:text-4xl sm:leading-10 lg:w-1/2 flex flex-col text-3xl font-extrabold leading-9 tracking-tight">
+          <h2 class="sm:text-4xl sm:leading-10 flex flex-col text-3xl font-extrabold leading-9 tracking-tight">
             <span class="text-gray-900">Need <vue-typer :text="items" :shuffle="true" initialAction="erasing" />?</span>
             <span class="text-blue-600">{{ $t && $t('components.HeroSearch.title')[1] }}</span>
             <!-- <span class="text-blue-600">Optimise your supermarket &amp; pharmacy visit during the COVID-19 quarantine.</span> -->
@@ -47,6 +47,14 @@
             <BaseButton size="xl" type="submit">Search</BaseButton>
           </div>
         </form>
+        <div v-if="suggestions" class="mt-8">
+          <dl class="owl:mt-2 owl:mr-4 owl:-ml-2 flex flex-wrap">
+            <dt class="w-full mb-1 text-gray-500">Suggestions</dt>
+            <dd v-for="(suggestion, index) in suggestions" :key="index" class="text-sm font-medium leading-5">
+              <g-link :to="`/shops?q=${suggestion}`" class="inline-flex items-center px-2.5 py-0.5 rounded-md bg-gray-100 text-gray-800">{{ suggestion }}</g-link>
+            </dd>
+          </dl>
+        </div>
       </div>
     </BaseContainer>
 
@@ -71,16 +79,34 @@ export default {
     return {
       zipCode: '',
       items: ['toilet paper', 'pasta', 'yeast', 'bread', 'rice', 'flour', 'hand sanitiser', 'cleaning products'],
+      cities: new Set(),
+      postitions: new Set(),
+      zipcodes: new Set(),
     }
+  },
+  computed: {
+    suggestions () {
+      return [ ...this.zipcodes, ...this.postitions, ...this.cities ]
+    },
   },
   methods: {
     handleSubmit (event) {
+      // TODO: Save query in userData
       this.$router.push({
         path: 'shops',
-        params: { zipcode: this.zipCode },
-        query: { zipcode: this.zipCode },
+        params: { q: this.zipCode },
+        query: { q: this.zipCode },
       })
     },
+  },
+  mounted () {
+    fetch('/api/userGeo')
+      .then((response) => response.json())
+      .then((data) => data.forEach((res) => {
+        this.cities = new Set(this.cities.add(res.city))
+        this.postitions = new Set(this.postitions.add(`${res.longitude},${res.latitude}`))
+        this.zipcodes = new Set(this.zipcodes.add(res.postal))
+      }))
   },
 }
 </script>
