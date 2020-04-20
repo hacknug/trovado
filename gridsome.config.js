@@ -9,19 +9,7 @@ module.exports = {
   siteDescription: 'A safer way to shop during the quarantine.',
   siteUrl: process.env.NOW_URL || 'https://trovado.now.sh',
 
-  templates: {
-    Shop: '/shop/:id',
-  },
-
   plugins: [
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
-        typeName: 'Shop',
-        path: './static/data/**/*.json',
-      },
-    },
-
     {
       use: "gridsome-plugin-i18n",
       options: {
@@ -31,19 +19,6 @@ module.exports = {
           en: require('./src/locales/en.json'),
           es: require('./src/locales/es.json'),
         },
-      },
-    },
-    {
-      use: 'gridsome-plugin-flexsearch',
-      options: {
-        searchFields: ['p', 'pv', 'lc', 'dr', 'cp'],
-        collections: [
-          {
-            typeName: 'Shop',
-            indexName: 'Shop',
-            fields: ['p', 'pv', 'lc', 'dr', 'cp'],
-          },
-        ],
       },
     },
 

@@ -13,7 +13,9 @@
           </div>
         </div>
 
-        <SiteNavigationSearch />
+        <div class="lg:ml-6 lg:justify-end flex items-center justify-center flex-1 px-2">
+          <SiteNavigationSearch />
+        </div>
         <SiteNavigationLang />
         <SiteNavigationUser />
 
