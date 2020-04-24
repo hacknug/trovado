@@ -1,17 +1,20 @@
 const fetch = require('node-fetch')
 
 module.exports = async (req, res) => {
-  const endpoints = [
-    'https://ipapi.co/json',
-    'https://geolocation-db.com/json',
-    `https://ipinfo.io/json?token=${process.env.IPINFO_TOKEN}`, // 'https://ipinfo.io/geo',
+  const clientIp = req.headers['x-forwarded-for']
+  const endpoints = (process.env.NODE_ENV === 'development' ? [
+    `https://ipapi.co/json`,
+    `https://geolocation-db.com/json`,
+    `https://ipinfo.io/json?token=${process.env.IPINFO_TOKEN}`,
     `http://api.ipstack.com/check?access_key=${process.env.IPSTACK_KEY}`,
-  ].map((endpoint) => fetch(endpoint)
+  ] : [
+    `https://ipapi.co/${clientIp}/json`,
+    `https://geolocation-db.com/json/${clientIp}`,
+    `https://ipinfo.io/${clientIp}?token=${process.env.IPINFO_TOKEN}`,
+    `http://api.ipstack.com/${clientIp}?access_key=${process.env.IPSTACK_KEY}`,
+  ]).map((endpoint) => fetch(endpoint)
     .then((response) => response.json())
   )
-
-  console.log(req.headers)
-  console.log(req.headers['x-forwarded-for'])
 
   const relevant =['city', 'postal', 'latitude', 'longitude', 'loc', 'zip']
   const keepRelevant = (res) => Object.entries(res).filter(([key]) => relevant.includes(key))
