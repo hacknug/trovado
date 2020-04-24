@@ -47,14 +47,22 @@
             <BaseButton size="xl" type="submit">Search</BaseButton>
           </div>
         </form>
-        <div v-if="suggestions" class="mt-8">
-          <dl class="owl:mt-2 owl:mr-4 owl:-ml-2 flex flex-wrap">
-            <dt class="w-full mb-1 text-gray-500">Suggestions</dt>
-            <dd v-for="(suggestion, index) in suggestions" :key="index" class="text-sm font-medium leading-5">
-              <g-link :to="`/shops?q=${suggestion}`" class="inline-flex items-center px-2.5 py-0.5 rounded-md bg-gray-100 text-gray-800">{{ suggestion }}</g-link>
-            </dd>
-          </dl>
-        </div>
+        <transition
+          enter-active-class="transition duration-200 ease-out"
+          enter-class="transform scale-95 opacity-0"
+          enter-to-class="transform scale-100 opacity-100"
+          leave-active-class="transition duration-75 ease-in"
+          leave-class="transform scale-100 opacity-100"
+          leave-to-class="transform scale-95 opacity-0"
+          ><div v-show="suggestions.length" class="mt-8">
+            <dl class="owl:mt-2 owl:mr-2 flex flex-wrap text-sm">
+              <dt class="w-full mb-1 text-gray-500">Suggestions</dt>
+              <dd v-for="(suggestion, index) in suggestions" :key="index" class="font-medium leading-5">
+                <g-link :to="`/shops?q=${suggestion}`" class="inline-flex items-center px-2.5 py-0.5 rounded-md bg-gray-100 text-gray-800">{{ suggestion }}</g-link>
+              </dd>
+            </dl>
+          </div>
+        </transition>
       </div>
     </BaseContainer>
 
