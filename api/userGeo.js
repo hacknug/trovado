@@ -10,6 +10,9 @@ module.exports = async (req, res) => {
     .then((response) => response.json())
   )
 
+  console.log(req.headers)
+  console.log(req.headers['x-forwarded-for'])
+
   const relevant =['city', 'postal', 'latitude', 'longitude', 'loc', 'zip']
   const keepRelevant = (res) => Object.entries(res).filter(([key]) => relevant.includes(key))
   const normalize = (res, ...keys) => res.map((entries) => Object.entries(renameKey(Object.fromEntries(entries), ...keys)))
