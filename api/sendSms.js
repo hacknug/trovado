@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
       from: '+12182428999', to: lookup.phoneNumber,
     }).then((message) => message)
 
-    return res.json({ lookup, message })
+    return res.json({ env: process.env, lookup, message })
 
   } catch {
     return res.json('Make sure the number included its country code')
