@@ -11,8 +11,8 @@
           <rect y="72" width="640" height="640" class="text-gray-50" fill="currentColor" />
           <rect x="118" width="404" height="784" fill="url(#9ebea6f4-a1f5-4d96-8c4e-4c2abf658047)" />
         </svg>
-        <figure class="-translate-y-1/8 -translate-x-1/6 absolute top-0 transform">
-          <g-image class="w-10/12" src="~/assets/img/cart.png" alt="Shopping cartio" />
+        <figure class="-translate-x-1/4 absolute inset-0 flex items-center w-full h-full transform">
+          <ShoppingCart class="w-full" />
         </figure>
       </span>
     </div>
@@ -21,7 +21,7 @@
 
       <div class="lg:hidden z-0 mb-8">
           <figure class="translate-x-1/4 translate-y-1/12 transform">
-            <g-image class="h-72 w-auto -mt-20" src="~/assets/img/cart.png" alt="Shopping cart" />
+            <ShoppingCart class="h-72 w-auto -mt-20" />
           </figure>
       </div>
 
@@ -71,12 +71,14 @@ import { transitions } from '~/mixins/Transitions'
 import BaseContainer from '~/components/base/BaseContainer'
 import BaseButton from '~/components/base/BaseButton'
 import BaseInput from '~/components/base/BaseInput'
+import ShoppingCart from '~/components/icon/ShoppingCart'
 
 export default {
   name: 'HeroSearch',
   mixins: [transitions],
   components: {
     BaseContainer, BaseButton, BaseInput,
+    ShoppingCart,
     VueTyper: () =>
       import ('vue-typer')
       .then(m => m.VueTyper)
