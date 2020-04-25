@@ -6,12 +6,13 @@ const client = require('twilio')(process.env.GRIDSOME_TWILIO_SID, process.env.GR
 
 module.exports = async (req, res) => {
   // console.log(req.query)
-  // console.log(req.query.to)
+  console.log({ env: process.env })
 
   // const verification = client.verify.services('VA4e40249804661e51caf7b7c608a4b81b')
   //   .verifications
   //   .create({to: '+34665886414', channel: 'sms'})
   //   .then((verification) => verification)
+
 
   try {
     const lookup = await client.lookups.phoneNumbers(req.query.to).fetch()
@@ -20,7 +21,7 @@ module.exports = async (req, res) => {
       from: '+12182428999', to: lookup.phoneNumber,
     }).then((message) => message)
 
-    return res.json({ env: process.env, lookup, message })
+    return res.json({ lookup, message })
 
   } catch {
     return res.json('Make sure the number included its country code')
