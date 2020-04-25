@@ -1,24 +1,27 @@
 <template>
   <div class="lg:max-w-xs w-full max-w-lg">
-
     <label for="search" class="sr-only">Search</label>
 
     <div class="relative">
       <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
         <SearchIcon class="w-5 h-5 text-gray-400" />
       </div>
+      <div v-if="searchTerm" class="absolute inset-y-0 right-0 flex items-center pr-3">
+        <button @click="clearSearch" class="hover:text-gray-700 focus:outline-none focus:shadow-outline-blue flex items-center justify-center w-5 h-5 p-1 -m-1 text-xs leading-none text-gray-500 bg-gray-100 rounded-full">✕</button>
+      </div>
+
       <input
         id="search"
         v-model="searchTerm"
         type="search"
         placeholder="Looking for an item?"
         class="focus:outline-none focus:placeholder-gray-400 focus:border-blue-300 focus:shadow-outline-blue sm:text-sm block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md"
-        :class="[searchResults.length && 'rounded-b-none']"
+        :class="[isFocused && searchResults.length && 'rounded-b-none']"
+        @focus="isFocused = true"
+        @blur="isFocused = false"
       />
-      <div v-if="searchTerm" class="absolute inset-y-0 right-0 flex items-center pr-3">
-        <button @click="searchTerm = ''" class="hover:text-gray-700 focus:outline-none focus:shadow-outline-blue flex items-center justify-center w-5 h-5 p-1 -m-1 text-xs leading-none text-gray-500 bg-gray-100 rounded-full">✕</button>
-      </div>
-      <dl v-if="searchResults.length" class="top-full sm:text-sm absolute inset-x-0 text-sm leading-4">
+
+      <dl v-if="isFocused && searchResults.length" class="top-full sm:text-sm absolute inset-x-0 text-sm leading-4">
         <div class="rounded-b-md py-1 -mt-px bg-white border border-gray-300">
           <dt class="sr-only">Results</dt>
           <div class="owl:border-t">
@@ -31,6 +34,7 @@
           </div>
         </div>
       </dl>
+
     </div>
 
   </div>
@@ -43,11 +47,16 @@ export default {
   name: 'SiteNavigationSearch',
   components: { SearchIcon },
   data: () => ({
+    isFocused: false,
     searchTerm: '',
     searchResults: [],
     token: 'pk.eyJ1IjoiaGFja251ZyIsImEiOiJjazhjMDN2Mm4waDN6M2VtamV3ZmdnMjB4In0.SQvCWv7t6pKfk_HOK_sZQg',
   }),
   methods: {
+    clearSearch () {
+      this.searchTerm = ''
+      this.searchResults = []
+    },
     fetchResults () {
       if (this.searchTerm.length > 2) {
         fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${this.searchTerm}.json?access_token=${this.token}`)
