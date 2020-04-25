@@ -51,9 +51,16 @@ export default {
       }
     },
   },
+  watch: {
+    $route: {
+      immediate: true,
+      handler (to, from) {
+        this.queryCenter = to.query.q
+      },
+    },
+  },
   mounted () {
     this.geolocateUser()
-    this.queryCenter = this.$route.query.q
   },
 }
 </script>
