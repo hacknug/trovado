@@ -1,11 +1,11 @@
 <template>
   <Layout>
     <template slot="bleed">
-      <FetchShops :center="center || userLocation" v-slot="{ features, loading }">
+      <FetchShops :center="center || pageCenter" v-slot="{ features, loading }">
         <ShopFilters
           :shops="features"
           :loading="loading"
-          :userLocation="userLocation"
+          :userLocation="pageCenter"
           @changeCenter="center = $event"
         />
       </FetchShops>
@@ -27,8 +27,15 @@ export default {
   data () {
     return {
       center: null,
+      queryCenter: null,
       userLocation: null,
     }
+  },
+  computed: {
+    pageCenter () {
+      const q = this.queryCenter && this.queryCenter.split(',')
+      return q && q.length > 1 ? { lat: q[1], lng: q[0] } : this.userLocation
+    },
   },
   methods: {
     makeLngLat: (coords) => ({ lat: coords.latitude, lng: coords.longitude }),
@@ -46,6 +53,7 @@ export default {
   },
   mounted () {
     this.geolocateUser()
+    this.queryCenter = this.$route.query.q
   },
 }
 </script>
