@@ -8,5 +8,6 @@ dist
 .env.*
 
 .now
+now.json
 # Local Netlify folder
 .netlify
