@@ -38,14 +38,8 @@
     class="sm:inset-0 sm:p-0 sm:flex sm:items-center sm:justify-center fixed inset-x-0 bottom-0 z-50 px-4 pb-6"
     @keydown.esc="$emit('close')"
   >
-    <transition
-      enter-active-class="duration-300 ease-out"
-      enter-class="opacity-0"
-      enter-to-class="opacity-100"
-      leave-active-class="duration-200 ease-in"
-      leave-class="opacity-100"
-      leave-to-class="opacity-0"
-      ><div class="absolute inset-0 bg-gray-500 opacity-75" />
+    <transition v-bind="transitions.fade">
+      <div class="absolute inset-0 bg-gray-500 opacity-75" />
     </transition>
 
     <button class="bg-black-75 backdrop-blur absolute inset-0 z-0 w-full h-full" @click="$emit('close')" aria-label="Close Modal" />
@@ -57,8 +51,11 @@
 </template>
 
 <script>
+import { transitions } from '~/mixins/Transitions'
+
 export default {
   name: 'BaseModal',
+  mixins: [transitions],
   mounted () {
     this.$refs.modal?.focus()
   },

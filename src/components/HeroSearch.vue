@@ -47,14 +47,8 @@
             <BaseButton size="xl" type="submit">Search</BaseButton>
           </div>
         </form>
-        <transition
-          enter-active-class="transition duration-200 ease-out"
-          enter-class="transform scale-95 opacity-0"
-          enter-to-class="transform scale-100 opacity-100"
-          leave-active-class="transition duration-75 ease-in"
-          leave-class="transform scale-100 opacity-100"
-          leave-to-class="transform scale-95 opacity-0"
-          ><div v-show="suggestions.length" class="mt-8">
+        <transition v-bind="transitions.zoom">
+          <div v-show="suggestions.length" class="mt-8">
             <dl class="owl:mt-2 owl:mr-2 flex flex-wrap text-sm">
               <dt class="w-full mb-1 text-gray-500">Suggestions</dt>
               <dd v-for="(suggestion, index) in suggestions" :key="index" class="font-medium leading-5">
@@ -73,12 +67,14 @@
 </template>
 
 <script>
+import { transitions } from '~/mixins/Transitions'
 import BaseContainer from '~/components/base/BaseContainer'
 import BaseButton from '~/components/base/BaseButton'
 import BaseInput from '~/components/base/BaseInput'
 
 export default {
   name: 'HeroSearch',
+  mixins: [transitions],
   components: {
     BaseContainer, BaseButton, BaseInput,
     VueTyper: () =>

@@ -20,14 +20,8 @@
             <img class="w-8 h-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
           </button>
         </div>
-        <transition
-          enter-active-class="transition duration-200 ease-out"
-          enter-class="transform scale-95 opacity-0"
-          enter-to-class="transform scale-100 opacity-100"
-          leave-active-class="transition duration-75 ease-in"
-          leave-class="transform scale-100 opacity-100"
-          leave-to-class="transform scale-95 opacity-0"
-          ><div v-show="open" class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg">
+        <transition v-bind="transitions.zoom">
+          <div v-show="open" class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg">
             <div class="py-1 bg-white rounded-md shadow-xs">
               <button :key="key"
                 v-for="(item, key) in main"
@@ -59,11 +53,12 @@
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 
 import { alert } from '~/mixins/Alert'
+import { transitions } from '~/mixins/Transitions'
 import BaseButton from '~/components/base/BaseButton'
 
 export default {
   name: 'SiteNavigationUser',
-  mixins: [alert],
+  mixins: [alert, transitions],
   components: {
     BaseButton,
     UserAuthModal: () => import('~/components/UserAuthModal'),
