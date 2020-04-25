@@ -75,7 +75,7 @@
           <BaseButton v-if="edit" @click.native="updateStock" variant="primary" size="md">Update</BaseButton>
           <BaseButton v-if="!edit" @click.native="newStock = currentStock; edit = true" variant="secondary" size="md">Update Stock
             <template slot="icon">
-              <svg class="w-5 h-5 mr-2 text-gray-400 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6V10" /><path d="M12 14H12.01" /><path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" /></svg>
+              <EditIcon class="w-5 h-5 text-gray-400 stroke-current" />
             </template>
           </BaseButton>
         </div>
@@ -89,7 +89,7 @@
 <script>
 import deepmerge from 'deepmerge'
 import { mapState, mapMutations, mapActions } from 'vuex'
-import { BarChart2Icon, BookmarkIcon, CalendarIcon, ChevronDownIcon, MapPinIcon, MinusIcon, PlusIcon } from 'vue-feather-icons'
+import { BarChart2Icon, BookmarkIcon, CalendarIcon, ChevronDownIcon, EditIcon, MapPinIcon, MinusIcon, PlusIcon } from 'vue-feather-icons'
 
 import BaseButton from '~/components/base/BaseButton'
 
@@ -104,6 +104,7 @@ export default {
     BookmarkIcon,
     CalendarIcon,
     ChevronDownIcon,
+    EditIcon,
     MapPinIcon,
     MinusIcon,
     PlusIcon,
