@@ -5,16 +5,13 @@
 const client = require('twilio')(process.env.TWILIO_SID, process.env.TWILIO_TOKEN)
 
 module.exports = async (req, res) => {
-  // console.log(req.query)
-  console.log({ env: process.env })
-
   // const verification = client.verify.services('VA4e40249804661e51caf7b7c608a4b81b')
   //   .verifications
   //   .create({to: '+34665886414', channel: 'sms'})
   //   .then((verification) => verification)
 
-
   try {
+    // TODO: Prevent usage from outside the website
     const lookup = await client.lookups.phoneNumbers(req.query.to).fetch()
     const message = await client.messages.create({
       body: req.query.body || 'Placeholder message body',
