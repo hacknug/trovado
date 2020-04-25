@@ -10,7 +10,6 @@
       @mb-created="handleInstance"
       @mb-moveend="handleMoving"
     >
-      <MapboxGeocoder types="poi" :enableEventLogging="false" />
       <MapboxNavigationControl position="bottom-right" />
 
       <MapboxMarker v-for="{ id, geometry, properties } in shops" :key="id" :lngLat="geometry.coordinates" popup>
@@ -49,10 +48,6 @@ export default {
     MapboxNavigationControl: () =>
       import ('@studiometa/vue-mapbox-gl')
       .then(m => m.MapboxNavigationControl)
-      .catch(),
-    MapboxGeocoder: () =>
-      import ('@studiometa/vue-mapbox-gl')
-      .then(m => m.MapboxGeocoder)
       .catch(),
     MapboxLayer: () =>
       import ('@studiometa/vue-mapbox-gl')
