@@ -1,5 +1,5 @@
 <template functional>
-  <svg :class="data.class" height="41" width="27" viewBox="0 0 27 41">
+  <svg :class="[data.class, data.staticClass]" height="41" width="27" viewBox="0 0 27 41">
     <g fill-rule="nonzero">
       <g transform="translate(3.0, 29.0)" fill="#000000">
         <ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse>

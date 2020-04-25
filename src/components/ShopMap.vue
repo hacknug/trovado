@@ -16,6 +16,7 @@
       <MapboxMarker v-for="{ id, geometry, properties } in shops" :key="id" :lngLat="geometry.coordinates" popup>
         <template slot="popup"><pre>{{ { id, geometry, properties } }}</pre></template>
         <LocationPin :class="[
+          'block',
           properties.class === 'food_and_drink_stores' ? 'text-blue-600'
           : properties.class === 'medical' ? 'text-green-600'
           : 'text-gray-600',
