@@ -16,12 +16,10 @@
         type="search"
         placeholder="Looking for an item?"
         class="focus:outline-none focus:placeholder-gray-400 focus:border-blue-300 focus:shadow-outline-blue sm:text-sm block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md"
-        :class="[isFocused && searchResults.length && 'rounded-b-none']"
-        @focus="isFocused = true"
-        @blur="isFocused = false"
+        :class="[searchResults.length && 'rounded-b-none']"
       />
 
-      <dl v-if="isFocused && searchResults.length" class="top-full sm:text-sm absolute inset-x-0 text-sm leading-4">
+      <dl v-if="searchResults.length" class="top-full sm:text-sm absolute inset-x-0 text-sm leading-4">
         <div class="rounded-b-md py-1 -mt-px bg-white border border-gray-300">
           <dt class="sr-only">Results</dt>
           <div class="owl:border-t">
@@ -47,7 +45,6 @@ export default {
   name: 'SiteNavigationSearch',
   components: { SearchIcon },
   data: () => ({
-    isFocused: false,
     searchTerm: '',
     searchResults: [],
     token: 'pk.eyJ1IjoiaGFja251ZyIsImEiOiJjazhjMDN2Mm4waDN6M2VtamV3ZmdnMjB4In0.SQvCWv7t6pKfk_HOK_sZQg',
