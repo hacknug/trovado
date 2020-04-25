@@ -2,6 +2,8 @@ import PortalVue from 'portal-vue'
 import { firestorePlugin } from 'vuefire'
 import VueToast from 'vue-toast-notification'
 import 'vue-toast-notification/dist/theme-default.css'
+import VueTippy, { TippyComponent } from "vue-tippy"
+import "tippy.js/themes/light-border.css"
 
 import { parsePhoneNumberFromString } from 'libphonenumber-js'
 
@@ -14,6 +16,9 @@ export default function (Vue, { appOptions, router, head, isClient }) {
   Vue.use(PortalVue)
   Vue.use(firestorePlugin)
   Vue.use(VueToast)
+
+  Vue.use(VueTippy, { animateFill: false })
+  Vue.component('Tippy', TippyComponent)
 
   Vue.component('Layout', DefaultLayout)
 

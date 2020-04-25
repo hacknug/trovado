@@ -8,10 +8,10 @@
           <h3 class="text-xl font-semibold leading-7 text-gray-900 truncate">{{ shop.properties.name }}</h3>
           <p :class="className.label">{{ shop.properties.type }}</p>
           <div class="owl:ml-1 absolute top-0 right-0">
-            <BaseButton @click.native="$emit('flyTo', lngLat)" variant="secondary" size="xs">
+            <BaseButton v-tippy content="Show in map" @click.native="$emit('flyTo', lngLat)" variant="secondary" size="xs">
               <MapPinIcon class="group-hover:opacity-100 w-4 h-4 opacity-50 stroke-current" />
             </BaseButton>
-            <BaseButton @click.native="handleEdit('favourites', shop)" variant="secondary" size="xs">
+            <BaseButton v-tippy content="Add to favorites" @click.native="handleEdit('favourites', shop)" variant="secondary" size="xs">
               <BookmarkIcon class="w-4 h-4 stroke-current" :class="[isFavourite ? 'opacity-75 text-red-700 fill-current' : 'group-hover:opacity-100 opacity-50']" />
             </BaseButton>
           </div>
