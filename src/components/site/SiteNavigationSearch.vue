@@ -16,6 +16,7 @@
         v-model="searchTerm"
         type="search"
         placeholder="Looking for an item?"
+        autocomplete="off"
         class="focus:outline-none focus:placeholder-gray-400 focus:border-blue-300 focus:shadow-outline-blue sm:text-sm block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md"
         :class="[isFocused && searchResults.length && 'rounded-b-none']"
         @focus="show"
