@@ -2,7 +2,7 @@
 // Your Account Sid and Auth Token from twilio.com/console
 // DANGER! This is insecure. See http://twil.io/secure
 
-const client = require('twilio')(process.env.GRIDSOME_TWILIO_SID, process.env.GRIDSOME_TWILIO_TOKEN)
+const client = require('twilio')(process.env.TWILIO_SID, process.env.TWILIO_TOKEN)
 
 module.exports = async (req, res) => {
   // console.log(req.query)
