@@ -5,7 +5,7 @@ import 'vue-toast-notification/dist/theme-default.css'
 
 import { parsePhoneNumberFromString } from 'libphonenumber-js'
 
-import store from '~/store'
+import store from '~/store/'
 import DefaultLayout from '~/layouts/Default.vue'
 
 const { getCurrentUser } = process.isClient ? require('~/firebase') : import('~/firebase')
