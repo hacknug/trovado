@@ -1,6 +1,7 @@
-# Default starter for Gridsome
+# Trovado
+A safer way to shop during quarantine
 
-This is the project you get when you run `gridsome create new-project`.
+## Instructions
 
 ### 1. Install Gridsome CLI tool if you don't have
 
