@@ -55,7 +55,7 @@ export default {
   }),
   computed: {
     lastContext () {
-      return this.result.context.length ? this.result.context[this.result.context.length - 1] : {}
+      return this.filteredShops && this.result.context.length ? this.result.context[this.result.context.length - 1] : {}
     },
   },
   methods: {
