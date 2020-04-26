@@ -51,7 +51,6 @@ export default {
     isFocused: false,
     searchTerm: '',
     searchResults: [],
-    token: 'pk.eyJ1IjoiaGFja251ZyIsImEiOiJjazhjMDN2Mm4waDN6M2VtamV3ZmdnMjB4In0.SQvCWv7t6pKfk_HOK_sZQg',
   }),
   computed: {
     lastContext () {
@@ -74,7 +73,7 @@ export default {
     },
     fetchResults () {
       if (this.searchTerm.length > 2) {
-        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${this.searchTerm}.json?access_token=${this.token}`)
+        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${this.searchTerm}.json?access_token=${process.env.GRIDSOME_MAPBOX_TOKEN}`)
           .then((res) => res.json())
           .then((res) => this.searchResults = res.features)
       }
@@ -83,7 +82,6 @@ export default {
   watch: {
     searchTerm: 'fetchResults',
   },
-
   mounted () {
     this.popupItem = this.$el // re: `ClickOutside`
   },

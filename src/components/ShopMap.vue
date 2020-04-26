@@ -67,9 +67,7 @@ export default {
   data () {
     return {
       map: null,
-
-      // TODO: Load via process.env
-      token: 'pk.eyJ1IjoiaGFja251ZyIsImEiOiJjazhjMDN2Mm4waDN6M2VtamV3ZmdnMjB4In0.SQvCWv7t6pKfk_HOK_sZQg',
+      token: process.env.GRIDSOME_MAPBOX_TOKEN,
       style: 'mapbox://styles/hacknug/ck8lvwnj912cf1ilbq2wt1sz6',
     }
   },
