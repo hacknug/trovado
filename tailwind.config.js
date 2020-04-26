@@ -6,6 +6,9 @@ module.exports = {
       fontFamily: {
         sans: ['Inter Var', ...defaultTheme.fontFamily.sans],
       },
+      borderRadius: {
+        inherit: 'inherit',
+      },
     },
 
     aspectRatio: {

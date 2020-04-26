@@ -18,7 +18,6 @@
     </div>
 
     <BaseContainer class="md:py-16 lg:py-20 w-full h-full py-12 my-auto">
-
       <div class="lg:hidden z-0 mb-8">
           <figure class="translate-x-1/4 translate-y-1/12 transform">
             <ShoppingCart class="h-72 w-auto -mt-20" />
@@ -26,6 +25,7 @@
       </div>
 
       <div class="lg:w-1/2 relative z-10 flex flex-col justify-center h-full">
+
         <ClientOnly>
           <h2 class="sm:text-4xl sm:leading-10 flex flex-col text-3xl font-extrabold leading-9 tracking-tight">
             <span class="text-gray-900">Need <vue-typer :text="items" :shuffle="true" initialAction="erasing" />?</span>
@@ -34,19 +34,16 @@
           </h2>
         </ClientOnly>
         <p class="mt-3 text-lg leading-7 text-gray-500">{{ $t && $t('components.HeroSearch.description') }}</p>
-        <form class="flex mt-8" @submit.prevent="handleSubmit">
-          <!-- <BaseInput v-model="zipCode" placeholder="Enter your zip-code" aria-label="Zipcode" required /> -->
-          <input
-            required
-            v-model="zipCode"
-            placeholder="Enter your ZIP Code"
-            aria-label="Enter your ZIP Code"
-            class="focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:max-w-xs w-full px-5 py-3 text-base leading-6 text-gray-900 placeholder-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md appearance-none"
-          />
-          <div class="flex-shrink-0 ml-3 rounded-md shadow">
-            <BaseButton size="xl" type="submit">Search</BaseButton>
+
+        <form class="owl:ml-3 flex mt-8" @submit.prevent="handleSubmit">
+          <BaseInput class="sm:max-w-xs" v-model="searchTerm" size="xl" placeholder="Enter your ZIP Code" required>
+            <template #icon><SearchIcon class="text-current w-6 h-6" /></template>
+          </BaseInput>
+          <div class="flex-shrink-0">
+            <BaseButton class="shadow" size="xl" type="submit">Search</BaseButton>
           </div>
         </form>
+
         <transition v-bind="transitions.zoom">
           <div v-show="suggestions.length" class="mt-8">
             <dl class="owl:mt-2 owl:mr-2 flex flex-wrap text-sm">
@@ -60,6 +57,7 @@
             </dl>
           </div>
         </transition>
+
       </div>
     </BaseContainer>
 
@@ -67,6 +65,8 @@
 </template>
 
 <script>
+import { SearchIcon } from 'vue-feather-icons'
+
 import { transitions } from '~/mixins/Transitions'
 import BaseContainer from '~/components/base/BaseContainer'
 import BaseButton from '~/components/base/BaseButton'
@@ -77,6 +77,7 @@ export default {
   name: 'HeroSearch',
   mixins: [transitions],
   components: {
+    SearchIcon,
     BaseContainer, BaseButton, BaseInput,
     ShoppingCart,
     VueTyper: () =>
@@ -86,7 +87,7 @@ export default {
   },
   data () {
     return {
-      zipCode: '',
+      searchTerm: '',
       items: ['toilet paper', 'pasta', 'yeast', 'bread', 'rice', 'flour', 'hand sanitiser', 'cleaning products'],
       cities: new Set(),
       postitions: new Set(),
@@ -103,8 +104,7 @@ export default {
       // TODO: Save query in userData
       this.$router.push({
         path: 'shops',
-        params: { q: this.zipCode },
-        query: { q: this.zipCode },
+        query: { q: this.searchTerm },
       })
     },
   },
