@@ -4,16 +4,15 @@
 
     <BaseInput
       id="search"
-      ref="search"
-      autocomplete="off"
       v-model="searchTerm"
       type="search"
+      autocomplete="off"
       placeholder="Looking for an item?"
       :class="[isFocused && searchResults.length && 'rounded-b-none']"
       @clear="searchResults = []"
       @focus="show"
     >
-      <template #icon><SearchIcon class="text-current w-5 h-5" /></template>
+      <template slot="icon"><SearchIcon class="text-current w-5 h-5" /></template>
     </BaseInput>
 
     <dl v-if="isFocused && searchResults.length" class="top-full sm:text-sm absolute inset-x-0 text-sm leading-4">

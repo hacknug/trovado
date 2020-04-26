@@ -36,8 +36,8 @@
         <p class="mt-3 text-lg leading-7 text-gray-500">{{ $t && $t('components.HeroSearch.description') }}</p>
 
         <form class="owl:ml-3 flex mt-8" @submit.prevent="handleSubmit">
-          <BaseInput class="sm:max-w-xs" v-model="searchTerm" size="xl" placeholder="Enter your ZIP Code" required>
-            <template #icon><SearchIcon class="text-current w-6 h-6" /></template>
+          <BaseInput class="sm:max-w-xs" v-model="searchTerm" type="search" size="xl" placeholder="Enter your ZIP Code" required>
+            <template slot="icon"><SearchIcon class="text-current w-6 h-6" /></template>
           </BaseInput>
           <div class="flex-shrink-0">
             <BaseButton class="shadow" size="xl" type="submit">Search</BaseButton>
