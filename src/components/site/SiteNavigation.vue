@@ -13,10 +13,10 @@
           </div>
         </div>
 
-        <div class="lg:ml-6 lg:justify-end flex items-center justify-center flex-1 px-2">
-          <SiteNavigationSearch />
+        <div class="lg:ml-6 flex items-center justify-end flex-1 px-2">
+          <!-- <SiteNavigationSearch /> -->
+          <SiteNavigationLang />
         </div>
-        <SiteNavigationLang />
         <SiteNavigationUser />
 
         <div class="sm:hidden flex items-center -mr-2">
@@ -59,7 +59,7 @@
 <script>
 import { SearchIcon, MenuIcon } from 'vue-feather-icons'
 
-import SiteNavigationSearch from '~/components/site/SiteNavigationSearch'
+// import SiteNavigationSearch from '~/components/site/SiteNavigationSearch'
 import SiteNavigationLang from '~/components/site/SiteNavigationLang'
 import SiteNavigationUser from '~/components/site/SiteNavigationUser'
 
@@ -67,7 +67,7 @@ export default {
   name: 'SiteNavigation',
   components: {
     SearchIcon, MenuIcon,
-    SiteNavigationSearch,
+    // SiteNavigationSearch,
     SiteNavigationLang,
     SiteNavigationUser,
   },
