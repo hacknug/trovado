@@ -47,4 +47,9 @@ export default {
     font-size: 14px;
     @screen md { font-size: 16px; }
   }
+
+  .size-inherit {
+    width: inherit;
+    height: inherit;
+  }
 </style>

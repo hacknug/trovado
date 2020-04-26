@@ -24,7 +24,7 @@
           </figure>
       </div>
 
-      <div class="lg:w-1/2 relative z-10 flex flex-col justify-center h-full">
+      <div class="lg:w-1/2 lg:h-full relative z-10 flex flex-col justify-center">
 
         <ClientOnly>
           <h2 class="sm:text-4xl sm:leading-10 flex flex-col text-3xl font-extrabold leading-9 tracking-tight">
@@ -36,9 +36,7 @@
         <p class="mt-3 text-lg leading-7 text-gray-500">{{ $t && $t('components.HeroSearch.description') }}</p>
 
         <form class="owl:ml-3 flex mt-8" @submit.prevent="handleSubmit">
-          <BaseInput class="sm:max-w-xs" v-model="searchTerm" type="search" size="xl" placeholder="Enter your ZIP Code">
-            <template slot="icon"><SearchIcon class="text-current w-6 h-6" /></template>
-          </BaseInput>
+          <SiteNavigationSearch class="sm:max-w-xs" size="xl" placeholder="Enter your ZIP Code" />
           <div class="flex-shrink-0">
             <BaseButton class="shadow" size="xl" type="submit">Search</BaseButton>
           </div>
@@ -72,6 +70,7 @@ import BaseContainer from '~/components/base/BaseContainer'
 import BaseButton from '~/components/base/BaseButton'
 import BaseInput from '~/components/base/BaseInput'
 import ShoppingCart from '~/components/icon/ShoppingCart'
+import SiteNavigationSearch from '~/components/site/SiteNavigationSearch'
 
 export default {
   name: 'HeroSearch',
@@ -79,7 +78,7 @@ export default {
   components: {
     SearchIcon,
     BaseContainer, BaseButton, BaseInput,
-    ShoppingCart,
+    ShoppingCart, SiteNavigationSearch,
     VueTyper: () =>
       import ('vue-typer')
       .then(m => m.VueTyper)

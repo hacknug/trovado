@@ -1,8 +1,8 @@
 <template>
   <div class="relative rounded-md shadow-sm">
 
-    <div v-if="$slots.icon" :class="className" class="left-0">
-      <slot name="icon" />
+    <div v-if="$slots.icon" :class="className.position" class="left-0">
+      <span :class="className.size"><slot name="icon" /></span>
     </div>
 
     <input
@@ -12,8 +12,8 @@
       @focus="$emit('focus', $refs.input)"
     />
 
-    <div v-if="type === 'search' && value" :class="className" class="right-0">
-      <button @click="clear" class="hover:text-gray-700 focus:outline-none focus:shadow-outline-blue flex items-center justify-center w-5 h-5 p-1 -m-1 text-xs leading-none text-gray-500 bg-gray-100 rounded-full pointer-events-auto">✕</button>
+    <div v-if="type === 'search' && value" :class="className.position" class="right-0">
+      <button @click="clear" :class="className.size" class="hover:text-gray-700 focus:outline-none focus:shadow-outline-blue flex items-center justify-center p-1 -m-1 text-xs leading-none text-gray-500 bg-gray-100 rounded-full pointer-events-auto">✕</button>
     </div>
 
   </div>
@@ -78,13 +78,19 @@ export default {
     },
 
     className () {
-      return [
-        this.size === 'md' && this.$slots.icon && 'px-3',
-        this.size === 'xl' && this.$slots.icon && 'px-5',
-        'absolute inset-y-0 pointer-events-none',
-        'flex items-center text-gray-400',
-        // 'border border-transparent',
-      ]
+      return {
+        size: [
+          this.size === 'md' && 'w-5 h-5',
+          this.size === 'xl' && 'w-6 h-6',
+        ],
+        position: [
+          this.size === 'md' && this.$slots.icon && 'px-3',
+          this.size === 'xl' && this.$slots.icon && 'px-5',
+          'absolute inset-y-0 pointer-events-none',
+          'flex items-center text-gray-400',
+          // 'border border-transparent',
+        ],
+      }
     },
     defaultPlaceholder () {
       return this.type === 'email' ? 'stay.safe@home.com'
