@@ -47,13 +47,13 @@
       </header>
       <div v-if="loading" class="m-auto text-center">Loading…</div>
       <div v-else class="owl:mt-5">
-        <ShopCard :key="shop.id" v-for="shop in filteredShops" :id="String(shop.id)" :shop="shop" @flyTo="$refs.map.flyTo($event)" />
+        <ShopCard :key="shop.id" v-for="shop in sortedShops" :id="String(shop.id)" :shop="shop" @flyTo="$refs.map.flyTo($event)" />
       </div>
     </div>
 
     <div class="aspect-ratio-16/9 md:aspect-ratio-none relative sticky top-0 w-full max-h-screen">
       <div class="md:static absolute inset-0 w-full h-full">
-        <ShopMap v-if="userLocation" ref="map" :shops="filteredShops" :center="userLocation" @move="$emit('changeCenter', $event)" />
+        <ShopMap v-if="userLocation" ref="map" :shops="filteredShops" :center="userLocation" @move="changeCenter($event)" />
       </div>
     </div>
 
@@ -61,6 +61,7 @@
 </template>
 
 <script>
+import distance from '@turf/distance'
 import { FilterIcon } from 'vue-feather-icons'
 
 import BaseButton from '~/components/base/BaseButton'
@@ -82,6 +83,7 @@ export default {
   ],
   data () {
     return {
+      mapCenter: null,
       showFilters: false,
       shopTypeTerms: [ 'food_and_drink_stores', 'medical' ],
       shopTypes: {
@@ -99,6 +101,21 @@ export default {
     filteredShops () {
       return Object.values(this.shops)
         .filter((shop) => this.shopTypeTerms.includes(shop.properties.class))
+    },
+    sortedShops () {
+      return this.sortedShopsBy(this.mapCenter || this.userLocation)
+    }
+  },
+  methods: {
+    changeCenter (center) {
+      this.mapCenter = center
+      this.$emit('changeCenter', center)
+    },
+    sortedShopsBy ({ lng, lat } = {}) {
+      const distanceFromCenter = (coords) => distance(coords, [lng, lat])
+      return this.filteredShops
+        .map((shop) => ({ ...shop, distance: distanceFromCenter(shop.geometry.coordinates) }))
+        .sort((a, b) => a.distance - b.distance)
     },
   },
 }

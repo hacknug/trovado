@@ -38,7 +38,7 @@ export default {
     },
   },
   methods: {
-    makeLngLat: (coords) => ({ lat: coords.latitude, lng: coords.longitude }),
+    makeLngLat: ({ latitude: lat, longitude: lng }) => ({ lat, lng }),
     geolocateUser () {
       if (process.isClient) {
         // navigator.permissions.query({ name: 'geolocation' })
