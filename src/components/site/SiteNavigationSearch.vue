@@ -125,6 +125,9 @@ export default {
     hide () {
       this.isFocused = false
     },
+    lastContext (result) {
+      return result.context.length ? result.context[result.context.length - 1] : {}
+    },
     fetchResults () {
       if (this.searchTerm.length > 2) {
         fetch(`${this.apiBaseUrl}/${this.searchTerm}.json?${this.apiParams.toString()}`)
@@ -132,15 +135,18 @@ export default {
           .then((res) => this.searchResults = res.features)
       }
     },
-    lastContext (result) {
-      return result.context.length ? result.context[result.context.length - 1] : {}
-    },
     useCurrentLocation () {
       this.$store.dispatch('GET_USER_LOCATION')
     },
   },
   watch: {
     searchTerm: 'fetchResults',
+    userLocation (location) {
+      this.$router.push({
+        path: 'shops',
+        query: { q: `${location.lng},${location.lat}` },
+      })
+    },
   },
   mounted () {
     this.popupItem = this.$el // re: `ClickOutside`
