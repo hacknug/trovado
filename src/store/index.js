@@ -11,16 +11,17 @@ export default new Vuex.Store({
     user: auth?.currentUser,
     userData: {},
     userDataInit: false,
+    userLocation: {},
     authIntent: '',
   },
 
   getters: {
     userDoc: ({ user }) => user && db.collection('users').doc(user.uid),
-    // userAlias: ({ user, userData }) => userData?.userDetails?.displayName || user?.email,
+    userAlias: ({ user, userData }) => userData?.userDetails?.displayName || user?.email,
     userFavourites: ({ userData }) => userData && userData.favourites || {},
     // userPhotoURL: ({ userData }) => userData?.userDetails?.photoURL,
     // userBadgeURL: (state, { userFeaturedParts: { badges } }) => badges?.attachments?.[0]?.url || badges?.gameBadge[0]?.url,
-    // userAvatar: (state, { userPhotoURL, userBadgeURL }) => userBadgeURL || userPhotoURL,
+    userAvatar: (state, { userPhotoURL, userBadgeURL }) => userBadgeURL || userPhotoURL,
   },
 
   mutations: {
@@ -28,6 +29,9 @@ export default new Vuex.Store({
 
     SET_USER (state, user) {
       state.user = user
+    },
+    SET_USER_LOCATION (state, location) {
+      state.userLocation = location
     },
     SET_AUTH_INTENT (state, intent) {
       state.authIntent = intent
@@ -64,6 +68,17 @@ export default new Vuex.Store({
     },
     DELETE_ACCOUNT ({ state }) {
       return state.user.delete()
+    },
+
+    GET_USER_LOCATION ({ commit }) {
+      const makeLngLat = ({ latitude: lat, longitude: lng }) => ({ lat, lng })
+      // navigator.permissions.query({ name: 'geolocation' })
+      //   .then((status) => console.info(status))
+      return navigator.geolocation.getCurrentPosition(
+        (position) => commit('SET_USER_LOCATION', makeLngLat(position.coords)),
+        (error) => console.error(error),
+        { enableHighAccuracy: true },
+      )
     },
 
     async SET_USER_DOC ({ state, getters, dispatch }, doc = {}) {

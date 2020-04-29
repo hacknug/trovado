@@ -27,6 +27,7 @@ module.exports = {
   },
 
   variants: {
+    borderRadius: ['responsive', 'last'],
     borderWidth: ['responsive', 'owl'],
     margin: ['responsive', 'owl'],
     opacity: ['responsive', 'hover', 'focus', 'group-hover'],
