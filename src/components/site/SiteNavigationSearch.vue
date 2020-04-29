@@ -105,10 +105,9 @@ export default {
       }
     },
     apiParams () {
-      const locationString = this.userLocation.length ? this.userLocation.join(',') : false
       return new URLSearchParams({
         access_token: process.env.GRIDSOME_MAPBOX_TOKEN,
-        proximity: locationString,
+        ...this.userLocation.length && { proximity: this.userLocation.join(',') },
         limit: 5,
         // language: 'yo',
         // types: 'yo',
