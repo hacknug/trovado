@@ -37,22 +37,8 @@ export default {
   name: 'ShopMap',
   components: {
     LocationPin,
-    MapboxMap: () =>
-      import ('@studiometa/vue-mapbox-gl')
-      .then(m => m.MapboxMap)
-      .catch(),
-    MapboxMarker: () =>
-      import ('@studiometa/vue-mapbox-gl')
-      .then(m => m.MapboxMarker)
-      .catch(),
-    MapboxNavigationControl: () =>
-      import ('@studiometa/vue-mapbox-gl')
-      .then(m => m.MapboxNavigationControl)
-      .catch(),
-    MapboxLayer: () =>
-      import ('@studiometa/vue-mapbox-gl')
-      .then(m => m.MapboxLayer)
-      .catch(),
+    ...Object.fromEntries(['MapboxMap', 'MapboxMarker', 'MapboxNavigationControl', 'MapboxLayer']
+      .map((entry) => [entry, () => import ('@studiometa/vue-mapbox-gl').then(m => m[entry]).catch()])),
   },
   props: {
     shops: {
@@ -60,8 +46,9 @@ export default {
       required: false,
     },
     center: {
-      type: Object,
+      type: Array,
       required: false,
+      default: () => [ 0, 0 ],
     },
   },
   data () {
@@ -80,7 +67,8 @@ export default {
       this.map = mapboxInstance
     },
     handleMoving () {
-      this.$emit('move', this.map.getCenter())
+      const center = this.map.getCenter()
+      this.$emit('move', [center.lng, center.lat])
     },
   },
 }

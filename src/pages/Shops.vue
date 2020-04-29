@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import FetchShops from '~/components/FetchShops'
 import ShopFilters from '~/components/ShopFilters'
 
@@ -28,26 +30,20 @@ export default {
     return {
       center: null,
       queryCenter: null,
-      userLocation: null,
     }
   },
   computed: {
+    ...mapState(['userLocation']),
+
     pageCenter () {
-      const q = this.queryCenter && this.queryCenter.split(',')
-      return q && q.length > 1 ? { lat: q[1], lng: q[0] } : this.userLocation
+      const query = this.queryCenter && this.queryCenter.split(',')
+      return query && query.length > 1 ? query : this.userLocation
     },
   },
   methods: {
-    makeLngLat: ({ latitude: lat, longitude: lng }) => ({ lat, lng }),
-    geolocateUser () {
-      if (process.isClient) {
-        // navigator.permissions.query({ name: 'geolocation' })
-        //   .then((status) => console.info(status))
-        navigator.geolocation.getCurrentPosition(
-          (position) => this.userLocation = this.makeLngLat(position.coords),
-          (error) => console.error(error),
-          { enableHighAccuracy: true },
-        )
+    async geolocateUser () {
+      if (process.isClient && !this.userLocation.length) {
+        this.$store.dispatch('GET_USER_LOCATION')
       }
     },
   },

@@ -8,7 +8,7 @@
           <h3 class="text-xl font-semibold leading-7 text-gray-900 truncate">{{ shop.properties.name }}</h3>
           <p :class="className.label">{{ shop.properties.type }}</p>
           <div class="owl:ml-1 absolute top-0 right-0">
-            <BaseButton v-tippy content="Show in map" @click.native="$emit('flyTo', lngLat)" variant="secondary" size="xs">
+            <BaseButton v-tippy content="Show in map" @click.native="$emit('flyTo', shop.geometry.coordinates)" variant="secondary" size="xs">
               <MapPinIcon class="group-hover:opacity-100 w-4 h-4 opacity-50 stroke-current" />
             </BaseButton>
             <BaseButton v-tippy content="Add to favorites" @click.native="handleEdit('favourites', shop)" variant="secondary" size="xs">
@@ -160,10 +160,6 @@ export default {
       return (this.place && this.place.stock) ? this.remoteStock : this.mockStock
     },
 
-    lngLat () {
-      const [lng, lat] = this.shop.geometry.coordinates
-      return { lng, lat }
-    },
     isFavourite () {
       return this.userData && this.userData.favourites && this.userData.favourites[this.shop.id]
     },

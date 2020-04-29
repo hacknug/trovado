@@ -105,10 +105,7 @@ export default {
       }
     },
     apiParams () {
-      const locationString = Object.keys(this.userLocation).length
-        ? `${this.userLocation.lng},${this.userLocation.lat}`
-        : false
-
+      const locationString = this.userLocation.length ? this.userLocation.join(',') : false
       return new URLSearchParams({
         access_token: process.env.GRIDSOME_MAPBOX_TOKEN,
         proximity: locationString,
@@ -144,7 +141,7 @@ export default {
     userLocation (location) {
       this.$router.push({
         path: 'shops',
-        query: { q: `${location.lng},${location.lat}` },
+        query: { q: location.join(',') },
       })
     },
   },

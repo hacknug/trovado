@@ -11,7 +11,7 @@ export default new Vuex.Store({
     user: auth?.currentUser,
     userData: {},
     userDataInit: false,
-    userLocation: {},
+    userLocation: [],
     authIntent: '',
   },
 
@@ -71,7 +71,7 @@ export default new Vuex.Store({
     },
 
     GET_USER_LOCATION ({ commit }) {
-      const makeLngLat = ({ latitude: lat, longitude: lng }) => ({ lat, lng })
+      const makeLngLat = ({ latitude: lat, longitude: lng }) => [lng, lat]
       // navigator.permissions.query({ name: 'geolocation' })
       //   .then((status) => console.info(status))
       return navigator.geolocation.getCurrentPosition(

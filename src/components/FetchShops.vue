@@ -3,7 +3,7 @@ export default {
   name: 'FetchShops',
   props: {
     center: {
-      type: Object,
+      type: Array,
       required: false,
     }
   },
@@ -39,11 +39,10 @@ export default {
   },
   methods: {
     async fetchFeatures () {
-      if (this.center) {
-        const coords = `${this.center.lng},${this.center.lat}`
+      if (this.center && this.center.length) {
         const endpoint = 'https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v8/tilequery'
 
-        await fetch(`${endpoint}/${coords}.json?radius=500&limit=50&geometry=point&layers=poi_label&access_token=${process.env.GRIDSOME_MAPBOX_TOKEN}`)
+        await fetch(`${endpoint}/${this.center.join(',')}.json?radius=500&limit=50&geometry=point&layers=poi_label&access_token=${process.env.GRIDSOME_MAPBOX_TOKEN}`)
           .then((response) => response.json())
           .then((response) => {
             this.response = response.features

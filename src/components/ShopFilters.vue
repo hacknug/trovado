@@ -111,8 +111,8 @@ export default {
       this.mapCenter = center
       this.$emit('changeCenter', center)
     },
-    sortedShopsBy ({ lng, lat } = {}) {
-      const distanceFromCenter = (coords) => distance(coords, [lng, lat])
+    sortedShopsBy (center = []) {
+      const distanceFromCenter = (coords) => distance(coords, center)
       return this.filteredShops
         .map((shop) => ({ ...shop, distance: distanceFromCenter(shop.geometry.coordinates) }))
         .sort((a, b) => a.distance - b.distance)
