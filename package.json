@@ -16,10 +16,10 @@
     "gridsome": "0.7.14",
     "gridsome-plugin-i18n": "1.0.1",
     "libphonenumber-js": "1.7.51",
-    "mapbox-gl": "1.9.1",
+    "mapbox-gl": "1.10.0",
     "node-fetch": "2.6.0",
     "portal-vue": "2.1.7",
-    "twilio": "3.42.2",
+    "twilio": "3.43.0",
     "vue-click-outside": "1.1.0",
     "vue-feather-icons": "5.0.0",
     "vue-tippy": "4.4.0",
@@ -32,8 +32,8 @@
   "devDependencies": {
     "@hacknug/tailwindcss-alpha": "1.0.1",
     "@tailwindcss/ui": "0.2.2",
-    "electron": "8.2.3",
-    "gridsome-plugin-tailwindcss": "2.2.47",
+    "electron": "8.2.4",
+    "gridsome-plugin-tailwindcss": "2.2.48",
     "tailwindcss-aspect-ratio": "3.0.0",
     "tailwindcss-children": "2.0.0",
     "tailwindcss-filters": "3.0.0"
