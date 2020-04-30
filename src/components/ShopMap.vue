@@ -28,6 +28,7 @@
 
 <script>
 // TODO: Remove `electron` from dependencies (bug @ `@studiometa/vue-mapbox-gl`)
+import { GeolocateControl } from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
@@ -65,6 +66,10 @@ export default {
 
     handleInstance (mapboxInstance) {
       this.map = mapboxInstance
+      this.map.addControl(new GeolocateControl({
+        positionOptions: { enableHighAccuracy: true },
+        trackUserLocation: true,
+      }), 'top-right')
     },
     handleMoving () {
       const center = this.map.getCenter()
