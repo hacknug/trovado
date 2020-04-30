@@ -6,7 +6,7 @@ Vue.use(Vuex)
 
 const { auth, db, emailAuthProvider } = process.isClient ? require('~/firebase') : import('~/firebase')
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
     user: auth?.currentUser,
     userData: {},
@@ -26,6 +26,11 @@ export default new Vuex.Store({
 
   mutations: {
     ...vuexfireMutations,
+
+    initialiseStore (state) {
+      const localState = localStorage.getItem('store')
+      localState && this.replaceState(Object.assign(state, JSON.parse(localState)))
+    },
 
     SET_USER (state, user) {
       state.user = user
@@ -111,3 +116,10 @@ export default new Vuex.Store({
     }),
   },
 })
+
+store.subscribe((mutation, state) => {
+  // Store the state object as a JSON string
+  localStorage.setItem('store', JSON.stringify(state))
+})
+
+export default store

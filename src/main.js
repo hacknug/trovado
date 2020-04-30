@@ -26,6 +26,9 @@ export default function (Vue, { appOptions, router, head, isClient }) {
   Vue.filter('phone', (number, country, format = 'RFC3966') => parsePhoneNumberFromString(number, country).format(format))
 
   appOptions.store = store
+  appOptions.beforeCreate = function () {
+    this.$store.commit('initialiseStore')
+  }
 
   if (isClient) {
     appOptions.i18n.setLocaleMessage('en', require('./locales/en.json'))
