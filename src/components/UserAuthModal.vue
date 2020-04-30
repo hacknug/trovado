@@ -1,5 +1,5 @@
 <template>
-  <portal to="modal" v-if="isVisible">
+  <portal to="modal" v-if="isVisible" v-scroll-lock="isVisible">
     <BaseModal @close="$emit('close')" @prev="$emit('prev')" @next="$emit('next')">
       <BaseCard class="w-full" :class="[isAuthForm ? 'max-w-md' : 'max-w-xl']">
 
