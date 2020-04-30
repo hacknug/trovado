@@ -3,11 +3,13 @@
 
     <div @click="open = !open" class="sm:flex-row flex flex-col items-start justify-between flex-1 p-4">
 
-      <div class="relative flex-1 w-full">
-        <header class="flex flex-col-reverse">
-          <h3 class="text-xl font-semibold leading-7 text-gray-900 truncate">{{ shop.properties.name }}</h3>
-          <p :class="className.label">{{ shop.properties.type }}</p>
-          <div class="owl:ml-1 absolute top-0 right-0">
+      <div class="relative flex-1 w-full max-w-full">
+        <header class="owl:ml-2 flex w-full max-w-full">
+          <div class="flex flex-col-reverse flex-1 truncate">
+            <h3 class="text-xl font-semibold leading-7 text-gray-900 truncate">{{ shop.properties.name }}</h3>
+            <p :class="className.label">{{ shop.properties.type }}</p>
+          </div>
+          <div class="owl:ml-1 flex-none">
             <BaseButton v-tippy content="Show in map" @click.native.stop="$emit('flyTo', shop.geometry.coordinates)" variant="secondary" size="xs">
               <MapPinIcon class="group-hover:opacity-100 w-4 h-4 opacity-50 stroke-current" />
             </BaseButton>
