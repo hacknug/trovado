@@ -28,7 +28,7 @@ const store = new Vuex.Store({
     ...vuexfireMutations,
 
     initialiseStore (state) {
-      const localState = localStorage.getItem('store')
+      const localState = localStorage && localStorage.getItem('store')
       localState && this.replaceState(Object.assign(state, JSON.parse(localState)))
     },
 
@@ -119,7 +119,7 @@ const store = new Vuex.Store({
 
 store.subscribe((mutation, state) => {
   // Store the state object as a JSON string
-  localStorage.setItem('store', JSON.stringify(state))
+  localStorage && localStorage.setItem('store', JSON.stringify(state))
 })
 
 export default store
