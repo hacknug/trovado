@@ -12,7 +12,7 @@
         <slot name="bleed" />
       </div>
 
-      <div v-if="$slots.default" class="max-w-7xl sm:px-6 lg:px-8 mx-auto">
+      <div v-if="$slots.default" class="max-w-7xl sm:px-6 lg:px-8 w-full mx-auto">
         <!-- Replace with your content -->
         <div class="sm:px-0 px-4 py-8">
           <slot/>

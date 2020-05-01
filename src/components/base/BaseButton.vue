@@ -1,8 +1,11 @@
 <template>
-  <span class="focus:outline-none inline-flex rounded-md shadow-sm">
-
+  <span
+    class="focus:outline-none inline-flex rounded-md shadow-sm"
+    :class="[(isLoading || isDisabled) && 'opacity-50 pointer-events-none']"
+  >
     <button
       :type="type"
+      :disabled="isDisabled"
       :class="[
         'group',
         'inline-flex justify-center items-center w-full font-medium border',
@@ -46,6 +49,16 @@ export default {
       type: String,
       required: false,
       default: 'button',
+    },
+    isDisabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    isLoading: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
 }

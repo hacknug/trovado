@@ -23,13 +23,9 @@
         <transition v-bind="transitions.zoom">
           <div v-show="open" class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg">
             <div class="py-1 bg-white rounded-md shadow-xs">
-              <button :key="key"
-                v-for="(item, key) in main"
-                @click="setIntent(item)"
-                class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block w-full px-4 py-2 text-sm leading-5 text-left text-gray-700 transition duration-150 ease-in-out"
-                >{{ item }}</button>
-              <button @click="signOut" class="hover:bg-gray-100 focus:outline-none focus:bg-gray-100 block w-full px-4 py-2 text-sm leading-5 text-left text-gray-700 transition duration-150 ease-in-out"
-                >Sign Out</button>
+              <button @click="setIntent('Favourites')" :class="className">Favourites</button>
+              <g-link to="/user/settings" :class="className">Settings</g-link>
+              <button @click="signOut" :class="className">Sign Out</button>
             </div>
           </div>
         </transition>
@@ -68,7 +64,7 @@ export default {
       open: false,
       main: {
         favourites: 'Favourites',
-        // settings: 'Settings',
+        settings: 'Settings',
         // signOut: 'Sign Out',
       },
     }
@@ -76,6 +72,15 @@ export default {
   computed: {
     ...mapState(['user', 'authIntent']),
     ...mapGetters(['userAlias', 'userAvatar']),
+
+    className () {
+      return [
+        'block w-full px-4 py-2',
+        'text-gray-700 hover:bg-gray-100 focus:bg-gray-100',
+        'text-sm leading-5 text-left focus:outline-none',
+        'transition duration-150 ease-in-out',
+      ]
+    },
   },
   methods: {
     ...mapMutations(['SET_AUTH_INTENT']),

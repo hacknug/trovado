@@ -11,6 +11,9 @@ module.exports = {
       },
     },
 
+    container: {
+      center: true,
+    },
     aspectRatio: {
       'none': 0,
       'square': [1, 1],
