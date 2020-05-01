@@ -64,7 +64,9 @@
       </div>
     </div>
 
-    <ShopBookTime :open="isBooking" @close="isBooking = false" />
+    <ClientOnly>
+      <ShopBookTime :open="isBooking" @close="isBooking = false" />
+    </ClientOnly>
 
   </div>
 </template>
@@ -73,19 +75,14 @@
 import distance from '@turf/distance'
 import { FilterIcon } from 'vue-feather-icons'
 
-import BaseButton from '~/components/base/BaseButton'
-import ShopCard from '~/components/ShopCard'
-import ShopMap from '~/components/ShopMap'
-import ShopBookTime from '~/components/ShopBookTime'
-
 export default {
   name: 'ShopFilters',
   components: {
     FilterIcon,
-    BaseButton,
-    ShopCard,
-    ShopMap,
-    ShopBookTime,
+    BaseButton: () => import('~/components/base/BaseButton'),
+    ShopCard: () => import('~/components/ShopCard'),
+    ShopMap: () => import('~/components/ShopMap'),
+    ShopBookTime: () => import('~/components/ShopBookTime'),
   },
   props: [
     'shops',

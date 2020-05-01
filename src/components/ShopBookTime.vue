@@ -74,19 +74,14 @@ import { ChevronUpIcon, ChevronRightIcon, ChevronDownIcon, ChevronLeftIcon } fro
 
 import { alert } from '~/mixins/Alert'
 
-import BaseButton from '~/components/base/BaseButton'
-import BaseCard from '~/components/base/BaseCard'
-import BaseModal from '~/components/base/BaseModal'
-
 export default {
   name: 'ShopBookTime',
   mixins: [alert],
   components: {
-    ChevronUpIcon,
-    ChevronRightIcon,
-    ChevronDownIcon,
-    ChevronLeftIcon,
-    BaseButton, BaseCard, BaseModal,
+    ChevronUpIcon, ChevronRightIcon, ChevronDownIcon, ChevronLeftIcon,
+    BaseButton: () => import('~/components/base/BaseButton'),
+    BaseCard: () => import('~/components/base/BaseCard'),
+    BaseModal: () => import('~/components/base/BaseModal'),
     VueMeetingSelector,
   },
   props: {
