@@ -10,6 +10,8 @@
       @mb-created="handleInstance"
       @mb-moveend="handleMoving"
     >
+      <MapboxNavigationControl position="bottom-right" />
+
       <MapboxMarker v-for="{ id, geometry, properties } in shops" :key="id" :lngLat="geometry.coordinates" popup>
         <template slot="popup"><pre>{{ { id, geometry, properties } }}</pre></template>
         <LocationPin :class="[
@@ -26,7 +28,6 @@
 
 <script>
 // TODO: Remove `electron` from dependencies (bug @ `@studiometa/vue-mapbox-gl`)
-import { GeolocateControl, NavigationControl } from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
@@ -36,7 +37,7 @@ export default {
   name: 'ShopMap',
   components: {
     LocationPin,
-    ...Object.fromEntries(['MapboxMap', 'MapboxMarker', 'MapboxLayer']
+    ...Object.fromEntries(['MapboxMap', 'MapboxMarker', 'MapboxNavigationControl', 'MapboxLayer']
       .map((entry) => [entry, () => import ('@studiometa/vue-mapbox-gl').then(m => m[entry]).catch()])),
   },
   props: {
@@ -64,15 +65,6 @@ export default {
 
     handleInstance (mapboxInstance) {
       this.map = mapboxInstance
-
-      if (process.isClient) {
-        this.map.addControl(new NavigationControl({
-        }), 'top-right')
-        this.map.addControl(new GeolocateControl({
-          positionOptions: { enableHighAccuracy: true },
-          trackUserLocation: true,
-        }), 'top-right')
-      }
     },
     handleMoving () {
       const center = this.map.getCenter()
