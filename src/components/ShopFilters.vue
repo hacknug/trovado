@@ -91,7 +91,7 @@ export default {
   ],
   data () {
     return {
-      isBooking: true,
+      isBooking: false,
       mapCenter: null,
       showFilters: false,
       shopTypeTerms: [ 'food_and_drink_stores', 'medical' ],
