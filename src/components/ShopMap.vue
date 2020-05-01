@@ -10,7 +10,7 @@
       @mb-created="handleInstance"
       @mb-moveend="handleMoving"
     >
-      <MapboxNavigationControl position="bottom-right" />
+      <MapboxNavigationControl />
 
       <MapboxMarker v-for="{ id, geometry, properties } in shops" :key="id" :lngLat="geometry.coordinates" popup>
         <template slot="popup"><pre>{{ { id, geometry, properties } }}</pre></template>
