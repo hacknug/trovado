@@ -38,7 +38,7 @@
             </div>
           </dl>
 
-          <BaseButton :disabled="true" variant="secondary" size="sm">
+          <BaseButton @click.native.stop="$emit('bookTime', shop)" variant="secondary" size="sm">
             <template slot="icon"><CalendarIcon class="w-5 h-5 text-blue-600 stroke-current" /></template> Save your Timeslot
           </BaseButton>
 

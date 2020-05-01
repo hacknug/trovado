@@ -47,7 +47,14 @@
       </header>
       <div v-if="loading" class="m-auto text-center">Loading…</div>
       <div v-else class="owl:mt-5">
-        <ShopCard :key="shop.id" v-for="shop in sortedShops" :id="String(shop.id)" :shop="shop" @flyTo="$refs.map.flyTo($event)" />
+        <ShopCard
+          :key="shop.id"
+          v-for="shop in sortedShops"
+          :id="String(shop.id)"
+          :shop="shop"
+          @flyTo="$refs.map.flyTo($event)"
+          @bookTime="isBooking = $event"
+        />
       </div>
     </div>
 
@@ -56,6 +63,8 @@
         <ShopMap v-if="userLocation" ref="map" :shops="filteredShops" :center="userLocation" @move="changeCenter($event)" />
       </div>
     </div>
+
+    <ShopBookTime :open="isBooking" @close="isBooking = false" />
 
   </div>
 </template>
@@ -67,6 +76,7 @@ import { FilterIcon } from 'vue-feather-icons'
 import BaseButton from '~/components/base/BaseButton'
 import ShopCard from '~/components/ShopCard'
 import ShopMap from '~/components/ShopMap'
+import ShopBookTime from '~/components/ShopBookTime'
 
 export default {
   name: 'ShopFilters',
@@ -75,6 +85,7 @@ export default {
     BaseButton,
     ShopCard,
     ShopMap,
+    ShopBookTime,
   },
   props: [
     'shops',
@@ -83,6 +94,7 @@ export default {
   ],
   data () {
     return {
+      isBooking: true,
       mapCenter: null,
       showFilters: false,
       shopTypeTerms: [ 'food_and_drink_stores', 'medical' ],
