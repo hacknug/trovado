@@ -32,7 +32,7 @@
         <dt class="sr-only">Results</dt>
         <div class="owl:border-t">
           <dd v-for="result in searchResults" :key="result.id" class="block border-gray-100">
-            <g-link @click.native="hide" :to="`/shops?q=${result.center.join(',')}`" :class="className.item">
+            <g-link @click.native="hide" :to="$tp && $tp(`/shops?q=${result.center.join(',')}`)" :class="className.item">
               <span :class="[className.icon, className.code]">{{ lastContext(result).short_code }}</span>
               <span class="w-full truncate">{{ result.place_name }}</span>
             </g-link>

@@ -47,7 +47,7 @@
             <dl class="owl:mt-2 owl:mr-2 flex flex-wrap text-sm">
               <dt class="w-full mb-1 text-gray-500">Suggestions</dt>
               <dd v-for="(suggestion, index) in suggestions" :key="index" class="font-medium leading-5">
-                <g-link :to="`/shops?q=${suggestion}`"
+                <g-link :to="$tp && $tp(`/shops?q=${suggestion}`)"
                   class="focus:outline-none focus:shadow-outline inline-flex items-center px-2.5 py-0.5 rounded-md bg-gray-100 text-gray-800"
                 >{{ suggestion }}
                 </g-link>

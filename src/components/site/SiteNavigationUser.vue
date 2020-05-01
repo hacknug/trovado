@@ -24,7 +24,7 @@
           <div v-show="open" class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg">
             <div class="py-1 bg-white rounded-md shadow-xs">
               <button @click="setIntent('Favourites')" :class="className">Favourites</button>
-              <g-link to="/user/settings" :class="className">Settings</g-link>
+              <g-link :to="$tp && $tp('/user/settings/')" :class="className">Settings</g-link>
               <button @click="signOut" :class="className">Sign Out</button>
             </div>
           </div>

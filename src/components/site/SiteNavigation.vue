@@ -6,10 +6,10 @@
 
         <div class="flex">
           <div class="flex items-center flex-shrink-0">
-            <g-link class="owl:ml-3 inline-flex items-center text-xl font-black text-blue-600" to="/">{{ siteName }}</g-link>
+            <g-link class="owl:ml-3 inline-flex items-center text-xl font-black text-blue-600" :to="$tp && $tp('/')">{{ siteName }}</g-link>
           </div>
           <div data-nav="desktop" class="sm:ml-12 sm:flex owl:ml-8 hidden">
-            <g-link :key="route" v-for="(label, route) in main" :class="className.nav.desktop" :to="route">{{ label }}</g-link>
+            <g-link :key="route" v-for="(label, route) in main" :class="className.nav.desktop" :to="$tp && $tp(route)">{{ label }}</g-link>
           </div>
         </div>
 
@@ -31,7 +31,7 @@
     <div :class="{ 'block': open, 'hidden': !open }" class="sm:hidden">
 
       <div data-nav="mobile" class="owl:mt-1 pt-2 pb-3">
-        <g-link :key="route" v-for="(label, route) in main" :class="className.nav.mobile" :to="route">{{ label }}</g-link>
+        <g-link :key="route" v-for="(label, route) in main" :class="className.nav.mobile" :to="$tp && $tp(route)">{{ label }}</g-link>
       </div>
 
       <div class="pt-4 pb-3 border-t border-gray-200">
