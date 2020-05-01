@@ -64,12 +64,15 @@ export default {
 
     handleInstance (mapboxInstance) {
       this.map = mapboxInstance
-      this.map.addControl(new NavigationControl({
-      }), 'top-right')
-      this.map.addControl(new GeolocateControl({
-        positionOptions: { enableHighAccuracy: true },
-        trackUserLocation: true,
-      }), 'top-right')
+
+      if (process.isClient) {
+        this.map.addControl(new NavigationControl({
+        }), 'top-right')
+        this.map.addControl(new GeolocateControl({
+          positionOptions: { enableHighAccuracy: true },
+          trackUserLocation: true,
+        }), 'top-right')
+      }
     },
     handleMoving () {
       const center = this.map.getCenter()
