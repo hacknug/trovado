@@ -2,7 +2,7 @@
   <portal to="modal" v-if="open" v-scroll-lock="open">
     <BaseModal @close="$emit('close')" @prev="$emit('prev')" @next="$emit('next')">
       <BaseCard class="w-full max-w-3xl">
-        <template slot="title">{{ open.properties.name || `Save your Timeslot` }}</template>
+        <template slot="title">{{ open.properties && open.properties.name || `Save your Timeslot` }}</template>
         <template slot="description">Shop safer by letting everyone know when you're planning to go.</template>
 
         <VueMeetingSelector
@@ -60,7 +60,7 @@
 
         <footer class="owl:ml-4 flex justify-center">
           <BaseButton @click.native="$emit('close')" size="md" variant="secondary">Cancel</BaseButton>
-          <BaseButton @click.native.prevent="alert('ok', meeting)" size="md" variant="primary">Book your Timeslot</BaseButton>
+          <BaseButton @click.native.prevent="bookTimeSlot" size="md" variant="primary">Book your Timeslot</BaseButton>
         </footer>
 
       </BaseCard>
@@ -98,7 +98,7 @@ export default {
       loading: true,
 
       limit: 12,
-      daysPerPage: 3,
+      daysPerPage: 4,
     }
   },
   computed: {
@@ -157,6 +157,13 @@ export default {
       this.meetingsDays = await this.getMeetings(this.offsetDate(offset))
       this.loading = false
     },
+
+    bookTimeSlot () {
+      this.alert(...(this.meeting
+        ? ['ok', new Date(this.meeting.date).toDateString()]
+        : ['no', 'Please pick a timeslot']
+      ))
+    },
   },
   mounted () {
     this.fetchMeetingDays()
@@ -177,9 +184,9 @@ export default {
   & .tab__days__meetings { @apply grid grid-cols-6 w-3/4 gap-1.5 !important; }
   & .tab__days__meetings .meeting { @apply w-full !important; }
   & .tab__days__meetings .meeting__button {
-    @apply flex justify-center w-full m-0 bg-gray-50-50 border-2 border-solid border-gray-100 font-normal text-center rounded !important;
-    &:matches(.meeting__button--selected) { @apply bg-blue-50-50 border-blue-300 !important; }
-    &:matches(:hover, :focus) { @apply bg-blue-50-50 border-blue-100 !important; }
+    @apply flex justify-center w-full m-0 py-1 px-3 bg-gray-50-25 border border-solid border-gray-200 font-normal text-center rounded;
+    &:matches(.meeting__button--selected) { @apply bg-blue-50-50 border-blue-200 !important; }
+    &:matches(:hover, :focus) { @apply bg-blue-50-25 border-blue-100; }
   }
 }
 </style>
