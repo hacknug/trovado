@@ -72,7 +72,7 @@ export default {
           'focus:outline-none focus:shadow-outline-blue transition duration-150 ease-in-out appearance-none',
 
           // this.type === 'checkbox' ? 'form-checkbox w-11 h-11' : 'form-input max-w-full',
-          // this.isDisabled ? 'bg-white-125 cursor-not-allowed opacity-50' : '',
+          this.isDisabled && 'cursor-not-allowed opacity-50',
         ],
       }
     },
