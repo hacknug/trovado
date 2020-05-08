@@ -29,9 +29,9 @@
               <dd class="font-medium">
                 <button
                   class="owl:ml-1 inline-flex items-center px-2.5 py-0.5 rounded-md font-medium leading-5 focus:outline-none focus:shadow-outline-blue"
-                  :class="classNames[averageLabels[average]]"
+                  :class="classNames[averageStock]"
                   aria-label="See Details"
-                  ><span>{{ averageLabels[average] }}</span>
+                  ><span>{{ averageStock }}</span>
                   <ChevronDownIcon class="w-5 h-5" :class="[open && 'transform rotate-180']" />
                 </button>
               </dd>
@@ -132,7 +132,6 @@ export default {
       edit: false,
       place:  null,
       newStock: null,
-      average: 0,
       sum: null,
 
       recipe: {
@@ -154,6 +153,17 @@ export default {
       return [...this.recipe.stocks].pop()
     },
 
+    averageStock () {
+      const labels = ['None', 'Low', 'Medium', 'High']
+      const stocks = [ 'sold out', '1-10 qty', '10-30 qty', '+30 qty' ]
+      const remoteAverage = Object.entries(this.remoteStock)
+        .filter(([, { availability }]) => availability !== 'no info')
+      const labelIndex = Math.ceil(remoteAverage.map(([, { availability }]) => availability)
+        .map((availability) => stocks.indexOf(availability))
+        .reduce((acc, val) => acc + val, 0) / remoteAverage.length)
+
+      return labels[labelIndex] || 'Unknown'
+    },
     remoteStock () {
       return Object.fromEntries(Object.entries(this.place ? this.place.stock : {})
         .sort((a, b) => this.recipe.items.indexOf(a[1].product) - this.recipe.items.indexOf(b[1].product)))
@@ -166,9 +176,6 @@ export default {
       return this.userData && this.userData.favourites && this.userData.favourites[this.shop.id]
     },
 
-    averageLabels () {
-      return [ 'Unknown', 'None', 'Low', 'Medium', 'High' ]
-    },
     className () {
       return {
         label: [
