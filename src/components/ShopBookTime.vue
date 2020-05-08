@@ -1,7 +1,7 @@
 <template>
   <portal to="modal" v-if="open" v-scroll-lock="open">
     <BaseModal @close="$emit('close')" @prev="$emit('prev')" @next="$emit('next')">
-      <BaseCard class="w-full max-w-3xl">
+      <BaseCard class="w-full max-w-3xl overflow-y-auto rounded-lg">
         <template slot="title">{{ open.properties && open.properties.name || `Save your Timeslot` }}</template>
         <template slot="description">Shop safer by letting everyone know when you're planning to go.</template>
 
@@ -173,15 +173,29 @@ export default {
 
 <style lang="postcss" scoped>
 ::v-deep {
-  & .tab > * + * { @apply ml-6; }
+  & .tab {
+    @apply flex flex-col !important;
+    @screen md { @apply flex-row !important; }
+
+    & > * + * {
+      @apply mt-6 !important;
+      @screen md { @apply mt-0 ml-6 !important; }
+    }
+  }
+
   & .tab__pagination { @apply flex flex-col !important; }
   & .tab__pagination > *:nth-child(1) { @apply mb-auto !important; }
   & .tab__pagination > * + * { @apply mt-2 !important; }
+
   & .tab__days { @apply flex flex-col !important; }
   & .tab__day { @apply flex flex-row border-b-0 !important; }
   & .tab__day + .tab__day { @apply mt-6 !important; }
+  & .tab__day > * + * { @apply ml-6 !important; }
   & .tab__days__day-display { @apply w-1/4 text-left !important; }
-  & .tab__days__meetings { @apply grid grid-cols-6 w-3/4 gap-1.5 !important; }
+  & .tab__days__meetings {
+    @apply grid grid-cols-3 w-3/4 gap-1.5 !important;
+    @screen md { @apply grid-cols-6 !important; }
+  }
   & .tab__days__meetings .meeting { @apply w-full !important; }
   & .tab__days__meetings .meeting__button {
     @apply flex justify-center w-full m-0 py-1 px-3 bg-gray-50-25 border border-solid border-gray-200 font-normal text-center rounded;
