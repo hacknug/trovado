@@ -159,8 +159,9 @@ export default {
     },
 
     bookTimeSlot () {
+      const date = new Date(this.meeting.date)
       this.alert(...(this.meeting
-        ? ['ok', new Date(this.meeting.date).toDateString()]
+        ? ['ok', `${date.toDateString()} ${date.toTimeString()}`]
         : ['no', 'Please pick a timeslot']
       ))
     },
@@ -187,7 +188,7 @@ export default {
   & .tab__pagination > *:nth-child(1) { @apply mb-auto !important; }
   & .tab__pagination > * + * { @apply mt-2 !important; }
 
-  & .tab__days { @apply flex flex-col !important; }
+  & .tab__days { @apply flex flex-col p-0 !important; }
   & .tab__day { @apply flex flex-none flex-row border-b-0 !important; }
   & .tab__day + .tab__day { @apply mt-6 !important; }
   & .tab__day > * + * { @apply ml-6 !important; }

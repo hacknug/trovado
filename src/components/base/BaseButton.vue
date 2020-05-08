@@ -1,7 +1,7 @@
 <template>
   <span
     class="focus:outline-none inline-flex rounded-md shadow-sm"
-    :class="[(isLoading || isDisabled) && 'opacity-50 pointer-events-none']"
+    :class="[(isLoading || isDisabled) && 'opacity-50']"
   >
     <button
       :type="type"
@@ -18,6 +18,7 @@
         size === 'xl' && 'px-6 py-3 text-base leading-6 rounded-md',
         variant === 'primary' && 'text-white bg-blue-600 hover:bg-blue-500 active:bg-blue-700 border-transparent focus:border-blue-700',
         variant === 'secondary' && 'text-gray-700 hover:text-gray-500 active:text-gray-800 bg-white active:bg-gray-50 border-gray-300 focus:border-blue-300',
+        (isLoading || isDisabled) && 'cursor-not-allowed',
       ]"
     >
       <span v-if="$slots.icon" class="flex items-center mr-2.5 -ml-0.5">
