@@ -58,9 +58,9 @@
 
         </VueMeetingSelector>
 
-        <footer class="owl:ml-4 flex justify-center">
+        <footer class="owl:ml-4 sticky bottom-0 flex justify-center p-4 -mx-4 -mb-8 bg-white border-t border-gray-200">
           <BaseButton @click.native="$emit('close')" size="md" variant="secondary">Cancel</BaseButton>
-          <BaseButton @click.native.prevent="bookTimeSlot" size="md" variant="primary">Book your Timeslot</BaseButton>
+          <BaseButton @click.native.prevent="bookTimeSlot" size="md" variant="primary" :isDisabled="!meeting">Book your Timeslot</BaseButton>
         </footer>
 
       </BaseCard>
