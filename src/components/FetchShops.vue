@@ -11,6 +11,7 @@ export default {
     return {
       features: {},
       loading: true,
+      endpoint: 'https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v8/tilequery',
       blacklist: {
         class: [
           'lodging', 'education', 'food_and_drink', 'public_facilities', 'historic',
@@ -31,6 +32,17 @@ export default {
       },
     }
   },
+  computed: {
+    queryParams () {
+      return new URLSearchParams({
+        access_token: process.env.GRIDSOME_MAPBOX_TOKEN,
+        radius: 500,
+        limit: 50,
+        geometry: 'point',
+        layers: 'poi_label',
+      })
+    },
+  },
   render () {
     return this.$scopedSlots.default({
       features: this.features,
@@ -40,9 +52,9 @@ export default {
   methods: {
     async fetchFeatures () {
       if (this.center && this.center.length) {
-        const endpoint = 'https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v8/tilequery'
+        this.loading = true
 
-        await fetch(`${endpoint}/${this.center.join(',')}.json?radius=500&limit=50&geometry=point&layers=poi_label&access_token=${process.env.GRIDSOME_MAPBOX_TOKEN}`)
+        await fetch(`${this.endpoint}/${this.center.join(',')}.json?${this.queryParams.toString()}`)
           .then((response) => response.json())
           .then((response) => {
             this.response = response.features

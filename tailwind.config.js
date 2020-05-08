@@ -27,6 +27,9 @@ module.exports = {
     backdropFilter: {
       blur: 'blur(0.25rem)',
     },
+    spinner: (theme) => ({
+      default: { color: theme('colors.blue.600'), border: theme('spacing.1'), },
+    }),
   },
 
   variants: {
@@ -39,6 +42,7 @@ module.exports = {
 
   plugins: [
     require('@tailwindcss/ui'),
+    require('tailwindcss-spinner')(),
     require('tailwindcss-aspect-ratio'),
 
     require('tailwindcss-filters'),

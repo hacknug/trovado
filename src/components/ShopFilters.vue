@@ -6,7 +6,7 @@
         <div class="bg-gray-50 md:p-5 z-10 flex items-center justify-between px-4 py-3 border-b border-gray-200">
           <div class="owl:ml-2 flex">
             <h2 class="sm:text-3xl sm:leading-9 sm:truncate text-2xl font-bold leading-7 text-gray-900">Closest Shops</h2>
-            <p class="sm:text-3xl sm:leading-9 sm:truncate text-2xl font-bold leading-7 text-blue-600">{{ Object.keys(filteredShops).length }}</p>
+            <p class="sm:text-3xl sm:leading-9 sm:truncate text-2xl font-bold leading-7 text-blue-600" :class="[loading && 'spinner']">{{ Object.keys(filteredShops).length }}</p>
           </div>
           <div class="owl:ml-2 flex">
             <BaseButton @click.native="showFilters = !showFilters" variant="secondary" size="sm">
@@ -45,7 +45,7 @@
           </dl>
         </div>
       </header>
-      <div v-if="loading" class="m-auto text-center">Loading…</div>
+      <div v-if="!shops && loading" class="m-auto text-center">Loading…</div>
       <div v-else class="owl:mt-5">
         <ShopCard
           :key="shop.id"
