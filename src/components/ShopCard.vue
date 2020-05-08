@@ -38,7 +38,7 @@
             </div>
           </dl>
 
-          <BaseButton @click.native.stop="$emit('bookTime', shop)" variant="secondary" size="sm">
+          <BaseButton @click.native.stop="!user ? SET_AUTH_INTENT('Sign Up') : $emit('bookTime', shop)" variant="secondary" size="sm">
             <template slot="icon"><CalendarIcon class="w-5 h-5 text-blue-600 stroke-current" /></template> Save your Timeslot
           </BaseButton>
 
@@ -99,7 +99,7 @@ const { db } = process.isClient ? require('~/firebase') : import('~/firebase')
 const places = db && db.collection('places')
 
 export default {
-  name: 'ShopCardMapbox',
+  name: 'ShopCard',
   components: {
     BaseButton,
     BarChart2Icon,
