@@ -2,7 +2,7 @@
   <Layout>
     <template slot="bleed">
       <FetchShops :center="center || pageCenter" v-slot="{ features, loading }">
-        <ShopFilters
+        <Shops
           :shops="features"
           :loading="loading"
           :userLocation="pageCenter"
@@ -17,10 +17,10 @@
 import { mapState } from 'vuex'
 
 import FetchShops from '~/components/FetchShops'
-import ShopFilters from '~/components/ShopFilters'
+import Shops from '~/components/Shops'
 
 export default {
-  components: { FetchShops, ShopFilters },
+  components: { FetchShops, Shops },
   metaInfo () {
     return {
       title: this.$t && this.$t('navigation.main.shops'),

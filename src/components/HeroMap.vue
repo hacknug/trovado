@@ -23,7 +23,7 @@
 
       <div class="sm:rounded-lg relative mt-12 overflow-hidden bg-white shadow">
         <div class="aspect-ratio-16/9">
-          <ShopMap :shops="shops" :filteredShops="filteredShops" class="sm:rounded-lg absolute inset-0 w-full h-full" style="position: absolute;" />
+          <ShopsMap :shops="shops" :filteredShops="filteredShops" class="sm:rounded-lg absolute inset-0 w-full h-full" style="position: absolute;" />
         </div>
       </div>
 
@@ -33,13 +33,13 @@
 
 <script>
 import BaseContainer from '~/components/base/BaseContainer'
-import ShopMap from '~/components/ShopMap'
+import ShopsMap from '~/components/ShopsMap'
 
 export default {
   name: 'HeroMap',
   components: {
     BaseContainer,
-    ShopMap,
+    ShopsMap,
     VueTyper: () =>
       import ('vue-typer')
       .then(m => m.VueTyper)

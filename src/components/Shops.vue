@@ -60,12 +60,12 @@
 
     <div class="aspect-ratio-16/9 md:aspect-ratio-none relative sticky top-0 w-full max-h-screen">
       <div class="md:static absolute inset-0 w-full h-full">
-        <ShopMap v-if="userLocation" ref="map" :shops="filteredShops" :center="userLocation" @move="changeCenter($event)" />
+        <ShopsMap v-if="userLocation" ref="map" :shops="filteredShops" :center="userLocation" @move="changeCenter($event)" />
       </div>
     </div>
 
     <ClientOnly>
-      <ShopBookTime :open="isBooking" @close="isBooking = false" />
+      <ShopsBookTime :open="isBooking" @close="isBooking = false" />
     </ClientOnly>
 
   </div>
@@ -76,13 +76,13 @@ import distance from '@turf/distance'
 import { FilterIcon } from 'vue-feather-icons'
 
 export default {
-  name: 'ShopFilters',
+  name: 'Shops',
   components: {
     FilterIcon,
     BaseButton: () => import('~/components/base/BaseButton'),
     ShopCard: () => import('~/components/ShopCard'),
-    ShopMap: () => import('~/components/ShopMap'),
-    ShopBookTime: () => import('~/components/ShopBookTime'),
+    ShopsMap: () => import('~/components/ShopsMap'),
+    ShopsBookTime: () => import('~/components/ShopsBookTime'),
   },
   props: [
     'shops',

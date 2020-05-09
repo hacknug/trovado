@@ -75,7 +75,7 @@ import { ChevronUpIcon, ChevronRightIcon, ChevronDownIcon, ChevronLeftIcon } fro
 import { alert } from '~/mixins/Alert'
 
 export default {
-  name: 'ShopBookTime',
+  name: 'ShopsBookTime',
   mixins: [alert],
   components: {
     ChevronUpIcon, ChevronRightIcon, ChevronDownIcon, ChevronLeftIcon,

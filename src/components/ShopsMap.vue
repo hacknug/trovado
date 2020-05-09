@@ -34,7 +34,7 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 import LocationPin from '~/components/icon/LocationPin'
 
 export default {
-  name: 'ShopMap',
+  name: 'ShopsMap',
   components: {
     LocationPin,
     ...Object.fromEntries(['MapboxMap', 'MapboxMarker', 'MapboxNavigationControl', 'MapboxLayer']
