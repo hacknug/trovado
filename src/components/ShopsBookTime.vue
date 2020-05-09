@@ -161,9 +161,10 @@ export default {
     bookTimeSlot () {
       const date = new Date(this.meeting.date)
       this.alert(...(this.meeting
-        ? ['ok', `${date.toDateString()} ${date.toTimeString()}`]
+        ? ['ok', `${date.toDateString()} @ ${date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`]
         : ['no', 'Please pick a timeslot']
       ))
+      this.$emit('close')
     },
   },
   mounted () {
