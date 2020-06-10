@@ -9609,10 +9609,10 @@ tailwindcss-aspect-ratio@3.0.0:
   dependencies:
     lodash "^4.17.15"
 
-tailwindcss-children@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/tailwindcss-children/-/tailwindcss-children-2.0.0.tgz#5a714d22395f8bb1c1959e1c93c38eac254313cd"
-  integrity sha512-2g38wdgdt/zcwW0kDM85DpnwSkiWNMMYUa0xmOpTukKCTfhEAA5kXHlYpZscskQIRtvtIYzepMZRP7TOcLkJBQ==
+tailwindcss-children@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/tailwindcss-children/-/tailwindcss-children-2.1.0.tgz#364ef860f62bc7e31bc66548c4eae945fed1ac6f"
+  integrity sha512-ND+qLjco864/h85VUhF8LpNimZefcskGUdt9R94NXA+QWNqKVp5HmfILYgPioCZ+zUr7LmV+C6ijpaiwTSKZxA==
   dependencies:
     lodash "^4.17.15"
     postcss-selector-parser "^6.0.2"
