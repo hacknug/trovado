@@ -7,7 +7,7 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
-    "@gridsome/plugin-google-analytics": "0.1.0",
+    "@gridsome/plugin-google-analytics": "0.1.1",
     "@mapbox/mapbox-gl-geocoder": "4.5.1",
     "@studiometa/vue-mapbox-gl": "1.2.1",
     "@turf/distance": "6.0.1",
