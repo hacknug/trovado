@@ -10250,10 +10250,10 @@ uuid@^3.0.1, uuid@^3.3.2, uuid@^3.4.0:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
-v-scroll-lock@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/v-scroll-lock/-/v-scroll-lock-1.1.1.tgz#dd917d8d14c01bc8230f994774d81d0e548df8b3"
-  integrity sha512-OSQqsS6sZRr0HTxOpwA4W84MEIhkwxuahGx4SaLrp8ldfDsF/GWkOADYL+trrshJfqTzExIvzixKV16mA6JZIQ==
+v-scroll-lock@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/v-scroll-lock/-/v-scroll-lock-1.2.0.tgz#4ff919d5d5e32de103efa04496d551d421343053"
+  integrity sha512-SpwHPHV32pipU0HDuOR8rPgrU1vx8bf/aRN+d7NKQfLtEP4+c6IyAXFogYlLwZ9Ml73GsjGb7JH5YiE3iDAWLA==
   dependencies:
     body-scroll-lock "^2.6.4"
 
