@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@hacknug/tailwindcss-alpha": "1.0.1",
-    "@tailwindcss/ui": "0.2.2",
+    "@tailwindcss/ui": "0.3.0",
     "electron": "9.0.3",
     "gridsome-plugin-tailwindcss": "2.2.48",
     "tailwindcss-aspect-ratio": "3.0.0",
