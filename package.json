@@ -15,7 +15,7 @@
     "firebase": "7.15.0",
     "gridsome": "0.7.14",
     "gridsome-plugin-i18n": "1.2.2",
-    "libphonenumber-js": "1.7.51",
+    "libphonenumber-js": "1.7.52",
     "mapbox-gl": "1.10.1",
     "node-fetch": "2.6.0",
     "portal-vue": "2.1.7",
