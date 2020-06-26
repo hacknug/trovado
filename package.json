@@ -14,7 +14,7 @@
     "deepmerge": "4.2.2",
     "firebase": "7.15.5",
     "gridsome": "0.7.14",
-    "gridsome-plugin-i18n": "1.2.2",
+    "gridsome-plugin-i18n": "1.4.0",
     "libphonenumber-js": "1.7.53",
     "mapbox-gl": "1.11.0",
     "node-fetch": "2.6.0",
