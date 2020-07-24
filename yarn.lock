@@ -4917,10 +4917,10 @@ grid-index@^1.1.0:
   resolved "https://registry.yarnpkg.com/grid-index/-/grid-index-1.1.0.tgz#97f8221edec1026c8377b86446a7c71e79522ea7"
   integrity sha512-HZRwumpOGUrHyxO5bqKZL0B0GlUpwtCAzZ42sgxUPniu33R1LSFH5yrIcBCHjkctCAh3mtWKcKd9J4vDDdeVHA==
 
-gridsome-plugin-i18n@1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/gridsome-plugin-i18n/-/gridsome-plugin-i18n-1.2.2.tgz#064c8d4d2349b2b683f525d9d5a6bf9f6ac348a3"
-  integrity sha512-RJUcn1U8chclZDi0g5YSvfG23V+awq8U/Y7supyEREXVYGCjo/FDMeDr/E5m05cy0IGuZDU+JaaxLtQKyGIY8w==
+gridsome-plugin-i18n@1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/gridsome-plugin-i18n/-/gridsome-plugin-i18n-1.5.1.tgz#fe1977611219428f28fef5420dc190323acacc32"
+  integrity sha512-DYPyrX9zK5R9uoKfb6DMgV/1v0frhWDKzmF9A4PCuC+dBEpWA4OVZVaj1oPqNV0sHdI9dIb0j7Nsu//9G8OgyQ==
   dependencies:
     core-js "^3.6.4"
     vue-i18n "^8.15.5"
