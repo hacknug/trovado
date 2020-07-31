@@ -28,7 +28,7 @@
     "vue-tippy": "4.5.1",
     "vue-toast-notification": "0.4.1",
     "vue-typer": "1.2.0",
-    "vuefire": "2.2.3",
+    "vuefire": "2.2.4",
     "vuex": "3.5.1",
     "vuexfire": "3.2.3"
   },
