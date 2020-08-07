@@ -30,7 +30,7 @@
     "vue-typer": "1.2.0",
     "vuefire": "2.2.4",
     "vuex": "3.5.1",
-    "vuexfire": "3.2.3"
+    "vuexfire": "3.2.4"
   },
   "devDependencies": {
     "@hacknug/tailwindcss-alpha": "1.0.1",
