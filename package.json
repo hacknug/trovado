@@ -19,7 +19,7 @@
     "mapbox-gl": "1.12.0",
     "node-fetch": "2.6.0",
     "portal-vue": "2.1.7",
-    "twilio": "3.48.2",
+    "twilio": "3.49.0",
     "v-scroll-lock": "1.2.0",
     "vue-click-outside": "1.1.0",
     "vue-feather-icons": "5.1.0",
