@@ -12,7 +12,7 @@
     "@studiometa/vue-mapbox-gl": "1.2.1",
     "@turf/distance": "6.0.1",
     "deepmerge": "4.2.2",
-    "firebase": "7.19.1",
+    "firebase": "7.20.0",
     "gridsome": "0.7.20",
     "gridsome-plugin-i18n": "1.2.2",
     "libphonenumber-js": "1.7.57",
