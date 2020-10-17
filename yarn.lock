@@ -6094,10 +6094,10 @@ levenary@^1.1.1:
   dependencies:
     leven "^3.1.0"
 
-libphonenumber-js@1.8.3:
-  version "1.8.3"
-  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.8.3.tgz#aa1c9d9d4fc8f3f9392480c76fedd5e7e1adc064"
-  integrity sha512-F7h0pzzXh3ishzW2ZZF0tJNs1+SHovvSIDefqoOv2bNCxAmLxxz2Bkbav6pl9M12QFVK25EQo1l5aq8MvDOnPQ==
+libphonenumber-js@1.8.4:
+  version "1.8.4"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.8.4.tgz#e84eaa25b96bfebb2ac1a5c847b7f7f17da5bd59"
+  integrity sha512-s0fTPZRB4hcsfDL9p6wUNOLngVh4y3fBPhH33dL7OfkHA2RirI8p3rlR+4f4SMxdcng9jPNOweS2Z47BivHMYw==
   dependencies:
     minimist "^1.2.5"
     xml2js "^0.4.17"
