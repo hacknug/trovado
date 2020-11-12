@@ -1358,12 +1358,10 @@
     escape-string-regexp "^1.0.5"
     lodash.deburr "^4.1.0"
 
-"@studiometa/vue-mapbox-gl@1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@studiometa/vue-mapbox-gl/-/vue-mapbox-gl-1.2.1.tgz#9031baeada47d5add792459cb43319b263f33f1c"
-  integrity sha512-VORPD8fGDYvCiv5+sm0Dqq4y6TI2JnpIVDMEo0vy6/SodxoJI/wwYr+LuugsQhiJNcHAKdJ4k1tqrcr7kIQ/sA==
-  dependencies:
-    resize-observer-polyfill "^1.5.1"
+"@studiometa/vue-mapbox-gl@1.3.3":
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/@studiometa/vue-mapbox-gl/-/vue-mapbox-gl-1.3.3.tgz#34e8c6f53b1797422b71b641cc930abcf1744483"
+  integrity sha512-Ye+iMEabs8yRRc3MqV36v7pJZAu0hl3K7g8dwhPsSEGr/DgY/UHQvz269iDyJt+BX2Z+CKR2LOMwx1YmTpCqnQ==
 
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
@@ -8767,11 +8765,6 @@ requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
-
-resize-observer-polyfill@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
-  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
 resolve-cwd@^2.0.0:
   version "2.0.0"
