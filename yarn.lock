@@ -10391,10 +10391,10 @@ vue-loader@^15.7.1:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-meeting-selector@1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/vue-meeting-selector/-/vue-meeting-selector-1.0.7.tgz#4a45e397d08e4163a183ab9a14c6385de37cb9e6"
-  integrity sha512-3Bqo1eRiYAK9fUoIHscZmDh1gTAHWf+nJLGdJc69tPm0mTx4uO0sVuJGqN8rDhX5PbhPKCtjApt3yemua4fBUw==
+vue-meeting-selector@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/vue-meeting-selector/-/vue-meeting-selector-1.1.0.tgz#1473d94daccfad0ebbcefc6f3c16e75d8d57e443"
+  integrity sha512-KzqoeciV3RQIWJ0vjO4CwNuC/zkzovTuRaIuWDmWtuh/DKu7/Dwteyq4uW9dhDDqi3TcEByqVgdgs6Wcz1u6nw==
   dependencies:
     vue "^2.6.10"
 
