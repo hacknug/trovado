@@ -1358,10 +1358,10 @@
     escape-string-regexp "^1.0.5"
     lodash.deburr "^4.1.0"
 
-"@studiometa/vue-mapbox-gl@1.3.3":
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/@studiometa/vue-mapbox-gl/-/vue-mapbox-gl-1.3.3.tgz#34e8c6f53b1797422b71b641cc930abcf1744483"
-  integrity sha512-Ye+iMEabs8yRRc3MqV36v7pJZAu0hl3K7g8dwhPsSEGr/DgY/UHQvz269iDyJt+BX2Z+CKR2LOMwx1YmTpCqnQ==
+"@studiometa/vue-mapbox-gl@1.4.4":
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/@studiometa/vue-mapbox-gl/-/vue-mapbox-gl-1.4.4.tgz#c4a2194b18f9fb5b978b82115b0d35178423f32f"
+  integrity sha512-icKBjcOplHrfoe7j+EDfIZK269yl8Y/+HysuPYWAVykuXVLG1YU7nMDSvaARMuIEm1MykvTV7497AvICXdpZUw==
 
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
