@@ -1,7 +1,7 @@
 <template>
   <div class="relative flex overflow-hidden" style="min-height: 50vh;">
-    <div class="lg:block lg:absolute lg:inset-0 hidden">
-      <span class="left-1/2 absolute top-0 transform translate-x-64 -translate-y-8">
+    <div class="hidden lg:block lg:absolute lg:inset-0">
+      <span class="absolute top-0 transform translate-x-64 -translate-y-8 left-1/2">
         <svg class="" width="640" height="784" fill="none" viewBox="0 0 640 784">
           <defs>
             <pattern id="9ebea6f4-a1f5-4d96-8c4e-4c2abf658047" x="118" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -11,23 +11,23 @@
           <rect y="72" width="640" height="640" class="text-gray-50" fill="currentColor" />
           <rect x="118" width="404" height="784" fill="url(#9ebea6f4-a1f5-4d96-8c4e-4c2abf658047)" />
         </svg>
-        <figure class="-translate-x-1/4 absolute inset-0 flex items-center w-full h-full transform">
+        <figure class="absolute inset-0 flex items-center w-full h-full transform -translate-x-1/4">
           <ShoppingCart class="w-full" />
         </figure>
       </span>
     </div>
 
-    <BaseContainer class="md:py-16 lg:py-20 w-full h-full py-12 my-auto">
-      <div class="lg:hidden z-0 mb-8">
-          <figure class="translate-x-1/4 translate-y-1/12 transform">
-            <ShoppingCart class="h-72 w-auto -mt-20" />
+    <BaseContainer class="w-full h-full py-12 my-auto md:py-16 lg:py-20">
+      <div class="z-0 mb-8 lg:hidden">
+          <figure class="transform translate-x-1/4 translate-y-1/12">
+            <ShoppingCart class="w-auto -mt-20 h-72" />
           </figure>
       </div>
 
-      <div class="lg:w-1/2 lg:h-full relative z-10 flex flex-col justify-center">
+      <div class="relative z-10 flex flex-col justify-center lg:w-1/2 lg:h-full">
 
         <ClientOnly>
-          <h2 class="sm:text-4xl sm:leading-10 flex flex-col text-3xl font-extrabold leading-9 tracking-tight">
+          <h2 class="flex flex-col text-3xl font-extrabold leading-9 tracking-tight sm:text-4xl sm:leading-10">
             <span class="text-gray-900">Need <vue-typer :text="items" :shuffle="true" initialAction="erasing" />?</span>
             <span class="text-blue-600">{{ $t && $t('components.HeroSearch.title')[1] }}</span>
             <!-- <span class="text-blue-600">Optimise your supermarket &amp; pharmacy visit during the COVID-19 quarantine.</span> -->
@@ -35,7 +35,7 @@
         </ClientOnly>
         <p class="mt-3 text-lg leading-7 text-gray-500">{{ $t && $t('components.HeroSearch.description') }}</p>
 
-        <form class="owl:ml-3 flex mt-8" @submit.prevent="handleSubmit">
+        <form class="flex mt-8 owl:ml-3" @submit.prevent="handleSubmit">
           <SiteNavigationSearch class="sm:max-w-xs" size="xl" placeholder="Enter your ZIP Code" />
           <div class="flex-shrink-0">
             <BaseButton class="shadow" size="xl" type="submit">Search</BaseButton>
@@ -44,7 +44,7 @@
 
         <transition v-bind="transitions.zoom">
           <div v-show="suggestions.length" class="mt-8">
-            <dl class="owl:mt-2 owl:mr-2 flex flex-wrap text-sm">
+            <dl class="flex flex-wrap text-sm owl:mt-2 owl:mr-2">
               <dt class="w-full mb-1 text-gray-500">Suggestions</dt>
               <dd v-for="(suggestion, index) in suggestions" :key="index" class="font-medium leading-5">
                 <g-link :to="$tp && $tp(`/shops?q=${suggestion}`)"
@@ -89,13 +89,13 @@ export default {
       searchTerm: '',
       items: ['toilet paper', 'pasta', 'yeast', 'bread', 'rice', 'flour', 'hand sanitiser', 'cleaning products'],
       cities: new Set(),
-      postitions: new Set(),
+      positions: new Set(),
       zipcodes: new Set(),
     }
   },
   computed: {
     suggestions () {
-      return [ ...this.zipcodes, ...this.postitions, ...this.cities ]
+      return [ ...this.cities, ...this.zipcodes, ...this.positions ]
     },
   },
   methods: {
@@ -111,9 +111,12 @@ export default {
     fetch('/api/userGeo')
       .then((response) => response.json())
       .then((data) => data.forEach((res) => {
-        this.cities = new Set(this.cities.add(res.city))
-        this.postitions = new Set(this.postitions.add(`${res.longitude},${res.latitude}`))
-        this.zipcodes = new Set(this.zipcodes.add(res.postal))
+        if (res.city)
+          this.cities = new Set(this.cities.add(res.city))
+        if (res.postal)
+          this.zipcodes = new Set(this.zipcodes.add(res.postal))
+        // if (res.longitude && res.latitude)
+        //   this.positions = new Set(this.positions.add(`${res.longitude},${res.latitude}`))
       }))
   },
 }
