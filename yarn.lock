@@ -6350,10 +6350,10 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-mapbox-gl@1.13.0:
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/mapbox-gl/-/mapbox-gl-1.13.0.tgz#23b339ba5116b7e3b5a2043ea968f7fcb53e34a6"
-  integrity sha512-g8zlzuJxYJqbOPXT19/UBYpVrcefBQ06F/Cbj0fyEfFnFesDcU3cFTxd75/FZ6Upx2ZEjCsD61CHxrcxZidVpA==
+mapbox-gl@1.13.1:
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/mapbox-gl/-/mapbox-gl-1.13.1.tgz#322efe75ab4c764fc4c776da1506aad58d5a5b9d"
+  integrity sha512-GSyubcoSF5MyaP8z+DasLu5v7KmDK2pp4S5+VQ5WdVQUOaAqQY4jwl4JpcdNho3uWm2bIKs7x1l7q3ynGmW60g==
   dependencies:
     "@mapbox/geojson-rewind" "^0.5.0"
     "@mapbox/geojson-types" "^1.0.2"
@@ -10372,10 +10372,10 @@ vue-tippy@4.7.2:
     humps "^2.0.1"
     tippy.js "^4.3.5"
 
-vue-toast-notification@0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/vue-toast-notification/-/vue-toast-notification-0.6.1.tgz#0ee0d75cba500a342f720107fc4d09cfaa84aa31"
-  integrity sha512-RahxClHqgCW8Ch1Gt2es1veeDuNBP9UFfvIUqO1VzTWrURqEE4mZvQ4+KcowcwwYk7lVX493d/+lrbCBf7mxCw==
+vue-toast-notification@0.5.4:
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/vue-toast-notification/-/vue-toast-notification-0.5.4.tgz#0a1a2bb1d06c08b0e8ecc440107b852856015e3a"
+  integrity sha512-TzsvFJ2rYK+EP/b95Gl4Prs4ClaspPZgpotkTzVqin/6p420TDVR/1giSTFfV8WFtHwWPf/cBe0nKTMwhxzJag==
 
 vue-typer@1.2.0:
   version "1.2.0"
