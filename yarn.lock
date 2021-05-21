@@ -6003,10 +6003,10 @@ levenary@^1.1.1:
   dependencies:
     leven "^3.1.0"
 
-libphonenumber-js@1.9.17:
-  version "1.9.17"
-  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.9.17.tgz#fef2e6fd7a981be69ba358c24495725ee8daf331"
-  integrity sha512-ElJki901OynMg1l+evooPH1VyHrECuLqpgc12z2BkK25dFU5lUKTuMHEYV2jXxvtns/PIuJax56cBeoSK7ANow==
+libphonenumber-js@1.9.18:
+  version "1.9.18"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.9.18.tgz#443f2ccb8c59eca55f6c2a9e968aeed5bd75fe7b"
+  integrity sha512-6u/trrEytXFTc7HLxKsZhboZNdwcKag6rYzpAV2SPKy45qImvlkwbne3mYi2zdXEFg7KPdX7iiwhkdmCB94+4Q==
 
 load-json-file@^1.0.0:
   version "1.1.0"
