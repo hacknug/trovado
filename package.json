@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@gridsome/plugin-google-analytics": "0.1.2",
-    "@mapbox/mapbox-gl-geocoder": "4.7.0",
+    "@mapbox/mapbox-gl-geocoder": "4.7.1",
     "@studiometa/vue-mapbox-gl": "1.4.7",
     "@turf/distance": "6.3.0",
     "deepmerge": "4.2.2",
