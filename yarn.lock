@@ -1460,12 +1460,7 @@
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
 
-"@types/node@*", "@types/node@^14.6.2":
-  version "14.14.31"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.31.tgz#72286bd33d137aa0d152d47ec7c1762563d34055"
-  integrity sha512-vFHy/ezP5qI0rFgJ7aQnjDXwAMrG0KqqIH7tQG5PPv3BWBayOPIQNBjVc/P6hhdZfMx51REc6tfDNXHUio893g==
-
-"@types/node@>=12.12.47":
+"@types/node@*", "@types/node@>=12.12.47":
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-15.6.1.tgz#32d43390d5c62c5b6ec486a9bc9c59544de39a08"
   integrity sha512-7EIraBEyRHEe7CH+Fm1XvgqU6uwZN8Q7jppJGcqjROMT29qhAuuOxYB1uEY5UMYQKEmA5D+5tBnhdaPXSsLONA==
@@ -1474,6 +1469,11 @@
   version "10.17.17"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.17.17.tgz#7a183163a9e6ff720d86502db23ba4aade5999b8"
   integrity sha512-gpNnRnZP3VWzzj5k3qrpRC6Rk3H/uclhAVo1aIvwzK5p5cOrs9yEyQ8H/HBsBY0u5rrWxXEiVPQ0dEB6pkjE8Q==
+
+"@types/node@^14.6.2":
+  version "14.14.31"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.31.tgz#72286bd33d137aa0d152d47ec7c1762563d34055"
+  integrity sha512-vFHy/ezP5qI0rFgJ7aQnjDXwAMrG0KqqIH7tQG5PPv3BWBayOPIQNBjVc/P6hhdZfMx51REc6tfDNXHUio893g==
 
 "@types/prop-types@*":
   version "15.7.3"
@@ -3748,10 +3748,10 @@ electron-to-chromium@^1.3.723:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.739.tgz#f07756aa92cabd5a6eec6f491525a64fe62f98b9"
   integrity sha512-+LPJVRsN7hGZ9EIUUiWCpO7l4E3qBYHNadazlucBfsXBbccDFNKUBAgzE68FnkWGJPwD/AfKhSzL+G+Iqb8A4A==
 
-electron@13.0.1:
-  version "13.0.1"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-13.0.1.tgz#7dd3666f0f966ab83a1f9868d84add2e6205d43a"
-  integrity sha512-ds1cf0m46nStil0jbM2r9W/p+Kprdq22+2MikIUqEu69eGl1c86IinQVrpmJ9bR4RshDSF4j3uD32a0bsHDMnQ==
+electron@13.1.0:
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-13.1.0.tgz#6d960bcc0dfb8663dd511b59a697e2fad35b2b6a"
+  integrity sha512-ykRAaPWrVQkm2Lju4O4rMQzahNcxWLeLMrhBw8WnmIiugkvUH0MhZ85jsOTrAoQ2Zl1FC542bloKFWGSkeVjkg==
   dependencies:
     "@electron/get" "^1.0.1"
     "@types/node" "^14.6.2"
