@@ -6165,10 +6165,10 @@ lodash@4.17.15:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
 
-lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.3, lodash@^4.17.5:
-  version "4.17.19"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
-  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
+lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.21, lodash@^4.17.3, lodash@^4.17.5:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 log-update@^2.3.0:
   version "2.3.0"
@@ -9543,16 +9543,16 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
   integrity sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
 
-twilio@3.63.1:
-  version "3.63.1"
-  resolved "https://registry.yarnpkg.com/twilio/-/twilio-3.63.1.tgz#20773c2ba66bb843a0174830a848c7f6cbfd577f"
-  integrity sha512-xwtOM78sO2jGxKg1AW+7XlJdrhTMW9dzr6665O+IB/VtNVQB7JQS48pLCZFnBaTvZOILVO0Q6t63wv24hIbr/A==
+twilio@3.64.0:
+  version "3.64.0"
+  resolved "https://registry.yarnpkg.com/twilio/-/twilio-3.64.0.tgz#93c5b338ef24669c3db918ee59e89f6971ef853a"
+  integrity sha512-pTTjj0HH3EiN0+nF1VeGIgw85tm6u+WA7yHBaBRxXN7QaBWNMyA+ozA0H9+YVgE1oin7ZdJz8WDshnQ6aYYfGg==
   dependencies:
     axios "^0.21.1"
     dayjs "^1.8.29"
     https-proxy-agent "^5.0.0"
     jsonwebtoken "^8.5.1"
-    lodash "^4.17.19"
+    lodash "^4.17.21"
     q "2.0.x"
     qs "^6.9.4"
     rootpath "^0.1.2"
