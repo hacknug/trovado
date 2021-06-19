@@ -1411,25 +1411,25 @@
     hex-rgb "^4.1.0"
     postcss-selector-parser "^6.0.2"
 
-"@turf/distance@6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@turf/distance/-/distance-6.3.0.tgz#4bd084af7fe369e921476e52b597a638dae4ed95"
-  integrity sha512-basi24ssNFnH3iXPFjp/aNUrukjObiFWoIyDRqKyBJxVwVOwAWvfk4d38QQyBj5nDo5IahYRq/Q+T47/5hSs9w==
+"@turf/distance@6.4.0":
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/@turf/distance/-/distance-6.4.0.tgz#c5b40af4851785f6792f651749aedb9d16e1d599"
+  integrity sha512-EyNEfHfFNVwLHsD31hIpaDInoxlwUFZAVryTWxDu6O+XNE+VfVomMUxLYPm3t0tVqVNUGwOhYo5Z4HfTlr6V1g==
   dependencies:
-    "@turf/helpers" "^6.3.0"
-    "@turf/invariant" "^6.3.0"
+    "@turf/helpers" "^6.4.0"
+    "@turf/invariant" "^6.4.0"
 
-"@turf/helpers@^6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-6.3.0.tgz#87f90f806c3f8ad6385ef8d2041d3662bf3c9fb1"
-  integrity sha512-kr6KuD4Z0GZ30tblTEvi90rvvVNlKieXuMC8CTzE/rVQb0/f/Cb29zCXxTD7giQTEQY/P2nRW23wEqqyNHulCg==
+"@turf/helpers@^6.4.0":
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-6.4.0.tgz#e263d960ab1caed3bfe86a7f2f4b2096dbbf0635"
+  integrity sha512-7vVpWZwHP0Qn8DDSlM++nhs3/6zfPt+GODjvLVZ+sWIG4S3vOtUUOfO5eIjRzxsUHHqhgiIL0QA17u79uLM+mQ==
 
-"@turf/invariant@^6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@turf/invariant/-/invariant-6.3.0.tgz#04a22b26c5503146c03fa6198176b72bd591eadf"
-  integrity sha512-2OFOi9p+QOrcIMySEnr+WlOiKaFZ1bY56jA98YyECewJHfhPFWUBZEhc4nWGRT0ahK08Vus9+gcuBX8QIpCIIw==
+"@turf/invariant@^6.4.0":
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/@turf/invariant/-/invariant-6.4.0.tgz#bedef5a55e6dc867eabbc5660f3df754b5709d4b"
+  integrity sha512-ncAiOLkL6Ul6NnyOZSSmEbTwcZZ8PTx7O1IzB89Ed/mAe1g5PvFnyFieWbcnERGmuqH1ftzgtWMFFHFi2PQLsg==
   dependencies:
-    "@turf/helpers" "^6.3.0"
+    "@turf/helpers" "^6.4.0"
 
 "@types/color-name@^1.1.1":
   version "1.1.1"
