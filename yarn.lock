@@ -1198,12 +1198,12 @@
   resolved "https://registry.yarnpkg.com/@mapbox/jsonlint-lines-primitives/-/jsonlint-lines-primitives-2.0.2.tgz#ce56e539f83552b58d10d672ea4d6fc9adc7b234"
   integrity sha1-zlblOfg1UrWNENZy6k1vya3HsjQ=
 
-"@mapbox/mapbox-gl-geocoder@4.7.3":
-  version "4.7.3"
-  resolved "https://registry.yarnpkg.com/@mapbox/mapbox-gl-geocoder/-/mapbox-gl-geocoder-4.7.3.tgz#ff315fad7e327a51029e590c442e84ff591fdeba"
-  integrity sha512-sWSnjwtwFz7jjaV+ax7ov0DxGwR3mrWn5baLBhu0RFmOj6TCHFBHp/SPTHutLLV2+NJxBkKhamUerUG9FckCwg==
+"@mapbox/mapbox-gl-geocoder@4.7.4":
+  version "4.7.4"
+  resolved "https://registry.yarnpkg.com/@mapbox/mapbox-gl-geocoder/-/mapbox-gl-geocoder-4.7.4.tgz#0005eb280d1a8c1dd380dc55c64db6fff3ab5d78"
+  integrity sha512-9PIilTgqnoSCVtzJ1MnE4f1siWIpC9GO5MPaKTOspb7hXIvcgFOp44PSWP+WlDTHoEze3Dz3WQuppti6TVWjyg==
   dependencies:
-    "@mapbox/mapbox-sdk" "^0.13.1"
+    "@mapbox/mapbox-sdk" "^0.13.2"
     lodash.debounce "^4.0.6"
     nanoid "^2.0.1"
     subtag "^0.5.0"
@@ -1215,10 +1215,10 @@
   resolved "https://registry.yarnpkg.com/@mapbox/mapbox-gl-supported/-/mapbox-gl-supported-1.5.0.tgz#f60b6a55a5d8e5ee908347d2ce4250b15103dc8e"
   integrity sha512-/PT1P6DNf7vjEEiPkVIRJkvibbqWtqnyGaBz3nfRdcxclNSnSdaLU5tfAgcD7I8Yt5i+L19s406YLl1koLnLbg==
 
-"@mapbox/mapbox-sdk@^0.13.1":
-  version "0.13.1"
-  resolved "https://registry.yarnpkg.com/@mapbox/mapbox-sdk/-/mapbox-sdk-0.13.1.tgz#c4375f7db296236659179e0cbb53b8ef82860bde"
-  integrity sha512-ByLkT+njc6zUrp4tZYnXs3mWsO411+uGGTGjn96ZBTMdKm3MBK46mFxJok+Tyr7ltrIUZnHPDWwJ695QOXdKHQ==
+"@mapbox/mapbox-sdk@^0.13.2":
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/@mapbox/mapbox-sdk/-/mapbox-sdk-0.13.2.tgz#a759ccecd8252d7703a9209f028603375c5680d2"
+  integrity sha512-VP2+Gyada3G8IJPbiD+9KZMEIxqITyPjVL66FBav2qjFhlHf5LrRCoZ4IbI6Os8DZadSEyxDGVU/doLaohkJRw==
   dependencies:
     "@mapbox/fusspot" "^0.4.0"
     "@mapbox/parse-mapbox-token" "^0.2.0"
