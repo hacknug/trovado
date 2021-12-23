@@ -10140,10 +10140,10 @@ vue-tippy@4.13.0:
     humps "^2.0.1"
     tippy.js "^4.3.5"
 
-vue-toast-notification@0.6.2:
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/vue-toast-notification/-/vue-toast-notification-0.6.2.tgz#44bb164505c310f6a721ff96921761b006ebb5cc"
-  integrity sha512-fIsgALA3yQAtTnZjyUg5Y1tbVrYkLNBCET/ZvvDTS7tnmaWz8L1IzkESrRs1KIiqIGRVbBbiZAzUImrVBEziDA==
+vue-toast-notification@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/vue-toast-notification/-/vue-toast-notification-3.0.0.tgz#616d314051eafbdae93195718e13c56eb46d474c"
+  integrity sha512-qaC38T//mksVXzLRiK36LTypxouLMEnaQ1w8sLpiyJRFI6aVcVi3amGrz3hiODiYThy3v0F73ayQwwTtxSVF0A==
 
 vue-typer@1.2.0:
   version "1.2.0"
