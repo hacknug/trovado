@@ -9701,10 +9701,10 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
   integrity sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
 
-twilio@3.71.3:
-  version "3.71.3"
-  resolved "https://registry.yarnpkg.com/twilio/-/twilio-3.71.3.tgz#a446d2b49f8c1ed60b0dd830c919921358c17203"
-  integrity sha512-m9eda9fvkHxMMDHRtXj8WKI0ViP4EG4xS5au5ay3ScfModhBZ1ZtyfWZ0AfWI++A7a1T1j3ZVNIZ+AMLwxSffw==
+twilio@3.73.1:
+  version "3.73.1"
+  resolved "https://registry.yarnpkg.com/twilio/-/twilio-3.73.1.tgz#a2044db1d82cbf03d4b1e8bdb49d7cb37c7459f1"
+  integrity sha512-y8L/lyBO6vRMi28AUjSUpSRXvJa7ZsVRZnIdH53FKMSGYKtrixrQKrRtYpCRodAhjylPZQPBc75+Ym/H/tMdEg==
   dependencies:
     axios "^0.21.4"
     dayjs "^1.8.29"
