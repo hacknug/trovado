@@ -11,7 +11,7 @@
     "@mapbox/mapbox-gl-geocoder": "5.0.1",
     "@studiometa/vue-mapbox-gl": "1.4.7",
     "@turf/distance": "6.5.0",
-    "deepmerge": "4.2.2",
+    "deepmerge": "4.3.0",
     "firebase": "8.10.0",
     "gridsome": "0.7.23",
     "gridsome-plugin-i18n": "1.6.0",
