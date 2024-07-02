@@ -10,7 +10,7 @@
     "@gridsome/plugin-google-analytics": "0.1.2",
     "@mapbox/mapbox-gl-geocoder": "5.0.1",
     "@studiometa/vue-mapbox-gl": "1.4.7",
-    "@turf/distance": "6.5.0",
+    "@turf/distance": "7.0.0",
     "deepmerge": "4.3.1",
     "firebase": "8.10.0",
     "gridsome": "0.7.23",
