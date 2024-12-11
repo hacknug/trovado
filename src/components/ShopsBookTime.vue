@@ -174,8 +174,7 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-::v-deep {
-  & .tab {
+>>> .tab {
     @apply flex flex-col !important;
     @screen md { @apply flex-row !important; }
 
@@ -185,24 +184,23 @@ export default {
     }
   }
 
-  & .tab__pagination { @apply flex flex-col !important; }
-  & .tab__pagination > *:nth-child(1) { @apply mb-auto !important; }
-  & .tab__pagination > * + * { @apply mt-2 !important; }
+>>> .tab__pagination { @apply flex flex-col !important; }
+>>> .tab__pagination > *:nth-child(1) { @apply mb-auto !important; }
+>>> .tab__pagination > * + * { @apply mt-2 !important; }
 
-  & .tab__days { @apply flex flex-col p-0 !important; }
-  & .tab__day { @apply flex flex-none flex-row border-b-0 !important; }
-  & .tab__day + .tab__day { @apply mt-6 !important; }
-  & .tab__day > * + * { @apply ml-6 !important; }
-  & .tab__days__day-display { @apply w-1/4 text-left !important; }
-  & .tab__days__meetings {
+>>> .tab__days { @apply flex flex-col p-0 !important; }
+>>> .tab__day { @apply flex flex-none flex-row border-b-0 !important; }
+>>> .tab__day + .tab__day { @apply mt-6 !important; }
+>>> .tab__day > * + * { @apply ml-6 !important; }
+>>> .tab__days__day-display { @apply w-1/4 text-left !important; }
+>>> .tab__days__meetings {
     @apply grid grid-cols-3 w-3/4 gap-1.5 !important;
     @screen md { @apply grid-cols-6 !important; }
   }
-  & .tab__days__meetings .meeting { @apply w-full !important; }
-  & .tab__days__meetings .meeting__button {
+>>> .tab__days__meetings .meeting { @apply w-full !important; }
+>>> .tab__days__meetings .meeting__button {
     @apply flex justify-center w-full m-0 py-1 px-3 bg-gray-50-25 border border-solid border-gray-200 font-normal text-center rounded;
     &:matches(.meeting__button--selected) { @apply bg-blue-50-50 border-blue-200 !important; }
     &:matches(:hover, :focus) { @apply bg-blue-50-25 border-blue-100; }
-  }
 }
 </style>

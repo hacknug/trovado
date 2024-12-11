@@ -1,0 +1,26 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+deleted file mode 100644
+index 81af4156ad06d6d31979287d779d29c957f05dc6..0000000000000000000000000000000000000000
+diff --git a/gridsome.server.js b/gridsome.server.js
+index 6fab2456bca61f1ec497b3b7fd75c66c4290e294..0022f16f7f1bd6df590528384ae1a263ac20c40c 100644
+--- a/gridsome.server.js
++++ b/gridsome.server.js
+@@ -18,15 +18,15 @@ function TailwindPlugin(api, options) {
+         .use("postcss-loader")
+         .tap((options) => {
+           if (shouldTimeTravel) {
+-            options.plugins.unshift(
++            options.postcssOptions.plugins.unshift(
+               require("postcss-preset-env")(presetEnvConfig)
+             );
+           }
+ 
+-          options.plugins.unshift(tailwind);
++          options.postcssOptions.plugins.unshift(tailwind);
+ 
+           if (shouldImport) {
+-            options.plugins.unshift(require("postcss-import")());
++            options.postcssOptions.plugins.unshift(require("postcss-import")());
+           }
+ 
+           return options;

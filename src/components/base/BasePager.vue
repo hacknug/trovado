@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { Pager } from 'gridsome'
+import { Pager } from '@kriya/gridsome'
 
 export default {
   name: 'BasePager',
