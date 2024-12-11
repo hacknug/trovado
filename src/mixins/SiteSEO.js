@@ -1,5 +1,3 @@
-import config from '~/.temp/config.js'
-
 export default {
   computed: {
     metaData () {
@@ -10,7 +8,7 @@ export default {
 
       return {
         content: pageTitle || this.metaData.siteName,
-        ...pageTitle ? { template: config.titleTemplate } : {},
+        ...pageTitle ? { template: '%s - Trovado' } : {},
       }
     },
     metaDescription () {
