@@ -18,7 +18,7 @@
     "@turf/distance": "6.5.0",
     "deepmerge": "4.3.1",
     "firebase": "8.10.0",
-    "graphql": "14.4.2",
+    "graphql": "16.9.0",
     "gridsome-plugin-i18n": "1.6.0",
     "libphonenumber-js": "1.11.16",
     "mapbox-gl": "1.13.3",
